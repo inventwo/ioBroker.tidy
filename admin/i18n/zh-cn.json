@@ -12,6 +12,7 @@
 	"Enable automatic scans": "Enable automatic scans",
 	"Enabled": "Enabled",
 	"For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.": "对于德语表，请在 VIS 小部件列配置中使用“_de”字段（status_de、issue_de）。对于英文表，请使用常规字段（状态、问题）。这两个字段集始终包含在 JSON 输出中。",
+	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "对于德语表：使用 status_de 和 issues_de 列\n对于英文表格：使用状态和问题列\n\n按“问题！= null”过滤以仅显示有问题的数据点。",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",
 	"General Settings": "General Settings",
 	"Help & Documentation": "帮助和文档",
@@ -24,5 +25,9 @@
 	"Scan interval (hours)": "Scan interval (hours)",
 	"Usage in VIS Widgets": "在 VIS 小部件中的使用",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"tidy adapter settings": "Adapter settings for tidy"
+	"tidy adapter settings": "Adapter settings for tidy",
+	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id - 完整数据点路径\n• 名称 - common.name 或 ID 的最后部分\n•last_ts - Unix 时间戳（毫秒）或 null\n•last_ts_iso - 格式化日期字符串\n• value - 当前数据点值",
+	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issues / issues_de - 问题指示器（如果正常则为空）\n  值：dead/inaktiv、stale/veraltet、orphaned_alias/verwaistes 别名或 null",
+	"• size - JSON.stringify(val).length (finds storage hogs)": "• size - JSON.stringify(val).length（查找存储占用）",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - 分类（英语/德语）\n  值：active/aktiv、dead/inaktiv、stale/veraltet、undefined/undefiniert、orphaned/verwaist"
 }

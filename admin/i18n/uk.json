@@ -12,6 +12,7 @@
 	"Enable automatic scans": "Enable automatic scans",
 	"Enabled": "Enabled",
 	"For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.": "Для німецьких таблиць використовуйте поля «_de» (status_de, issue_de) у конфігурації стовпця віджета VIS. Для англійських таблиць використовуйте звичайні поля (статус, проблема). Обидва набори полів завжди включаються у вивід JSON.",
+	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "Для німецьких таблиць: використовуйте стовпці status_de і issue_de\nДля таблиць англійською мовою: використовуйте стовпці статусу та проблеми\n\nВідфільтруйте за «проблемою != нуль», щоб показати лише проблемні точки даних.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",
 	"General Settings": "General Settings",
 	"Help & Documentation": "Довідка та документація",
@@ -24,5 +25,9 @@
 	"Scan interval (hours)": "Scan interval (hours)",
 	"Usage in VIS Widgets": "Використання у віджетах VIS",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"tidy adapter settings": "Adapter settings for tidy"
+	"tidy adapter settings": "Adapter settings for tidy",
+	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id - повний шлях до точки даних\n• name - common.name або остання частина ID\n• last_ts - мітка часу Unix (мс) або null\n• last_ts_iso - відформатований рядок дати\n• value - поточне значення точки даних",
+	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issue / issue_de - Індикатор проблеми (нульовий, якщо нормально)\n  Значення: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias або null",
+	"• size - JSON.stringify(val).length (finds storage hogs)": "• розмір - JSON.stringify(val).length (знаходить «сховища»)",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Класифікація (англійська / німецька)\n  Значення: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist"
 }

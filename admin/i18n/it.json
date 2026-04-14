@@ -12,6 +12,7 @@
 	"Enable automatic scans": "Enable automatic scans",
 	"Enabled": "Enabled",
 	"For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.": "Per le tabelle tedesche, utilizza i campi '_de' (status_de, issue_de) nella configurazione della colonna del widget VIS. Per le tabelle in inglese, utilizzare i campi regolari (stato, problema). Entrambi i set di campi sono sempre inclusi nell'output JSON.",
+	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "Per le tabelle tedesche: utilizzare le colonne status_de e issue_de\nPer le tabelle in inglese: utilizzare le colonne di stato e di emissione\n\nFiltra per \"problema! = null\" per mostrare solo i punti dati problematici.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",
 	"General Settings": "General Settings",
 	"Help & Documentation": "Aiuto e documentazione",
@@ -24,5 +25,9 @@
 	"Scan interval (hours)": "Scan interval (hours)",
 	"Usage in VIS Widgets": "Utilizzo nei widget VIS",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"tidy adapter settings": "Adapter settings for tidy"
+	"tidy adapter settings": "Adapter settings for tidy",
+	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id: percorso completo del punto dati\n• nome - nome.comune o ultima parte dell'ID\n• last_ts - timestamp Unix (ms) o null\n• last_ts_iso - Stringa di data formattata\n• valore: valore del punto dati corrente",
+	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issue / issue_de - Indicatore del problema (null se OK)\n  Valori: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias o null",
+	"• size - JSON.stringify(val).length (finds storage hogs)": "• size - JSON.stringify(val).length (trova i maiali di archiviazione)",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Classificazione (inglese/tedesco)\n  Valori: attivo/aktiv, morto/inattivo, stantio/veraltet, undefinito/undefiniert, orfano/verwaist"
 }

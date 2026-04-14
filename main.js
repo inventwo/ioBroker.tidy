@@ -362,6 +362,12 @@ class Tidy extends utils.Adapter {
 				result.status_de = 'veraltet';
 				result.issue = 'stale';
 				result.issue_de = 'veraltet';
+			} else {
+				// Active datapoint - no issue
+				result.status = 'active';
+				result.status_de = 'aktiv';
+				result.issue = null;
+				result.issue_de = null;
 			}
 		} else {
 			// No timestamp = never written

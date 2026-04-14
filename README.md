@@ -93,10 +93,14 @@ The `result` state contains a JSON array with the following fields for each data
 | Field | Description | Purpose |
 |-------|-------------|---------|
 | `id` | Full datapoint path | Unique identification |
-| `name` | common.name | User-friendly name |
-| `last_ts` | state.ts (timestamp as number) | Sorting in background |
+| `name` | common.name or last part of ID | User-friendly name |
+| `last_ts` | Unix timestamp (ms) or null | Sorting in background |
 | `last_ts_iso` | Formatted date string | Display in table |
-| `issue` | `dead`, `orphaned_alias`, `stale`, or `null` | Filter criterion for "corpses" |
+| `value` | Current datapoint value | Final check before deletion |
+| `status` | `active`, `dead`, `stale`, `undefined`, `orphaned` | Classification (English) |
+| `status_de` | `aktiv`, `inaktiv`, `veraltet`, `undefiniert`, `verwaist` | Classification (German) |
+| `issue` | `dead`, `stale`, `orphaned_alias`, or `null` | Filter criterion (null = OK) |
+| `issue_de` | `inaktiv`, `veraltet`, `verwaistes Alias`, or `null` | Filter criterion (German) |
 | `size` | `JSON.stringify(val).length` | Finds "storage hogs" |
 
 ## Usage Examples
@@ -114,10 +118,13 @@ The `result` state contains a JSON array with the following fields for each data
 
 Use the JSON result with a table widget to display and sort your datapoints:
 
-1. Create a table widget in VIS
+1. Create a table widget in VIS (e.g., inventwo Table Widget)
 2. Bind it to `tidy.0.userdata.result`
-3. Configure columns: id, name, last_ts_iso, issue
+3. Configure columns:
+   - For **German** tables: `id`, `name`, `last_ts_iso`, `status_de`, `issue_de`
+   - For **English** tables: `id`, `name`, `last_ts_iso`, `status`, `issue`
 4. Sort by `last_ts` (oldest first) to find the "deadest" datapoints
+5. Filter by `issue != null` to show only problematic datapoints
 
 ### Automatic Maintenance
 

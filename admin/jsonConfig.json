@@ -108,7 +108,27 @@
 				},
 				"_fieldInfo": {
 					"type": "staticText",
-					"text": "Each scan result contains a JSON array with the following fields per datapoint:\n\n• id - Full datapoint path (unique identification)\n• name - common.name or last part of ID (user-friendly name)\n• last_ts - Unix timestamp in ms or null (for sorting)\n• last_ts_iso - Formatted date string (for display)\n• value - Current datapoint value (final check before deletion)\n• status - active, dead, stale, undefined, orphaned (classification in English)\n• status_de - aktiv, inaktiv, veraltet, undefiniert, verwaist (classification in German)\n• issue - dead, stale, orphaned_alias, or null (filter criterion in English)\n• issue_de - inaktiv, veraltet, verwaistes Alias, or null (filter criterion in German)\n• size - JSON.stringify(val).length (finds storage hogs)",
+					"text": "Each scan result contains a JSON array with the following fields per datapoint:",
+					"newLine": true
+				},
+				"_fields1": {
+					"type": "staticText",
+					"text": "• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value",
+					"newLine": true
+				},
+				"_fields2": {
+					"type": "staticText",
+					"text": "• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist",
+					"newLine": true
+				},
+				"_fields3": {
+					"type": "staticText",
+					"text": "• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null",
+					"newLine": true
+				},
+				"_fields4": {
+					"type": "staticText",
+					"text": "• size - JSON.stringify(val).length (finds storage hogs)",
 					"newLine": true
 				},
 				"_headerUsage": {
@@ -119,7 +139,7 @@
 				},
 				"_usageInfo": {
 					"type": "staticText",
-					"text": "For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.",
+					"text": "For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.",
 					"newLine": true
 				}
 			}
