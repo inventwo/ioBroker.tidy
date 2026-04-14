@@ -108,57 +108,57 @@
 				},
 				"_fieldInfo": {
 					"type": "staticText",
-					"text": "Each scan result contains a JSON array with the following fields per datapoint:",
+					"text": "Each scan result contains a JSON array with the following 10 fields per datapoint:",
 					"newLine": true
 				},
 				"_field_id": {
 					"type": "staticText",
-					"text": "• id\n  Full datapoint path (unique identification)",
+					"text": "1  -  id\nFull datapoint path (unique identification)",
 					"newLine": true
 				},
 				"_field_name": {
 					"type": "staticText",
-					"text": "• name\n  common.name or last part of ID (user-friendly name)",
+					"text": "2  -  name\ncommon.name or last part of ID (user-friendly name)",
 					"newLine": true
 				},
 				"_field_last_ts": {
 					"type": "staticText",
-					"text": "• last_ts\n  Unix timestamp in ms or null (for sorting)",
+					"text": "3  -  last_ts\nUnix timestamp in ms or null (for sorting)",
 					"newLine": true
 				},
 				"_field_last_ts_iso": {
 					"type": "staticText",
-					"text": "• last_ts_iso\n  Formatted date string (for display in table)",
+					"text": "4  -  last_ts_iso\nFormatted date string (for display in table)",
 					"newLine": true
 				},
 				"_field_value": {
 					"type": "staticText",
-					"text": "• value\n  Current datapoint value (final check before deletion)",
+					"text": "5  -  value\nCurrent datapoint value (final check before deletion)",
 					"newLine": true
 				},
 				"_field_status": {
 					"type": "staticText",
-					"text": "• status\n  Classification in English: active, dead, stale, undefined, orphaned",
+					"text": "6  -  status\nClassification in English: active, dead, stale, undefined, orphaned",
 					"newLine": true
 				},
 				"_field_status_de": {
 					"type": "staticText",
-					"text": "• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist",
+					"text": "7  -  status_de\nClassification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist",
 					"newLine": true
 				},
 				"_field_issue": {
 					"type": "staticText",
-					"text": "• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK",
+					"text": "8  -  issue\nProblem indicator (English): dead, stale, orphaned_alias, or null if OK",
 					"newLine": true
 				},
 				"_field_issue_de": {
 					"type": "staticText",
-					"text": "• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK",
+					"text": "9  -  issue_de\nProblem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK",
 					"newLine": true
 				},
 				"_field_size": {
 					"type": "staticText",
-					"text": "• size\n  JSON.stringify(val).length (finds storage hogs)",
+					"text": "10  -  size\nJSON.stringify(val).length (finds storage hogs)",
 					"newLine": true
 				},
 				"_headerUsage": {
