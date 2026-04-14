@@ -26,8 +26,18 @@
 	"Usage in VIS Widgets": "Використання у віджетах VIS",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
 	"tidy adapter settings": "Adapter settings for tidy",
+	"• id\n  Full datapoint path (unique identification)": "• id\n  Повний шлях до точки даних (унікальна ідентифікація)",
 	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id - повний шлях до точки даних\n• name - common.name або остання частина ID\n• last_ts - мітка часу Unix (мс) або null\n• last_ts_iso - відформатований рядок дати\n• value - поточне значення точки даних",
+	"• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK": "• питання\n  Індикатор проблеми (англійською мовою): мертвий, застарілий, orphaned_alias або null, якщо в порядку",
 	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issue / issue_de - Індикатор проблеми (нульовий, якщо нормально)\n  Значення: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias або null",
+	"• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK": "• issue_de\n  Індикатор проблеми (німецька): inaktiv, veraltet, verwaistes Alias або null, якщо добре",
+	"• last_ts\n  Unix timestamp in ms or null (for sorting)": "• останні_ц\n  Позначка часу Unix у мс або null (для сортування)",
+	"• last_ts_iso\n  Formatted date string (for display in table)": "• last_ts_iso\n  Відформатований рядок дати (для відображення в таблиці)",
+	"• name\n  common.name or last part of ID (user-friendly name)": "• ім'я\n  common.name або остання частина ID (зручне ім'я)",
+	"• size\n  JSON.stringify(val).length (finds storage hogs)": "• розмір\n  JSON.stringify(val).length (знаходить накопичувачі)",
 	"• size - JSON.stringify(val).length (finds storage hogs)": "• розмір - JSON.stringify(val).length (знаходить «сховища»)",
-	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Класифікація (англійська / німецька)\n  Значення: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist"
+	"• status\n  Classification in English: active, dead, stale, undefined, orphaned": "• статус\n  Класифікація англійською мовою: active, dead, stale, undefined, orphaned",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Класифікація (англійська / німецька)\n  Значення: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist",
+	"• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist": "• status_de\n  Класифікація німецькою мовою: aktiv, inaktiv, veraltet, undefiniert, verwaist",
+	"• value\n  Current datapoint value (final check before deletion)": "• значення\n  Поточне значення точки даних (остаточна перевірка перед видаленням)"
 }

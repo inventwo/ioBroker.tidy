@@ -26,8 +26,18 @@
 	"Usage in VIS Widgets": "Использование в виджетах VIS",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
 	"tidy adapter settings": "Adapter settings for tidy",
+	"• id\n  Full datapoint path (unique identification)": "• идентификатор\n  Полный путь к точке данных (уникальная идентификация)",
 	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id — полный путь к точке данных.\n• name — common.name или последняя часть идентификатора.\n• Last_ts — временная метка Unix (мс) или ноль.\n• Last_ts_iso — форматированная строка даты.\n• value — текущее значение точки данных.",
+	"• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK": "• выпуск\n  Индикатор проблемы (на английском языке): мертвый, устаревший, orphaned_alias или ноль, если все в порядке.",
 	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• Issue / Issue_de — Индикатор проблемы (ноль, если все в порядке)\n  Значения: Dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias или null.",
+	"• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK": "• Issue_de\n  Индикатор проблемы (немецкий): inaktiv, veraltet, verwaistes Alias или null, если все в порядке.",
+	"• last_ts\n  Unix timestamp in ms or null (for sorting)": "• последний_ц\n  Временная метка Unix в мс или нуль (для сортировки)",
+	"• last_ts_iso\n  Formatted date string (for display in table)": "• последний_ts_iso\n  Форматированная строка даты (для отображения в таблице)",
+	"• name\n  common.name or last part of ID (user-friendly name)": "• имя\n  common.name или последняя часть идентификатора (удобное имя)",
+	"• size\n  JSON.stringify(val).length (finds storage hogs)": "• размер\n  JSON.stringify(val).length (находит ресурсы хранилища)",
 	"• size - JSON.stringify(val).length (finds storage hogs)": "• размер — JSON.stringify(val).length (находит ресурсы хранилища)",
-	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status/status_de — Классификация (английский/немецкий)\n  Значения: активный/активный, мертвый/неактивный, устаревший/проверенный, неопределенный/неопределенный, осиротевший/проверенный."
+	"• status\n  Classification in English: active, dead, stale, undefined, orphaned": "• статус\n  Классификация на английском языке: активный, мертвый, устаревший, неопределенный, осиротевший",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status/status_de — Классификация (английский/немецкий)\n  Значения: активный/активный, мертвый/неактивный, устаревший/проверенный, неопределенный/неопределенный, осиротевший/проверенный.",
+	"• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist": "• статус_де\n  Классификация на немецком языке: aktiv, inaktiv, veraltet, undefiniert, verwaist.",
+	"• value\n  Current datapoint value (final check before deletion)": "• стоимость\n  Текущее значение точки данных (окончательная проверка перед удалением)"
 }

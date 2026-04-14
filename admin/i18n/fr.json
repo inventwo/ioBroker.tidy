@@ -26,8 +26,18 @@
 	"Usage in VIS Widgets": "Utilisation dans les widgets VIS",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
 	"tidy adapter settings": "Adapter settings for tidy",
+	"• id\n  Full datapoint path (unique identification)": "• identifiant\n  Chemin complet du point de données (identification unique)",
 	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id - Chemin complet du point de données\n• nom : nom commun ou dernière partie de l'identifiant\n• last_ts - Horodatage Unix (ms) ou null\n• last_ts_iso - Chaîne de date formatée\n• valeur - Valeur actuelle du point de données",
+	"• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK": "• problème\n  Indicateur de problème (anglais) : mort, obsolète, orphelin_alias ou null si OK",
 	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issue / issue_de - Indicateur de problème (nul si OK)\n  Valeurs : dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias ou null",
+	"• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK": "• issue_de\n  Indicateur de problème (allemand) : inaktiv, veraltet, verwaistes Alias, ou null si OK",
+	"• last_ts\n  Unix timestamp in ms or null (for sorting)": "• last_ts\n  Horodatage Unix en ms ou null (pour le tri)",
+	"• last_ts_iso\n  Formatted date string (for display in table)": "• last_ts_iso\n  Chaîne de date formatée (pour affichage dans le tableau)",
+	"• name\n  common.name or last part of ID (user-friendly name)": "• nom\n  common.name ou dernière partie de l'ID (nom convivial)",
+	"• size\n  JSON.stringify(val).length (finds storage hogs)": "• taille\n  JSON.stringify(val).length (trouve les porcs de stockage)",
 	"• size - JSON.stringify(val).length (finds storage hogs)": "• size - JSON.stringify(val).length (trouve les porcs de stockage)",
-	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Classification (anglais / allemand)\n  Valeurs : actif/actif, mort/inactif, obsolète/vérifié, indéfini/indéfini, orphelin/verwaist"
+	"• status\n  Classification in English: active, dead, stale, undefined, orphaned": "• statut\n  Classification en anglais : actif, mort, périmé, indéfini, orphelin",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Classification (anglais / allemand)\n  Valeurs : actif/actif, mort/inactif, obsolète/vérifié, indéfini/indéfini, orphelin/verwaist",
+	"• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist": "• status_de\n  Classification en allemand : aktiv, inaktiv, veraltet, undefiniert, verwaist",
+	"• value\n  Current datapoint value (final check before deletion)": "• valeur\n  Valeur actuelle du point de données (vérification finale avant suppression)"
 }

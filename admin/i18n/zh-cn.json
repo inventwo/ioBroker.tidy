@@ -26,8 +26,18 @@
 	"Usage in VIS Widgets": "在 VIS 小部件中的使用",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
 	"tidy adapter settings": "Adapter settings for tidy",
+	"• id\n  Full datapoint path (unique identification)": "• ID\n  完整数据点路径（唯一标识）",
 	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id - 完整数据点路径\n• 名称 - common.name 或 ID 的最后部分\n•last_ts - Unix 时间戳（毫秒）或 null\n•last_ts_iso - 格式化日期字符串\n• value - 当前数据点值",
+	"• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK": "• 问题\n  问题指示器（英语）：dead、stale、orphaned_alias，如果正常则为 null",
 	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issues / issues_de - 问题指示器（如果正常则为空）\n  值：dead/inaktiv、stale/veraltet、orphaned_alias/verwaistes 别名或 null",
+	"• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK": "•问题_德\n  问题指示符（德语）：inaktiv、veraltet、verwaistes Alias，如果正常则为 null",
+	"• last_ts\n  Unix timestamp in ms or null (for sorting)": "• 最后一个_ts\n  Unix 时间戳（以毫秒为单位）或 null（用于排序）",
+	"• last_ts_iso\n  Formatted date string (for display in table)": "• 最后_ts_iso\n  格式化日期字符串（用于在表格中显示）",
+	"• name\n  common.name or last part of ID (user-friendly name)": "• name\n  common.name 或 ID 的最后部分（用户友好名称）",
+	"• size\n  JSON.stringify(val).length (finds storage hogs)": "• 尺寸\n  JSON.stringify(val).length（查找存储占用）",
 	"• size - JSON.stringify(val).length (finds storage hogs)": "• size - JSON.stringify(val).length（查找存储占用）",
-	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - 分类（英语/德语）\n  值：active/aktiv、dead/inaktiv、stale/veraltet、undefined/undefiniert、orphaned/verwaist"
+	"• status\n  Classification in English: active, dead, stale, undefined, orphaned": "• 状态\n  英文分类：active、dead、stale、undefined、orphaned",
+	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - 分类（英语/德语）\n  值：active/aktiv、dead/inaktiv、stale/veraltet、undefined/undefiniert、orphaned/verwaist",
+	"• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist": "• 状态_de\n  德语分类：aktiv、inaktiv、veraltet、undefiniert、verwaist",
+	"• value\n  Current datapoint value (final check before deletion)": "• 价值\n  当前数据点值（删除前的最终检查）"
 }

@@ -24,8 +24,14 @@
 	"tidy adapter settings": "Adapter settings for tidy",
 	"Usage in VIS Widgets": "Usage in VIS Widgets",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value": "• id - Full datapoint path\n• name - common.name or last part of ID\n• last_ts - Unix timestamp (ms) or null\n• last_ts_iso - Formatted date string\n• value - Current datapoint value",
-	"• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist": "• status / status_de - Classification (English / German)\n  Values: active/aktiv, dead/inaktiv, stale/veraltet, undefined/undefiniert, orphaned/verwaist",
-	"• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null": "• issue / issue_de - Problem indicator (null if OK)\n  Values: dead/inaktiv, stale/veraltet, orphaned_alias/verwaistes Alias, or null",
-	"• size - JSON.stringify(val).length (finds storage hogs)": "• size - JSON.stringify(val).length (finds storage hogs)"
+	"• id\n  Full datapoint path (unique identification)": "• id\n  Full datapoint path (unique identification)",
+	"• name\n  common.name or last part of ID (user-friendly name)": "• name\n  common.name or last part of ID (user-friendly name)",
+	"• last_ts\n  Unix timestamp in ms or null (for sorting)": "• last_ts\n  Unix timestamp in ms or null (for sorting)",
+	"• last_ts_iso\n  Formatted date string (for display in table)": "• last_ts_iso\n  Formatted date string (for display in table)",
+	"• value\n  Current datapoint value (final check before deletion)": "• value\n  Current datapoint value (final check before deletion)",
+	"• status\n  Classification in English: active, dead, stale, undefined, orphaned": "• status\n  Classification in English: active, dead, stale, undefined, orphaned",
+	"• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist": "• status_de\n  Classification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist",
+	"• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK": "• issue\n  Problem indicator (English): dead, stale, orphaned_alias, or null if OK",
+	"• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK": "• issue_de\n  Problem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK",
+	"• size\n  JSON.stringify(val).length (finds storage hogs)": "• size\n  JSON.stringify(val).length (finds storage hogs)"
 }
