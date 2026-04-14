@@ -11,7 +11,7 @@
 
 ## What this adapter does
 
-The **Tidy** adapter analyzes your ioBroker instance for unused, outdated, or orphaned datapoints. After years of using ioBroker, your system may accumulate "dead" datapoints from deleted scripts, removed adapters, or abandoned configurations. This adapter helps you identify and clean up such datapoints to keep your system tidy and performant.
+The **Tidy** adapter helps you to find unused objects and states to clean up your system. After years of using ioBroker, your system may accumulate "dead" datapoints from deleted scripts, removed adapters, or abandoned configurations. This adapter helps you identify and clean up such datapoints to keep your system tidy and performant.
 
 ## Features
 

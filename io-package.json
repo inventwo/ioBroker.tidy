@@ -31,17 +31,17 @@
 			"zh-cn": "Tidy"
 		},
 		"desc": {
-			"en": "Analyzes ioBroker objects for unused datapoints and helps you clean up your instance",
-			"de": "Analysiert ioBroker-Objekte auf ungenutzte Datenpunkte und hilft Ihnen beim Bereinigen Ihrer Instanz",
-			"ru": "Анализирует объекты ioBroker на наличие неиспользуемых точек данных и помогает очистить экземпляр.",
-			"pt": "Analisa objetos ioBroker em busca de pontos de dados não utilizados e ajuda a limpar sua instância",
-			"nl": "Analyseert ioBroker-objecten op ongebruikte datapunten en helpt u bij het opschonen van uw exemplaar",
-			"fr": "Analyse les objets ioBroker pour les points de données inutilisés et vous aide à nettoyer votre instance",
-			"it": "Analizza gli oggetti ioBroker per individuare i punti dati inutilizzati e ti aiuta a ripulire la tua istanza",
-			"es": "Analiza los objetos de ioBroker en busca de puntos de datos no utilizados y le ayuda a limpiar su instancia.",
-			"pl": "Analizuje obiekty ioBroker pod kątem nieużywanych punktów danych i pomaga oczyścić instancję",
-			"uk": "Аналізує об’єкти ioBroker на наявність невикористаних точок даних і допомагає очистити екземпляр",
-			"zh-cn": "分析 ioBroker 对象中未使用的数据点并帮助您清理实例"
+			"en": "Helps you to find unused objects and states to clean up your system.",
+			"de": "Hilft dir dabei, ungenutzte Objekte und Zustände zu finden, um dein System aufzuräumen.",
+			"ru": "Помогает находить неиспользуемые объекты и состояния для очистки системы.",
+			"pt": "Ajuda você a encontrar objetos e estados não utilizados para limpar seu sistema.",
+			"nl": "Helpt je ongebruikte objecten en statussen te vinden om je systeem op te schonen.",
+			"fr": "Vous aide à trouver les objets et états inutilisés afin de nettoyer votre système.",
+			"it": "Ti aiuta a trovare oggetti e stati inutilizzati per ripulire il sistema.",
+			"es": "Te ayuda a encontrar objetos y estados no utilizados para limpiar tu sistema.",
+			"pl": "Pomaga znaleźć nieużywane obiekty i stany, dzięki czemu możesz oczyścić system.",
+			"uk": "Допомагає знайти невикористовувані об'єкти та стани для очищення системи.",
+			"zh-cn": "帮助您查找未使用的对象和状态，以清理您的系统。"
 		},
 		"authors": [
 			"skvarel <skvarel@inventwo.com>"
