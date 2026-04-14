@@ -336,7 +336,9 @@ class Tidy extends utils.Adapter {
 			last_ts_iso: 'undefined',
 			value: null,
 			status: 'active',
+			status_de: 'aktiv',
 			issue: null,
+			issue_de: null,
 			size: 0,
 		};
 
@@ -352,15 +354,21 @@ class Tidy extends utils.Adapter {
 
 			if (ageDays > daysUntilDead) {
 				result.status = 'dead';
+				result.status_de = 'inaktiv';
 				result.issue = 'dead';
+				result.issue_de = 'inaktiv';
 			} else if (ageDays > daysUntilStale) {
 				result.status = 'stale';
+				result.status_de = 'veraltet';
 				result.issue = 'stale';
+				result.issue_de = 'veraltet';
 			}
 		} else {
 			// No timestamp = never written
 			result.status = 'undefined';
+			result.status_de = 'undefiniert';
 			result.issue = 'dead';
+			result.issue_de = 'inaktiv';
 		}
 
 		// Calculate size
@@ -375,7 +383,9 @@ class Tidy extends utils.Adapter {
 				const targetExists = await this.getForeignObjectAsync(targetId);
 				if (!targetExists) {
 					result.status = 'orphaned';
+					result.status_de = 'verwaist';
 					result.issue = 'orphaned_alias';
+					result.issue_de = 'verwaistes Alias';
 				}
 			}
 		}
