@@ -1,0 +1,100 @@
+{
+	"common": {
+		"name": "tidy",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"uk": "Початкова версія",
+				"zh-cn": "首次出版"
+			}
+		},
+		"titleLang": {
+			"en": "Tidy",
+			"de": "Ordentlich",
+			"ru": "Аккуратный",
+			"pt": "Limpo",
+			"nl": "Netjes",
+			"fr": "Rangé",
+			"it": "Ordinato",
+			"es": "Ordenado",
+			"pl": "Czysty",
+			"uk": "охайний",
+			"zh-cn": "整齐的"
+		},
+		"desc": {
+			"en": "Analyzes ioBroker objects for unused datapoints and helps you clean up your instance",
+			"de": "Analysiert ioBroker-Objekte auf ungenutzte Datenpunkte und hilft Ihnen beim Bereinigen Ihrer Instanz",
+			"ru": "Анализирует объекты ioBroker на наличие неиспользуемых точек данных и помогает очистить экземпляр.",
+			"pt": "Analisa objetos ioBroker em busca de pontos de dados não utilizados e ajuda a limpar sua instância",
+			"nl": "Analyseert ioBroker-objecten op ongebruikte datapunten en helpt u bij het opschonen van uw exemplaar",
+			"fr": "Analyse les objets ioBroker pour les points de données inutilisés et vous aide à nettoyer votre instance",
+			"it": "Analizza gli oggetti ioBroker per individuare i punti dati inutilizzati e ti aiuta a ripulire la tua istanza",
+			"es": "Analiza los objetos de ioBroker en busca de puntos de datos no utilizados y le ayuda a limpiar su instancia.",
+			"pl": "Analizuje obiekty ioBroker pod kątem nieużywanych punktów danych i pomaga oczyścić instancję",
+			"uk": "Аналізує об’єкти ioBroker на наявність невикористаних точок даних і допомагає очистити екземпляр",
+			"zh-cn": "分析 ioBroker 对象中未使用的数据点并帮助您清理实例"
+		},
+		"authors": [
+			"skvarel <skvarel@inventwo.com>"
+		],
+		"keywords": [
+			"cleanup",
+			"tidy",
+			"unused"
+		],
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "tidy.svg",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/skvarel/ioBroker.tidy/main/admin/tidy.svg",
+		"readme": "https://github.com/skvarel/ioBroker.tidy/blob/main/README.md",
+		"loglevel": "info",
+		"tier": 3,
+		"mode": "daemon",
+		"type": "storage",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.0.23"
+			}
+		]
+	},
+	"native": {
+		"autoScan": false,
+		"scanInterval": 24,
+		"daysUntilStale": 90,
+		"daysUntilDead": 365,
+		"paths": [
+			{
+				"enabled": true,
+				"path": "0_userdata.0",
+				"name": "userdata",
+				"checkAliasTargets": false
+			}
+		]
+	},
+	"objects": [],
+	"instanceObjects": []
+}

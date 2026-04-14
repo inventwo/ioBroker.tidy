@@ -1,0 +1,21 @@
+{
+	"Automatic Scanning": "Automatisches Scannen",
+	"Check alias targets": "Alias-Ziele prüfen",
+	"Datapoints not updated for this many days are marked as 'dead'": "Datenpunkte, die seit so vielen Tagen nicht aktualisiert wurden, werden als 'tot' markiert",
+	"Datapoints not updated for this many days are marked as 'stale'": "Datenpunkte, die seit so vielen Tagen nicht aktualisiert wurden, werden als 'veraltet' markiert",
+	"Days until 'dead' (critical)": "Tage bis 'tot' (kritisch)",
+	"Days until 'stale' (warning)": "Tage bis 'veraltet' (Warnung)",
+	"Detection Thresholds": "Erkennungsschwellen",
+	"Enable automatic scans": "Automatisches Scannen aktivieren",
+	"Enabled": "Aktiviert",
+	"For alias.* paths: Check if target datapoints exist (ghost detection)": "Für alias.*-Pfade: Prüfen, ob Ziel-Datenpunkte existieren (Geister-Erkennung)",
+	"General Settings": "Allgemeine Einstellungen",
+	"How often the automatic scan should run (minimum 1 hour)": "Wie oft der automatische Scan ausgeführt werden soll (mindestens 1 Stunde)",
+	"Name (for result state)": "Name (für Ergebnis-Datenpunkt)",
+	"Path (e.g. 0_userdata.0 or alias.0)": "Pfad (z.B. 0_userdata.0 oder alias.0)",
+	"Paths to scan": "Zu scannende Pfade",
+	"Scan Paths": "Scan-Pfade",
+	"Scan interval (hours)": "Scan-Intervall (Stunden)",
+	"When enabled, all configured paths will be scanned automatically at the specified interval": "Wenn aktiviert, werden alle konfigurierten Pfade automatisch im angegebenen Intervall gescannt",
+	"tidy adapter settings": "Adaptereinstellungen für tidy"
+}

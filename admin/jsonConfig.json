@@ -1,0 +1,101 @@
+{
+	"i18n": true,
+	"type": "tabs",
+	"items": {
+		"_general": {
+			"type": "panel",
+			"label": "General Settings",
+			"items": {
+				"_headerAutoScan": {
+					"type": "header",
+					"text": "Automatic Scanning",
+					"size": 5
+				},
+				"autoScan": {
+					"type": "checkbox",
+					"label": "Enable automatic scans",
+					"help": "When enabled, all configured paths will be scanned automatically at the specified interval",
+					"newLine": true
+				},
+				"scanInterval": {
+					"type": "number",
+					"label": "Scan interval (hours)",
+					"help": "How often the automatic scan should run (minimum 1 hour)",
+					"min": 1,
+					"max": 168,
+					"default": 24,
+					"hidden": "!data.autoScan"
+				},
+				"_headerThresholds": {
+					"type": "header",
+					"text": "Detection Thresholds",
+					"size": 5,
+					"newLine": true
+				},
+				"daysUntilStale": {
+					"type": "number",
+					"label": "Days until 'stale' (warning)",
+					"help": "Datapoints not updated for this many days are marked as 'stale'",
+					"min": 1,
+					"max": 3650,
+					"default": 90
+				},
+				"daysUntilDead": {
+					"type": "number",
+					"label": "Days until 'dead' (critical)",
+					"help": "Datapoints not updated for this many days are marked as 'dead'",
+					"min": 1,
+					"max": 3650,
+					"default": 365
+				}
+			}
+		},
+		"_paths": {
+			"type": "panel",
+			"label": "Scan Paths",
+			"items": {
+				"_pathsInfo": {
+					"type": "staticText",
+					"text": "Configure which paths to scan for unused datapoints. Each path will get its own result state with a JSON table.",
+					"newLine": true
+				},
+				"paths": {
+					"type": "table",
+					"newLine": true,
+					"label": "Paths to scan",
+					"items": [
+						{
+							"type": "checkbox",
+							"attr": "enabled",
+							"title": "Enabled",
+							"width": "10%",
+							"default": true
+						},
+						{
+							"type": "text",
+							"attr": "path",
+							"title": "Path (e.g. 0_userdata.0 or alias.0)",
+							"width": "40%",
+							"placeholder": "0_userdata.0"
+						},
+						{
+							"type": "text",
+							"attr": "name",
+							"title": "Name (for result state)",
+							"width": "30%",
+							"placeholder": "userdata"
+						},
+						{
+							"type": "checkbox",
+							"attr": "checkAliasTargets",
+							"title": "Check alias targets",
+							"width": "20%",
+							"default": false,
+							"tooltip": "For alias.* paths: Check if target datapoints exist (ghost detection)"
+						}
+					]
+				}
+			}
+		}
+	}
+}

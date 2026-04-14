@@ -1,0 +1,21 @@
+{
+	"Automatic Scanning": "Automatic Scanning",
+	"Check alias targets": "Check alias targets",
+	"Days until 'dead' (critical)": "Days until 'dead' (critical)",
+	"Days until 'stale' (warning)": "Days until 'stale' (warning)",
+	"Datapoints not updated for this many days are marked as 'dead'": "Datapoints not updated for this many days are marked as 'dead'",
+	"Datapoints not updated for this many days are marked as 'stale'": "Datapoints not updated for this many days are marked as 'stale'",
+	"Detection Thresholds": "Detection Thresholds",
+	"Enable automatic scans": "Enable automatic scans",
+	"Enabled": "Enabled",
+	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",
+	"General Settings": "General Settings",
+	"How often the automatic scan should run (minimum 1 hour)": "How often the automatic scan should run (minimum 1 hour)",
+	"Name (for result state)": "Name (for result state)",
+	"Path (e.g. 0_userdata.0 or alias.0)": "Path (e.g. 0_userdata.0 or alias.0)",
+	"Paths to scan": "Paths to scan",
+	"Scan interval (hours)": "Scan interval (hours)",
+	"Scan Paths": "Scan Paths",
+	"tidy adapter settings": "Adapter settings for tidy",
+	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval"
+}
