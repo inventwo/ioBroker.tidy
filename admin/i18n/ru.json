@@ -24,6 +24,7 @@
 	"Enabled": "Enabled",
 	"Feldbeschreibungen (Deutsch):": "Описания полей (немецкий):",
 	"Field descriptions (English):": "Описания полей (на английском языке):",
+	"Field descriptions:": "Описание полей:",
 	"For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.": "Для немецких таблиц используйте поля «_de» (status_de, Issue_de) в конфигурации столбца виджета VIS. Для английских таблиц используйте обычные поля (статус, проблема). Оба набора полей всегда включаются в выходные данные JSON.",
 	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "Для немецких таблиц: используйте столбцы status_de и Issue_de.\nДля английских таблиц: используйте столбцы состояния и проблемы.\n\nОтфильтруйте по «проблеме!= null», чтобы отобразить только проблемные точки данных.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",

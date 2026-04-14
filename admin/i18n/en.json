@@ -24,6 +24,5 @@
 	"tidy adapter settings": "Adapter settings for tidy",
 	"Usage in VIS Widgets": "Usage in VIS Widgets",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"Field descriptions (English):": "Field descriptions (English):",
-	"Feldbeschreibungen (Deutsch):": "Field descriptions (German):"
+	"Field descriptions:": "Field descriptions:"
 }

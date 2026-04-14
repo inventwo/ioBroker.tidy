@@ -24,6 +24,7 @@
 	"Enabled": "Enabled",
 	"Feldbeschreibungen (Deutsch):": "Descrizioni dei campi (tedesco):",
 	"Field descriptions (English):": "Descrizioni dei campi (inglese):",
+	"Field descriptions:": "Descrizioni dei campi:",
 	"For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.": "Per le tabelle tedesche, utilizza i campi '_de' (status_de, issue_de) nella configurazione della colonna del widget VIS. Per le tabelle in inglese, utilizzare i campi regolari (stato, problema). Entrambi i set di campi sono sempre inclusi nell'output JSON.",
 	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "Per le tabelle tedesche: utilizzare le colonne status_de e issue_de\nPer le tabelle in inglese: utilizzare le colonne di stato e di emissione\n\nFiltra per \"problema! = null\" per mostrare solo i punti dati problematici.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",

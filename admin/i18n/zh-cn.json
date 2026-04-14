@@ -24,6 +24,7 @@
 	"Enabled": "Enabled",
 	"Feldbeschreibungen (Deutsch):": "字段描述（德语）：",
 	"Field descriptions (English):": "字段说明（英文）：",
+	"Field descriptions:": "字段说明：",
 	"For German tables, use the '_de' fields (status_de, issue_de) in your VIS widget column configuration. For English tables, use the regular fields (status, issue). Both field sets are always included in the JSON output.": "对于德语表，请在 VIS 小部件列配置中使用“_de”字段（status_de、issue_de）。对于英文表，请使用常规字段（状态、问题）。这两个字段集始终包含在 JSON 输出中。",
 	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "对于德语表：使用 status_de 和 issues_de 列\n对于英文表格：使用状态和问题列\n\n按“问题！= null”过滤以仅显示有问题的数据点。",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",

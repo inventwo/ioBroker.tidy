@@ -114,15 +114,15 @@
 						"marginBottom": "15px"
 					}
 				},
-				"_tableHeaderEn": {
+				"_tableHeader": {
 					"type": "staticText",
-					"text": "Field descriptions (English):",
+					"text": "Field descriptions:",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
-					"md": 6,
-					"lg": 6,
-					"xl": 6,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
 					"style": {
 						"fontSize": "15px",
 						"fontWeight": "bold",
@@ -133,7 +133,7 @@
 				"_tableImageEn": {
 					"type": "staticImage",
 					"src": "img/tidy_en.PNG",
-					"newLine": false,
+					"newLine": true,
 					"xs": 12,
 					"sm": 12,
 					"md": 6,
@@ -143,22 +143,6 @@
 						"marginBottom": "20px",
 						"maxWidth": "100%",
 						"height": "auto"
-					}
-				},
-				"_tableHeaderDe": {
-					"type": "staticText",
-					"text": "Feldbeschreibungen (Deutsch):",
-					"newLine": false,
-					"xs": 12,
-					"sm": 12,
-					"md": 6,
-					"lg": 6,
-					"xl": 6,
-					"style": {
-						"fontSize": "15px",
-						"fontWeight": "bold",
-						"marginTop": "10px",
-						"marginBottom": "8px"
 					}
 				},
 				"_tableImageDe": {
