@@ -109,57 +109,58 @@
 				"_fieldInfo": {
 					"type": "staticText",
 					"text": "Each scan result contains a JSON array with the following 10 fields per datapoint:",
-					"newLine": true
+					"newLine": true,
+					"style": {
+						"marginBottom": "15px"
+					}
 				},
-				"_field_id": {
+				"_tableHeaderEn": {
 					"type": "staticText",
-					"text": "1  -  id\nFull datapoint path (unique identification)",
-					"newLine": true
+					"text": "Field descriptions (English):",
+					"newLine": true,
+					"style": {
+						"fontSize": "16px",
+						"fontWeight": "bold",
+						"marginTop": "10px",
+						"marginBottom": "8px"
+					}
 				},
-				"_field_name": {
-					"type": "staticText",
-					"text": "2  -  name\ncommon.name or last part of ID (user-friendly name)",
-					"newLine": true
+				"_tableImageEn": {
+					"type": "staticImage",
+					"src": "img/tidy_en.PNG",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 11,
+					"lg": 10,
+					"xl": 9,
+					"style": {
+						"marginBottom": "20px"
+					}
 				},
-				"_field_last_ts": {
+				"_tableHeaderDe": {
 					"type": "staticText",
-					"text": "3  -  last_ts\nUnix timestamp in ms or null (for sorting)",
-					"newLine": true
+					"text": "Feldbeschreibungen (Deutsch):",
+					"newLine": true,
+					"style": {
+						"fontSize": "16px",
+						"fontWeight": "bold",
+						"marginTop": "10px",
+						"marginBottom": "8px"
+					}
 				},
-				"_field_last_ts_iso": {
-					"type": "staticText",
-					"text": "4  -  last_ts_iso\nFormatted date string (for display in table)",
-					"newLine": true
-				},
-				"_field_value": {
-					"type": "staticText",
-					"text": "5  -  value\nCurrent datapoint value (final check before deletion)",
-					"newLine": true
-				},
-				"_field_status": {
-					"type": "staticText",
-					"text": "6  -  status\nClassification in English: active, dead, stale, undefined, orphaned",
-					"newLine": true
-				},
-				"_field_status_de": {
-					"type": "staticText",
-					"text": "7  -  status_de\nClassification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist",
-					"newLine": true
-				},
-				"_field_issue": {
-					"type": "staticText",
-					"text": "8  -  issue\nProblem indicator (English): dead, stale, orphaned_alias, or null if OK",
-					"newLine": true
-				},
-				"_field_issue_de": {
-					"type": "staticText",
-					"text": "9  -  issue_de\nProblem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK",
-					"newLine": true
-				},
-				"_field_size": {
-					"type": "staticText",
-					"text": "10  -  size\nJSON.stringify(val).length (finds storage hogs)",
-					"newLine": true
+				"_tableImageDe": {
+					"type": "staticImage",
+					"src": "img/tidy_de.PNG",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 11,
+					"lg": 10,
+					"xl": 9,
+					"style": {
+						"marginBottom": "20px"
+					}
 				},
 				"_headerUsage": {
 					"type": "header",

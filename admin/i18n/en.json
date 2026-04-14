@@ -24,14 +24,6 @@
 	"tidy adapter settings": "Adapter settings for tidy",
 	"Usage in VIS Widgets": "Usage in VIS Widgets",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"1  -  id\nFull datapoint path (unique identification)": "1  -  id\nFull datapoint path (unique identification)",
-	"2  -  name\ncommon.name or last part of ID (user-friendly name)": "2  -  name\ncommon.name or last part of ID (user-friendly name)",
-	"3  -  last_ts\nUnix timestamp in ms or null (for sorting)": "3  -  last_ts\nUnix timestamp in ms or null (for sorting)",
-	"4  -  last_ts_iso\nFormatted date string (for display in table)": "4  -  last_ts_iso\nFormatted date string (for display in table)",
-	"5  -  value\nCurrent datapoint value (final check before deletion)": "5  -  value\nCurrent datapoint value (final check before deletion)",
-	"6  -  status\nClassification in English: active, dead, stale, undefined, orphaned": "6  -  status\nClassification in English: active, dead, stale, undefined, orphaned",
-	"7  -  status_de\nClassification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist": "7  -  status_de\nClassification in German: aktiv, inaktiv, veraltet, undefiniert, verwaist",
-	"8  -  issue\nProblem indicator (English): dead, stale, orphaned_alias, or null if OK": "8  -  issue\nProblem indicator (English): dead, stale, orphaned_alias, or null if OK",
-	"9  -  issue_de\nProblem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK": "9  -  issue_de\nProblem indicator (German): inaktiv, veraltet, verwaistes Alias, or null if OK",
-	"10  -  size\nJSON.stringify(val).length (finds storage hogs)": "10  -  size\nJSON.stringify(val).length (finds storage hogs)"
+	"Field descriptions (English):": "Field descriptions (English):",
+	"Feldbeschreibungen (Deutsch):": "Field descriptions (German):"
 }

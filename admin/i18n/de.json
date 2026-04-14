@@ -20,6 +20,8 @@
 	"Each scan result contains a JSON array with the following fields per datapoint:": "Jedes Scan-Ergebnis enthält ein JSON-Array mit folgenden 10 Feldern pro Datenpunkt:",
 	"Enable automatic scans": "Automatisches Scannen aktivieren",
 	"Enabled": "Aktiviert",
+	"Feldbeschreibungen (Deutsch):": "Feldbeschreibungen (Deutsch):",
+	"Field descriptions (English):": "Feldbeschreibungen (Englisch):",
 	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "Für deutsche Tabellen: Verwende status_de und issue_de Spalten\nFür englische Tabellen: Verwende status und issue Spalten\n\nFiltere nach 'issue != null' um nur problematische Datenpunkte anzuzeigen.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "Für alias.*-Pfade: Prüfen, ob Ziel-Datenpunkte existieren (Geister-Erkennung)",
 	"General Settings": "Allgemeine Einstellungen",
