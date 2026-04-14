@@ -223,7 +223,7 @@ class Tidy extends utils.Adapter {
 
 			// Find the corresponding path config
 			const channelId = id.replace(`${this.namespace}.`, '').replace('.trigger', '');
-			const pathConfig = this.config.paths.find((p) => this.sanitizeName(p.name) === channelId);
+			const pathConfig = this.config.paths.find(p => this.sanitizeName(p.name) === channelId);
 
 			if (pathConfig && pathConfig.enabled) {
 				await this.scanPath(pathConfig);
