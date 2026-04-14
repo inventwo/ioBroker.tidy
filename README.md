@@ -66,18 +66,18 @@ The `result` state contains a JSON array with the following fields for each data
 ```json
 [
   {
-    "id": "0_userdata.0.flur.licht_auto",
-    "name": "Lichtautomatik Flur",
+    "id": "0_userdata.0.hallway.light_auto",
+    "name": "Hallway Light Automation",
     "last_ts": 1712856000000,
-    "last_ts_iso": "11.04.2026 18:00",
+    "last_ts_iso": "4/11/2026, 6:00:00 PM",
     "value": true,
     "status": "active",
     "issue": null,
     "size": 4
   },
   {
-    "id": "0_userdata.0.test.alter_wert",
-    "name": "Testdatenpunkt",
+    "id": "0_userdata.0.test.old_value",
+    "name": "Test Datapoint",
     "last_ts": null,
     "last_ts_iso": "undefined",
     "value": 15,
