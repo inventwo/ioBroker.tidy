@@ -19,16 +19,16 @@
 		},
 		"titleLang": {
 			"en": "Tidy",
-			"de": "Datenpflege",
-			"ru": "Аккуратный",
-			"pt": "Limpo",
-			"nl": "Netjes",
-			"fr": "Rangé",
-			"it": "Ordinato",
-			"es": "Ordenado",
-			"pl": "Czysty",
-			"uk": "охайний",
-			"zh-cn": "整齐的"
+			"de": "Tidy",
+			"ru": "Tidy",
+			"pt": "Tidy",
+			"nl": "Tidy",
+			"fr": "Tidy",
+			"it": "Tidy",
+			"es": "Tidy",
+			"pl": "Tidy",
+			"uk": "Tidy",
+			"zh-cn": "Tidy"
 		},
 		"desc": {
 			"en": "Analyzes ioBroker objects for unused datapoints and helps you clean up your instance",
