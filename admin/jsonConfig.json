@@ -17,6 +17,10 @@
 					"label": "Enable automatic scans",
 					"help": "When enabled, all configured paths will be scanned automatically at the specified interval",
 					"newLine": true,
+					"sm": 12,
+					"md": 6,
+					"lg": 4,
+					"xl": 4,
 					"style": {
 						"fontSize": "0.875rem"
 					}
@@ -28,7 +32,11 @@
 					"min": 1,
 					"max": 168,
 					"default": 24,
-					"hidden": "!data.autoScan"
+					"hidden": "!data.autoScan",
+					"sm": 12,
+					"md": 6,
+					"lg": 4,
+					"xl": 4
 				},
 				"_headerThresholds": {
 					"type": "header",
@@ -42,7 +50,11 @@
 					"help": "Datapoints not updated for this many days are marked as 'stale'",
 					"min": 1,
 					"max": 3650,
-					"default": 90
+					"default": 90,
+					"sm": 12,
+					"md": 6,
+					"lg": 4,
+					"xl": 4
 				},
 				"daysUntilDead": {
 					"type": "number",
@@ -50,7 +62,11 @@
 					"help": "Datapoints not updated for this many days are marked as 'dead'",
 					"min": 1,
 					"max": 3650,
-					"default": 365
+					"default": 365,
+					"sm": 12,
+					"md": 6,
+					"lg": 4,
+					"xl": 4
 				}
 			}
 		},
@@ -68,6 +84,10 @@
 					"type": "staticText",
 					"text": "Configure which paths to scan for unused datapoints. Each path will get its own result state with a JSON table.",
 					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
 					"style": {
 						"fontSize": "0.875rem"
 					}
@@ -124,6 +144,10 @@
 					"type": "staticText",
 					"text": "Each scan result contains a JSON array with the following 10 fields per datapoint:",
 					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
 					"style": {
 						"fontSize": "0.875rem"
 					}
@@ -173,6 +197,10 @@
 					"type": "staticText",
 					"text": "For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.",
 					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
 					"style": {
 						"fontSize": "0.875rem"
 					}

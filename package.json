@@ -16,7 +16,9 @@
   "keywords": [
     "cleanup",
     "tidy",
-    "unused"
+    "unused",
+    "ioBroker",
+    "objects"
   ],
   "repository": {
     "type": "git",
