@@ -146,6 +146,9 @@ If you like our work and would like to support us, we appreciate any donation.
 -->
 
 ### **WORK IN PROGRESS**
+- (skvarel) ready for npm
+
+### 0.0.1 (2026-04-14)
 - (skvarel) initial release
 
 ## Older changes
