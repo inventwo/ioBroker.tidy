@@ -31,8 +31,8 @@
 			"zh-cn": "Tidy"
 		},
 		"desc": {
-			"en": "Helps you to find unused objects and states to clean up your system.",
-			"de": "Hilft dir dabei, ungenutzte Objekte und Zustände zu finden, um dein System aufzuräumen.",
+			"en": "Helps to find unused objects and states to clean up your system.",
+			"de": "Hilft dabei, ungenutzte Objekte und Zustände zu finden, um dein System aufzuräumen.",
 			"ru": "Помогает находить неиспользуемые объекты и состояния для очистки системы.",
 			"pt": "Ajuda você a encontrar objetos e estados não utilizados para limpar seu sistema.",
 			"nl": "Helpt je ongebruikte objecten en statussen te vinden om je systeem op te schonen.",
