@@ -146,14 +146,7 @@ If you like our work and would like to support us, we appreciate any donation.
 -->
 
 ### **WORK IN PROGRESS**
-- (skvarel) Initial implementation with core features
-- (skvarel) Added path-based scanning for multiple root paths (0_userdata.0, alias.0, etc.)
-- (skvarel) Implemented smart detection for dead, stale, and orphaned datapoints
-- (skvarel) Added configurable age thresholds for stale/dead detection
-- (skvarel) Implemented automatic scanning with configurable intervals
-- (skvarel) Added manual trigger buttons for on-demand scans
-- (skvarel) Created JSON table output for VIS integration
-- (skvarel) Implemented orphaned alias detection (ghost aliases)
+- (skvarel) initial release
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

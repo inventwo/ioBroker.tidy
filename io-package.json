@@ -93,6 +93,18 @@
 				"name": "userdata",
 				"checkAliasTargets": false
 			}
+		],
+		"fieldDocs": [
+			{"pos": "01", "field": "id", "description": "Full datapoint path", "purpose": "Unique identification"},
+			{"pos": "02", "field": "name", "description": "common.name or last part of ID", "purpose": "User-friendly name"},
+			{"pos": "03", "field": "last_ts", "description": "Unix timestamp (ms) or null", "purpose": "Sorting in background"},
+			{"pos": "04", "field": "last_ts_iso", "description": "Formatted date string", "purpose": "Display in table"},
+			{"pos": "05", "field": "value", "description": "Current datapoint value", "purpose": "Final check before deletion"},
+			{"pos": "06", "field": "status", "description": "active, dead, stale, undefined, orphaned", "purpose": "Classification (English)"},
+			{"pos": "07", "field": "status_de", "description": "aktiv, inaktiv, veraltet, undefiniert, verwaist", "purpose": "Classification (German)"},
+			{"pos": "08", "field": "issue", "description": "dead, stale, orphaned_alias, or null", "purpose": "Filter criterion (null = OK)"},
+			{"pos": "09", "field": "issue_de", "description": "inaktiv, veraltet, verwaistes Alias, or null", "purpose": "Filter criterion (German)"},
+			{"pos": "10", "field": "size", "description": "JSON.stringify(val).length", "purpose": "Finds \"storage hogs\""}
 		]
 	},
 	"objects": [],

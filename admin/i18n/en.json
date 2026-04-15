@@ -18,11 +18,16 @@
 	"JSON Table Field Description": "JSON Table Field Description",
 	"Name (for result state)": "Name (for result state)",
 	"Path (e.g. 0_userdata.0 or alias.0)": "Path (e.g. 0_userdata.0 or alias.0)",
+	"Path Configuration": "Path Configuration",
 	"Paths to scan": "Paths to scan",
 	"Scan interval (hours)": "Scan interval (hours)",
 	"Scan Paths": "Scan Paths",
 	"tidy adapter settings": "Adapter settings for tidy",
 	"Usage in VIS Widgets": "Usage in VIS Widgets",
 	"When enabled, all configured paths will be scanned automatically at the specified interval": "When enabled, all configured paths will be scanned automatically at the specified interval",
-	"Field descriptions:": "Field descriptions:"
+	"Field descriptions": "Field descriptions",
+	"Purpose": "Purpose",
+	"Field": "Schlüssel",
+	"Description": "Description"
+	
 }

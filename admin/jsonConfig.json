@@ -5,17 +5,21 @@
 		"_general": {
 			"type": "panel",
 			"label": "General Settings",
+			"icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTIsMTUuNUEzLjUsMy41IDAgMCwxIDguNSwxMkEzLjUsMy41IDAgMCwxIDEyLDguNUEzLjUsMy41IDAgMCwxIDE1LjUsMTJBMy41LDMuNSAwIDAsMSAxMiwxNS41TTE5LjQzLDEyLjk3QzE5LjQ3LDEyLjY1IDE5LjUsMTIuMzMgMTkuNSwxMkMxOS41LDExLjY3IDE5LjQ3LDExLjM0IDE5LjQzLDExTDIxLjU0LDkuMzdDMjEuNzMsOS4yMiAyMS43OCw4Ljk1IDIxLjY2LDguNzNMMTkuNjYsNS4yN0MxOS41NCw1LjA1IDE5LjI3LDQuOTYgMTkuMDUsNS4wNUwxNi41Niw2LjA1QzE2LjA0LDUuNjYgMTUuNSw1LjMyIDE0Ljg3LDUuMDdMMTQuNSwyLjQyQzE0LjQ2LDIuMTggMTQuMjUsMiAxNCwySDEwQzkuNzUsMiA5LjU0LDIuMTggOS41LDIuNDJMOS4xMyw1LjA3QzguNSw1LjMyIDcuOTYsNS42NiA3LjQ0LDYuMDVMNC45NSw1LjA1QzQuNzMsNC45NiA0LjQ2LDUuMDUgNC4zNCw1LjI3TDIuMzQsOC43M0MyLjIxLDguOTUgMi4yNyw5LjIyIDIuNDYsOS4zN0w0LjU3LDExQzQuNTMsMTEuMzQgNC41LDExLjY3IDQuNSwxMkM0LjUsMTIuMzMgNC41MywxMi42NSA0LjU3LDEyLjk3TDIuNDYsMTQuNjNDMi4yNywxNC43OCAyLjIxLDE1LjA1IDIuMzQsMTUuMjdMNC4zNCwxOC43M0M0LjQ2LDE4Ljk1IDQuNzMsMTkuMDMgNC45NSwxOC45NUw3LjQ0LDE3Ljk0QzcuOTYsMTguMzQgOC41LDE4LjY4IDkuMTMsMTguOTNMOS41LDIxLjU4QzkuNTQsMjEuODIgOS43NSwyMiAxMCwyMkgxNEMxNC4yNSwyMiAxNC40NiwyMS44MiAxNC41LDIxLjU4TDE0Ljg3LDE4LjkzQzE1LjUsMTguNjcgMTYuMDQsMTguMzQgMTYuNTYsMTcuOTRMMTkuMDUsMTguOTVDMTkuMjcsMTkuMDMgMTkuNTQsMTguOTUgMTkuNjYsMTguNzNMMjEuNjYsMTUuMjdDMjEuNzgsMTUuMDUgMjEuNzMsMTQuNzggMjEuNTQsMTQuNjNMMTkuNDMsMTIuOTdaIi8+PC9zdmc+",
 			"items": {
 				"_headerAutoScan": {
 					"type": "header",
 					"text": "Automatic Scanning",
-					"size": 5
+					"size": 3
 				},
 				"autoScan": {
 					"type": "checkbox",
 					"label": "Enable automatic scans",
 					"help": "When enabled, all configured paths will be scanned automatically at the specified interval",
-					"newLine": true
+					"newLine": true,
+					"style": {
+						"fontSize": "0.875rem"
+					}
 				},
 				"scanInterval": {
 					"type": "number",
@@ -29,7 +33,7 @@
 				"_headerThresholds": {
 					"type": "header",
 					"text": "Detection Thresholds",
-					"size": 5,
+					"size": 3,
 					"newLine": true
 				},
 				"daysUntilStale": {
@@ -53,11 +57,20 @@
 		"_paths": {
 			"type": "panel",
 			"label": "Scan Paths",
+			"icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9ImN1cnJlbnRjb2xvciI+PHBhdGggZmlsbD0iY3VycmVudGNvbG9yIiBkPSJNOS41IDNBNi41IDYuNSAwIDAgMSAxNiA5LjVjMCAxLjYxLS41OSAzLjA5LTEuNTYgNC4yM2wuMjcuMjdoLjc5bDUgNWwtMS41IDEuNWwtNS01di0uNzlsLS4yNy0uMjdBNi41MTYgNi41MTYgMCAwIDEgOS41IDE2QTYuNSA2LjUgMCAwIDEgMyA5LjVBNi41IDYuNSAwIDAgMSA5LjUgM20wIDJDNyA1IDUgNyA1IDkuNVM3IDE0IDkuNSAxNFMxNCAxMiAxNCA5LjVTMTIgNSA5LjUgNVoiLz48L3N2Zz4=",
 			"items": {
+				"_headerPaths": {
+					"type": "header",
+					"text": "Path Configuration",
+					"size": 3
+				},
 				"_pathsInfo": {
 					"type": "staticText",
 					"text": "Configure which paths to scan for unused datapoints. Each path will get its own result state with a JSON table.",
-					"newLine": true
+					"newLine": true,
+					"style": {
+						"fontSize": "0.875rem"
+					}
 				},
 				"paths": {
 					"type": "table",
@@ -100,76 +113,69 @@
 		"_help": {
 			"type": "panel",
 			"label": "Help & Documentation",
+			"icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTUuMDcsMTEuMjVMMTQuMTcsMTIuMTdDMTMuNDUsMTIuODkgMTMsMTMuNSAxMywxNUgxMVYxNC41QzExLDEzLjM5IDExLjQ1LDEyLjM5IDEyLjE3LDExLjY3TDEzLjQxLDEwLjQxQzEzLjc4LDEwLjA1IDE0LDkuNTUgMTQsOUMxNCw3Ljg5IDEzLjEsNyAxMiw3QTIsMiAwIDAsMCAxMCw5SDhBNCw0IDAgMCwxIDEyLDVBNCw0IDAgMCwxIDE2LDlDMTYsOS44OCAxNS42NCwxMC42NyAxNS4wNywxMS4yNU0xMywxOUgxMVYxN0gxM00xMiwyQTEwLDEwIDAgMCwwIDIsMTJBMTAsMTAgMCAwLDAgMTIsMjJBMTAsMTAgMCAwLDAgMjIsMTJDMjIsNi40NyAxNy41LDIgMTIsMloiIC8+PC9zdmc+",
 			"items": {
 				"_headerFields": {
 					"type": "header",
 					"text": "JSON Table Field Description",
-					"size": 4
+					"size": 3
 				},
 				"_fieldInfo": {
 					"type": "staticText",
 					"text": "Each scan result contains a JSON array with the following 10 fields per datapoint:",
 					"newLine": true,
 					"style": {
-						"marginBottom": "15px"
+						"fontSize": "0.875rem"
 					}
 				},
-				"_tableHeader": {
-					"type": "staticText",
-					"text": "Field descriptions:",
+				"fieldDocs": {
+					"type": "table",
 					"newLine": true,
-					"xs": 12,
-					"sm": 12,
-					"md": 12,
-					"lg": 12,
-					"xl": 12,
-					"style": {
-						"fontSize": "15px",
-						"fontWeight": "bold",
-						"marginTop": "10px",
-						"marginBottom": "8px"
-					}
-				},
-				"_tableImageEn": {
-					"type": "staticImage",
-					"src": "img/tidy_en.PNG",
-					"newLine": true,
-					"xs": 12,
-					"sm": 12,
-					"md": 6,
-					"lg": 6,
-					"xl": 6,
-					"style": {
-						"marginBottom": "20px",
-						"maxWidth": "100%",
-						"height": "auto"
-					}
-				},
-				"_tableImageDe": {
-					"type": "staticImage",
-					"src": "img/tidy_de.PNG",
-					"newLine": false,
-					"xs": 12,
-					"sm": 12,
-					"md": 6,
-					"lg": 6,
-					"xl": 6,
-					"style": {
-						"marginBottom": "20px",
-						"maxWidth": "100%",
-						"height": "auto"
-					}
+					"noDelete": true,
+					"compact": true,
+					"items": [
+						{
+							"type": "text",
+							"attr": "pos",
+							"title": "Pos.",
+							"width": "1%",
+							"readOnly": true
+						},
+						{
+							"type": "text",
+							"attr": "field",
+							"title": "Field",
+							"width": "10%",
+							"readOnly": true
+						},
+						{
+							"type": "text",
+							"attr": "description",
+							"title": "Description",
+							"width": "30%",
+							"readOnly": true
+						},
+						{
+							"type": "text",
+							"attr": "purpose",
+							"title": "Purpose",
+							"readOnly": true
+						}
+					]
 				},
 				"_headerUsage": {
 					"type": "header",
 					"text": "Usage in VIS Widgets",
-					"size": 4,
+					"size": 3,
 					"newLine": true
 				},
 				"_usageInfo": {
 					"type": "staticText",
 					"text": "For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.",
-					"newLine": true
+					"newLine": true,
+					"style": {
+						"fontSize": "0.875rem"
+					}
 				}
 			}
 		}
