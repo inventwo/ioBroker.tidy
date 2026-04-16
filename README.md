@@ -11,7 +11,7 @@
 
 ## What this adapter does
 
-The **Tidy** adapter helps you to find unused objects and states to clean up your system. After years of using ioBroker, your system may accumulate "dead" datapoints from deleted scripts, removed adapters, or abandoned configurations. This adapter helps you identify and clean up such datapoints to keep your system tidy and performant.
+The **Tidy** adapter helps to find unused objects and states to clean up your system. After years of using ioBroker, your system may accumulate "dead" datapoints from deleted scripts, removed adapters, or abandoned configurations. This adapter helps you identify and clean up such datapoints to keep your system tidy and performant.
 
 ## Features
 
@@ -144,9 +144,6 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
-- (skvarel) ready for npm
 
 ### 0.0.1 (2026-04-14)
 - (skvarel) initial release
