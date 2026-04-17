@@ -1,162 +1,175 @@
 {
-	"common": {
-		"name": "tidy",
-		"version": "0.0.1",
-		"news": {
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"uk": "Початкова версія",
-				"zh-cn": "首次出版"
-			}
-		},
-		"titleLang": {
-			"en": "Tidy",
-			"de": "Tidy",
-			"ru": "Tidy",
-			"pt": "Tidy",
-			"nl": "Tidy",
-			"fr": "Tidy",
-			"it": "Tidy",
-			"es": "Tidy",
-			"pl": "Tidy",
-			"uk": "Tidy",
-			"zh-cn": "Tidy"
-		},
-		"desc": {
-			"en": "Helps to find unused objects and states to clean up your system.",
-			"de": "Hilft dabei, ungenutzte Objekte und Zustände zu finden, um dein System aufzuräumen.",
-			"ru": "Помогает находить неиспользуемые объекты и состояния для очистки системы.",
-			"pt": "Ajuda você a encontrar objetos e estados não utilizados para limpar seu sistema.",
-			"nl": "Helpt je ongebruikte objecten en statussen te vinden om je systeem op te schonen.",
-			"fr": "Vous aide à trouver les objets et états inutilisés afin de nettoyer votre système.",
-			"it": "Ti aiuta a trovare oggetti e stati inutilizzati per ripulire il sistema.",
-			"es": "Te ayuda a encontrar objetos y estados no utilizados para limpiar tu sistema.",
-			"pl": "Pomaga znaleźć nieużywane obiekty i stany, dzięki czemu możesz oczyścić system.",
-			"uk": "Допомагає знайти невикористовувані об'єкти та стани для очищення системи.",
-			"zh-cn": "帮助您查找未使用的对象和状态，以清理您的系统。"
-		},
-		"authors": [
-			"skvarel <skvarel@inventwo.com>"
-		],
-		"keywords": [
-			"cleanup",
-			"tidy",
-			"unused"
-		],
-		"licenseInformation": {
-			"type": "free",
-			"license": "MIT"
-		},
-		"platform": "Javascript/Node.js",
-		"icon": "tidy.svg",
-		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.tidy/main/admin/tidy.svg",
-		"readme": "https://github.com/inventwo/ioBroker.tidy/blob/main/README.md",
-		"loglevel": "info",
-		"tier": 3,
-		"mode": "daemon",
-		"type": "storage",
-		"compact": true,
-		"connectionType": "local",
-		"dataSource": "poll",
-		"adminUI": {
-			"config": "json"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=6.0.11"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=7.6.20"
-			}
-		]
-	},
-	"native": {
-		"autoScan": false,
-		"scanInterval": 24,
-		"daysUntilStale": 90,
-		"daysUntilDead": 365,
-		"paths": [
-			{
-				"enabled": true,
-				"path": "0_userdata.0",
-				"name": "userdata",
-				"checkAliasTargets": false
-			}
-		],
-		"fieldDocs": [
-			{
-				"pos": "01",
-				"field": "id",
-				"description": "Full datapoint path",
-				"purpose": "Unique identification"
-			},
-			{
-				"pos": "02",
-				"field": "name",
-				"description": "common.name or last part of ID",
-				"purpose": "User-friendly name"
-			},
-			{
-				"pos": "03",
-				"field": "last_ts",
-				"description": "Unix timestamp (ms) or null",
-				"purpose": "Sorting in background"
-			},
-			{
-				"pos": "04",
-				"field": "last_ts_iso",
-				"description": "Formatted date string",
-				"purpose": "Display in table"
-			},
-			{
-				"pos": "05",
-				"field": "value",
-				"description": "Current datapoint value",
-				"purpose": "Final check before deletion"
-			},
-			{
-				"pos": "06",
-				"field": "status",
-				"description": "active, dead, stale, undefined, orphaned",
-				"purpose": "Classification (English)"
-			},
-			{
-				"pos": "07",
-				"field": "status_de",
-				"description": "aktiv, inaktiv, veraltet, undefiniert, verwaist",
-				"purpose": "Classification (German)"
-			},
-			{
-				"pos": "08",
-				"field": "issue",
-				"description": "dead, stale, orphaned_alias, or null",
-				"purpose": "Filter criterion (null = OK)"
-			},
-			{
-				"pos": "09",
-				"field": "issue_de",
-				"description": "inaktiv, veraltet, verwaistes Alias, or null",
-				"purpose": "Filter criterion (German)"
-			},
-			{
-				"pos": "10",
-				"field": "size",
-				"description": "JSON.stringify(val).length",
-				"purpose": "Finds \"storage hogs\""
-			}
-		]
-	},
-	"objects": [],
-	"instanceObjects": []
+  "common": {
+    "name": "tidy",
+    "version": "0.1.0",
+    "news": {
+      "0.1.0": {
+        "en": "Added option for complete scan",
+        "de": "Option für den kompletten Scan hinzugefügt",
+        "ru": "Дополнительный вариант для полного сканирования",
+        "pt": "Opção adicionada para verificação completa",
+        "nl": "Toegevoegd optie voor volledige scan",
+        "fr": "Ajout de l'option pour la numérisation complète",
+        "it": "Aggiunta opzione per la scansione completa",
+        "es": "Opción agregada para el escaneo completo",
+        "pl": "Dodano opcję do pełnego skanowania",
+        "uk": "Додано варіант для повного сканування",
+        "zh-cn": "添加完整扫描选项"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "uk": "Початкова версія",
+        "zh-cn": "首次出版"
+      }
+    },
+    "titleLang": {
+      "en": "Tidy",
+      "de": "Tidy",
+      "ru": "Tidy",
+      "pt": "Tidy",
+      "nl": "Tidy",
+      "fr": "Tidy",
+      "it": "Tidy",
+      "es": "Tidy",
+      "pl": "Tidy",
+      "uk": "Tidy",
+      "zh-cn": "Tidy"
+    },
+    "desc": {
+      "en": "Helps to find unused objects and states to clean up your system.",
+      "de": "Hilft dabei, ungenutzte Objekte und Zustände zu finden, um dein System aufzuräumen.",
+      "ru": "Помогает находить неиспользуемые объекты и состояния для очистки системы.",
+      "pt": "Ajuda você a encontrar objetos e estados não utilizados para limpar seu sistema.",
+      "nl": "Helpt je ongebruikte objecten en statussen te vinden om je systeem op te schonen.",
+      "fr": "Vous aide à trouver les objets et états inutilisés afin de nettoyer votre système.",
+      "it": "Ti aiuta a trovare oggetti e stati inutilizzati per ripulire il sistema.",
+      "es": "Te ayuda a encontrar objetos y estados no utilizados para limpiar tu sistema.",
+      "pl": "Pomaga znaleźć nieużywane obiekty i stany, dzięki czemu możesz oczyścić system.",
+      "uk": "Допомагає знайти невикористовувані об'єкти та стани для очищення системи.",
+      "zh-cn": "帮助您查找未使用的对象和状态，以清理您的系统。"
+    },
+    "authors": [
+      "skvarel <skvarel@inventwo.com>"
+    ],
+    "keywords": [
+      "cleanup",
+      "tidy",
+      "unused"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "tidy.svg",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/inventwo/ioBroker.tidy/main/admin/tidy.svg",
+    "readme": "https://github.com/inventwo/ioBroker.tidy/blob/main/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "mode": "daemon",
+    "type": "storage",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.20"
+      }
+    ]
+  },
+  "native": {
+    "autoScan": false,
+    "scanInterval": 24,
+    "daysUntilStale": 90,
+    "daysUntilDead": 365,
+    "paths": [
+      {
+        "enabled": true,
+        "path": "0_userdata.0",
+        "name": "userdata",
+        "checkAliasTargets": false
+      }
+    ],
+    "fieldDocs": [
+      {
+        "pos": "01",
+        "field": "id",
+        "description": "Full datapoint path",
+        "purpose": "Unique identification"
+      },
+      {
+        "pos": "02",
+        "field": "name",
+        "description": "common.name or last part of ID",
+        "purpose": "User-friendly name"
+      },
+      {
+        "pos": "03",
+        "field": "last_ts",
+        "description": "Unix timestamp (ms) or null",
+        "purpose": "Sorting in background"
+      },
+      {
+        "pos": "04",
+        "field": "last_ts_iso",
+        "description": "Formatted date string",
+        "purpose": "Display in table"
+      },
+      {
+        "pos": "05",
+        "field": "value",
+        "description": "Current datapoint value",
+        "purpose": "Final check before deletion"
+      },
+      {
+        "pos": "06",
+        "field": "status",
+        "description": "active, dead, stale, undefined, orphaned",
+        "purpose": "Classification (English)"
+      },
+      {
+        "pos": "07",
+        "field": "status_de",
+        "description": "aktiv, inaktiv, veraltet, undefiniert, verwaist",
+        "purpose": "Classification (German)"
+      },
+      {
+        "pos": "08",
+        "field": "issue",
+        "description": "dead, stale, orphaned_alias, or null",
+        "purpose": "Filter criterion (null = OK)"
+      },
+      {
+        "pos": "09",
+        "field": "issue_de",
+        "description": "inaktiv, veraltet, verwaistes Alias, or null",
+        "purpose": "Filter criterion (German)"
+      },
+      {
+        "pos": "10",
+        "field": "size",
+        "description": "JSON.stringify(val).length",
+        "purpose": "Finds \"storage hogs\""
+      }
+    ]
+  },
+  "objects": [],
+  "instanceObjects": []
 }
