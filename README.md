@@ -144,7 +144,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.0 (2026-04-17)
 - (skvarel) Added option for complete scan
 
 ### 0.0.1 (2026-04-14)

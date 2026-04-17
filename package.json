@@ -1,6 +1,6 @@
 {
   "name": "iobroker.tidy",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Analyzes ioBroker objects for unused datapoints and helps you clean up your instance",
   "author": {
     "name": "skvarel",

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "Added option for complete scan",
+        "de": "Option für den kompletten Scan hinzugefügt",
+        "ru": "Дополнительный вариант для полного сканирования",
+        "pt": "Opção adicionada para verificação completa",
+        "nl": "Toegevoegd optie voor volledige scan",
+        "fr": "Ajout de l'option pour la numérisation complète",
+        "it": "Aggiunta opzione per la scansione completa",
+        "es": "Opción agregada para el escaneo completo",
+        "pl": "Dodano opcję do pełnego skanowania",
+        "uk": "Додано варіант для повного сканування",
+        "zh-cn": "添加完整扫描选项"
+      },
       "0.0.1": {
         "en": "initial release",
         "de": "Erstveröffentlichung",
