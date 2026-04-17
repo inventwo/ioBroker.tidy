@@ -9,6 +9,8 @@
 	"Detection Thresholds": "Detection Thresholds",
 	"Each scan result contains a JSON array with the following fields per datapoint:": "Each scan result contains a JSON array with the following 10 fields per datapoint:",
 	"Enable automatic scans": "Enable automatic scans",
+	"Scan all objects (complete)": "Scan all objects (complete)",
+	"If enabled, the adapter will scan the entire object tree and store the result in a separate 'complete' result channel.": "If enabled, the adapter will scan the entire object tree and store the result in a separate 'complete' result channel.",
 	"Enabled": "Enabled",
 	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",

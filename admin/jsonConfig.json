@@ -31,6 +31,20 @@
 						"fontSize": "0.875rem"
 					}
 				},
+				"scanAllObjects": {
+					"type": "checkbox",
+					"label": "Scan all objects (complete)",
+					"help": "If enabled, the adapter will scan the entire object tree and store the result in a separate 'complete' result channel.",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 6,
+					"lg": 4,
+					"xl": 4,
+					"style": {
+						"fontSize": "0.875rem"
+					}
+				},
 				"scanInterval": {
 					"type": "number",
 					"label": "Scan interval (hours)",

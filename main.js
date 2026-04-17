@@ -39,11 +39,21 @@ class Tidy extends utils.Adapter {
 		// Create objects for each configured path
 		await this.createPathObjects();
 
+        // Create objects for complete scan if enabled
+        if (this.config.scanAllObjects) {
+            await this.createCompleteObjects();
+        }
+
 		// Subscribe to trigger states
 		this.subscribeStates('*.trigger');
 
 		// Run initial scan for all enabled paths
 		await this.scanAllPaths();
+
+        // Run complete scan if enabled
+        if (this.config.scanAllObjects) {
+            await this.scanComplete();
+        }
 
 		// Setup automatic scanning if enabled
 		if (this.config.autoScan && this.config.scanInterval > 0) {
@@ -52,7 +62,153 @@ class Tidy extends utils.Adapter {
 			this.scanInterval = setInterval(async () => {
 				this.log.info('Running automatic scan...');
 				await this.scanAllPaths();
+				if (this.config.scanAllObjects) {
+					await this.scanComplete();
+				}
 			}, intervalMs);
+		}
+	}
+	/**
+	 * Create channel and states for complete scan
+	 */
+	async createCompleteObjects() {
+		const channelId = 'complete';
+		// Channel
+		await this.setObjectNotExistsAsync(channelId, {
+			type: 'channel',
+			common: { name: 'Scan results for complete object tree' },
+			native: {},
+		});
+		// States
+		await this.setObjectNotExistsAsync(`${channelId}.trigger`, {
+			type: 'state',
+			common: {
+				name: 'Trigger complete scan',
+				type: 'boolean',
+				role: 'button',
+				read: true,
+				write: true,
+				def: false,
+			},
+			native: {},
+		});
+		await this.setObjectNotExistsAsync(`${channelId}.result`, {
+			type: 'state',
+			common: {
+				name: 'Complete scan result (JSON table)',
+				type: 'string',
+				role: 'json',
+				read: true,
+				write: false,
+				def: '[]',
+			},
+			native: {},
+		});
+		await this.setObjectNotExistsAsync(`${channelId}.lastScan`, {
+			type: 'state',
+			common: {
+				name: 'Last complete scan timestamp',
+				type: 'number',
+				role: 'value.time',
+				read: true,
+				write: false,
+				def: 0,
+			},
+			native: {},
+		});
+		await this.setObjectNotExistsAsync(`${channelId}.count`, {
+			type: 'state',
+			common: {
+				name: 'Total datapoints found (complete)',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: false,
+				def: 0,
+			},
+			native: {},
+		});
+		await this.setObjectNotExistsAsync(`${channelId}.deadCount`, {
+			type: 'state',
+			common: {
+				name: 'Dead datapoints (complete)',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: false,
+				def: 0,
+			},
+			native: {},
+		});
+		await this.setObjectNotExistsAsync(`${channelId}.staleCount`, {
+			type: 'state',
+			common: {
+				name: 'Stale datapoints (complete)',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: false,
+				def: 0,
+			},
+			native: {},
+		});
+		await this.setObjectNotExistsAsync(`${channelId}.orphanedCount`, {
+			type: 'state',
+			common: {
+				name: 'Orphaned aliases (complete)',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: false,
+				def: 0,
+			},
+			native: {},
+		});
+	}
+
+	/**
+	 * Scan the entire object tree for datapoints
+	 */
+	async scanComplete() {
+		const startTime = Date.now();
+		const channelId = 'complete';
+		this.log.info('Scanning entire object tree (complete scan) ...');
+		try {
+			const results = [];
+			// Get all states in the system
+			const objects = await this.getForeignObjectsAsync('*', 'state');
+			this.log.debug(`Found ${Object.keys(objects).length} objects in complete scan`);
+			for (const [id, obj] of Object.entries(objects)) {
+				if (!obj || obj.type !== 'state') continue;
+				const state = await this.getForeignStateAsync(id);
+				// Use a dummy pathConfig for analyzeDatapoint
+				const analysis = await this.analyzeDatapoint(id, obj, state, {});
+				if (analysis) results.push(analysis);
+			}
+			// Sort results by timestamp (oldest first)
+			results.sort((a, b) => {
+				if (a.last_ts === null) return -1;
+				if (b.last_ts === null) return 1;
+				return a.last_ts - b.last_ts;
+			});
+			// Count issues
+			const counts = {
+				total: results.length,
+				dead: results.filter(r => r.issue === 'dead').length,
+				stale: results.filter(r => r.issue === 'stale').length,
+				orphaned: results.filter(r => r.issue === 'orphaned_alias').length,
+			};
+			// Store results
+			await this.setStateAsync(`${channelId}.result`, JSON.stringify(results), true);
+			await this.setStateAsync(`${channelId}.lastScan`, Date.now(), true);
+			await this.setStateAsync(`${channelId}.count`, counts.total, true);
+			await this.setStateAsync(`${channelId}.deadCount`, counts.dead, true);
+			await this.setStateAsync(`${channelId}.staleCount`, counts.stale, true);
+			await this.setStateAsync(`${channelId}.orphanedCount`, counts.orphaned, true);
+			const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+			this.log.info(`Complete scan finished: ${counts.total} datapoints (${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned) in ${duration}s`);
+		} catch (error) {
+			this.log.error(`Error during complete scan: ${error.message}`);
 		}
 	}
 
@@ -228,6 +384,11 @@ class Tidy extends utils.Adapter {
 			if (pathConfig && pathConfig.enabled) {
 				await this.scanPath(pathConfig);
 			}
+
+            // Complete scan trigger
+            if (this.config.scanAllObjects && channelId === 'complete') {
+                await this.scanComplete();
+            }
 
 			// Reset trigger
 			await this.setStateAsync(id, false, true);
