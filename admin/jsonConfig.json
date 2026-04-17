@@ -11,7 +11,11 @@
 					"type": "header",
 					"text": "Automatic Scanning",
 					"size": 3,
-					"xs": 12					
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12					
 				},
 				"autoScan": {
 					"type": "checkbox",
@@ -45,7 +49,12 @@
 					"type": "header",
 					"text": "Detection Thresholds",
 					"size": 3,
-					"newLine": true
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"daysUntilStale": {
 					"type": "number",
@@ -83,7 +92,12 @@
 				"_headerPaths": {
 					"type": "header",
 					"text": "Path Configuration",
-					"size": 3
+					"size": 3,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"_pathsInfo": {
 					"type": "staticText",
@@ -102,6 +116,11 @@
 					"type": "table",
 					"newLine": true,
 					"label": "Paths to scan",
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
 					"items": [
 						{
 							"type": "checkbox",
@@ -144,7 +163,12 @@
 				"_headerFields": {
 					"type": "header",
 					"text": "JSON Table Field Description",
-					"size": 3
+					"size": 3,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"_fieldInfo": {
 					"type": "staticText",
@@ -164,6 +188,11 @@
 					"newLine": true,
 					"noDelete": true,
 					"compact": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
 					"items": [
 						{
 							"type": "text",
@@ -198,7 +227,12 @@
 					"type": "header",
 					"text": "Usage in VIS Widgets",
 					"size": 3,
-					"newLine": true
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
 				},
 				"_usageInfo": {
 					"type": "staticText",
