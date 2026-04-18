@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "news": {
+      "0.1.1": {
+        "en": "Changed name of result field to optional\nRevised config",
+        "de": "Änderung des Namens des Ergebnisfelds auf optional\nÜberarbeitetes Einverständnis",
+        "ru": "Изменить название поля результатов на факультативное\nПересмотренная конфигурация",
+        "pt": "Mudar o nome do campo de resultado para opcional\nConfiguração revista",
+        "nl": "Veranderde naam van het resultaatveld naar optioneel\nHerziene configuratie",
+        "fr": "Nom modifié du champ résultat en option\nConfiguration révisée",
+        "it": "Cambiato nome del campo di risultato a facoltativo\nConfigurazione modificata",
+        "es": "Nombre cambiado del campo de resultados a opcional\nConfiguración revisada",
+        "pl": "Zmieniona nazwa pola wyniku na opcjonalny\nZmieniony plik konfiguracyjny",
+        "uk": "Змінене ім'я поля результату для додаткового\nПереглянуто налаштування",
+        "zh-cn": "将结果字段的名称改为可选\n订正配置"
+      },
       "0.1.0": {
         "en": "Added option for complete scan",
         "de": "Option für den kompletten Scan hinzugefügt",

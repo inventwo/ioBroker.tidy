@@ -144,7 +144,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.1 (2026-04-18)
 - (skvarel) Changed name of result field to optional
 - (skvarel) Revised config
 
