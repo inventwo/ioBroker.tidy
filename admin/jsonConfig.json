@@ -146,16 +146,18 @@
 						{
 							"type": "text",
 							"attr": "path",
-							"title": "Path (e.g. 0_userdata.0 or alias.0)",
+							"title": "Path (e.g. 0_userdata.0 or alias.0 - The instance number is optional.)",
 							"width": "40%",
-							"placeholder": "0_userdata.0"
+							"placeholder": "0_userdata.0",
+							"tooltip": "Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional."
 						},
 						{
 							"type": "text",
 							"attr": "name",
-							"title": "Name (for result state)",
+							"title": "Name (for result state, optional)",
 							"width": "30%",
-							"placeholder": "userdata"
+							"placeholder": "Optional. If empty, the path will be used as name.",
+							"tooltip": "Optional. If empty, the path will be used as name."
 						},
 						{
 							"type": "checkbox",

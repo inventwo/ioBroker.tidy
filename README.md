@@ -144,6 +144,10 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Changed name of result field to optional
+- (skvarel) Revised config
+
 ### 0.1.0 (2026-04-17)
 - (skvarel) Added option for complete scan
 

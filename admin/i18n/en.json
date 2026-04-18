@@ -1,4 +1,6 @@
 {
+	"Name (for result state, optional)": "Name (for result state, optional)",
+	"Optional. If empty, the path will be used as name.": "Optional. If empty, the path will be used as name.",
 	"Automatic Scanning": "Automatic Scanning",
 	"Check alias targets": "Check alias targets",
 	"Configure which paths to scan for unused datapoints. Each path will get its own result state with a JSON table.": "Configure which paths to scan for unused datapoints. Each path will get its own result state with a JSON table.",
@@ -12,6 +14,7 @@
 	"Scan all objects (complete)": "Scan all objects (complete)",
 	"If enabled, the adapter will scan the entire object tree and store the result in a separate 'complete' result channel.": "If enabled, the adapter will scan the entire object tree and store the result in a separate 'complete' result channel.",
 	"Enabled": "Enabled",
+	"Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional.": "Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional.",
 	"For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.": "For German tables: Use status_de and issue_de columns\nFor English tables: Use status and issue columns\n\nFilter by 'issue != null' to show only problematic datapoints.",
 	"For alias.* paths: Check if target datapoints exist (ghost detection)": "For alias.* paths: Check if target datapoints exist (ghost detection)",
 	"General Settings": "General Settings",
@@ -19,7 +22,7 @@
 	"How often the automatic scan should run (minimum 1 hour)": "How often the automatic scan should run (minimum 1 hour)",
 	"JSON Table Field Description": "JSON Table Field Description",
 	"Name (for result state)": "Name (for result state)",
-	"Path (e.g. 0_userdata.0 or alias.0)": "Path (e.g. 0_userdata.0 or alias.0)",
+	"Path (e.g. 0_userdata.0 or alias.0 - The instance number is optional.)": "Path (e.g. 0_userdata.0 or alias.0 - The instance number is optional.)",
 	"Path Configuration": "Path Configuration",
 	"Paths to scan": "Paths to scan",
 	"Scan interval (hours)": "Scan interval (hours)",
@@ -31,5 +34,4 @@
 	"Purpose": "Purpose",
 	"Field": "Schlüssel",
 	"Description": "Description"
-	
 }

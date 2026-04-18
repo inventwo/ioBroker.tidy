@@ -247,11 +247,13 @@ class Tidy extends utils.Adapter {
 	 */
 	async createPathObjects() {
 		for (const pathConfig of this.config.paths) {
-			if (!pathConfig.enabled || !pathConfig.name) {
+			if (!pathConfig.enabled || !(pathConfig.name || pathConfig.path)) {
 				continue;
 			}
 
-			const channelId = this.sanitizeName(pathConfig.name);
+			// Fallback: use path if name is empty
+			const effectiveName = pathConfig.name && pathConfig.name.trim() ? pathConfig.name : pathConfig.path;
+			const channelId = this.sanitizeName(effectiveName);
 
 			// Create channel
 			await this.setObjectNotExistsAsync(channelId, {
@@ -389,7 +391,10 @@ class Tidy extends utils.Adapter {
 
 			// Find the corresponding path config
 			const channelId = id.replace(`${this.namespace}.`, '').replace('.trigger', '');
-			const pathConfig = this.config.paths.find(p => this.sanitizeName(p.name) === channelId);
+			// Fallback: match also if name is empty and path is used
+			const pathConfig = this.config.paths.find(
+				p => this.sanitizeName(p.name && p.name.trim() ? p.name : p.path) === channelId,
+			);
 
 			if (pathConfig && pathConfig.enabled) {
 				await this.scanPath(pathConfig);
