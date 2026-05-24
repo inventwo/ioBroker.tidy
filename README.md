@@ -1,11 +1,15 @@
 ![Logo](admin/tidy.svg)
 
-## tidy adapter for ioBroker
+# ioBroker.tidy
 
 ![Number of Installations](https://iobroker.live/badges/tidy-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/tidy-stable.svg)
 [![NPM Version](https://nodei.co/npm/iobroker.tidy.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.tidy)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tidy.svg)](https://www.npmjs.com/package/iobroker.tidy)
+
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/topic/84331/tidy-adapter-alpha)
+[![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
+[![AI](https://img.shields.io/badge/ai%20assisted-copilot-blue.svg)](https://github.com/inventwo/ioBroker.foxesscloud/blob/main/.github/copilot-instructions.md)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
@@ -144,6 +148,9 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed repo checker issue
+
 ### 0.1.1 (2026-04-18)
 - (skvarel) Changed name of result field to optional
 - (skvarel) Revised config
