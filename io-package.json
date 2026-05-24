@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "news": {
+      "0.1.3": {
+        "en": "Fixed repo checker issue",
+        "de": "Problem der Repo Checker behoben",
+        "ru": "Фиксированная проблема проверки репо",
+        "pt": "Problema fixo do verificador de repo",
+        "nl": "Probleem met vaste repochecker",
+        "fr": "Correction du problème de repo checker",
+        "it": "Rischio di errore",
+        "es": "Número de comprobación de reposo fijo",
+        "pl": "Stałe wydanie kontrolera repo",
+        "uk": "Виправлено проблему перевірки репо",
+        "zh-cn": "固定回购检查器问题"
+      },
       "0.1.1": {
         "en": "Changed name of result field to optional\nRevised config",
         "de": "Änderung des Namens des Ergebnisfelds auf optional\nÜberarbeitetes Einverständnis",
