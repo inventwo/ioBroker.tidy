@@ -37,19 +37,11 @@ This file contains instructions and best practices for GitHub Copilot when worki
 
 You are working on an ioBroker adapter. ioBroker is an integration platform for the Internet of Things, focused on building smart home and industrial IoT solutions. Adapters are plugins that connect ioBroker to external systems, devices, or services.
 
-This adapter connects ioBroker to the [Life360](https://www.life360.com) cloud service for family location tracking and geo-presence detection. It is a community fork of the original `ioBroker.life360` adapter, renamed to `life360ng` (next generation).
 
 **Key characteristics:**
-- Token-based authentication only (no password/phone login — Life360 disabled this for EU users)
-- Polls the Life360 REST API at a configurable interval using Node.js native `https`
-- Supports Life360 circles, members, places and geo-presence detection
-- Supports custom private places (not visible to Life360 cloud) defined in the adapter config
-- Optionally forwards location data to the ioBroker `places` adapter
 - Uses `jsonConfig` for the admin UI (no compiled React frontend)
 - Written in plain JavaScript (no TypeScript compilation step)
-- EU users require bearer token obtained manually from browser DevTools
-- Connection type: cloud / poll
-- Main files: `main.js` (adapter), `lib/life360CloudConnector.js` (API), `lib/life360DbConnector.js` (state management), `lib/iobHelpers.js` (utilities)
+- Main files: `main.js` (adapter)
 
 ---
 
