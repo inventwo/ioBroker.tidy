@@ -1,6 +1,6 @@
 ![Logo](admin/tidy.svg)
 
-# ioBroker.tidy
+# ioBroker adapter for discovering unused states
 
 ![Number of Installations](https://iobroker.live/badges/tidy-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/tidy-stable.svg)
@@ -150,6 +150,9 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Revised titel and desciption
+
 ### 0.1.3 (2026-05-24)
 - (skvarel) Fixed repo checker issue
 

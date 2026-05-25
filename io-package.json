@@ -70,17 +70,17 @@
       "zh-cn": "Tidy"
     },
     "desc": {
-      "en": "Helps to find unused objects and states to clean up your system.",
-      "de": "Hilft dabei, ungenutzte Objekte und Zustände zu finden, um dein System aufzuräumen.",
-      "ru": "Помогает находить неиспользуемые объекты и состояния для очистки системы.",
-      "pt": "Ajuda você a encontrar objetos e estados não utilizados para limpar seu sistema.",
-      "nl": "Helpt je ongebruikte objecten en statussen te vinden om je systeem op te schonen.",
-      "fr": "Vous aide à trouver les objets et états inutilisés afin de nettoyer votre système.",
-      "it": "Ti aiuta a trovare oggetti e stati inutilizzati per ripulire il sistema.",
-      "es": "Te ayuda a encontrar objetos y estados no utilizados para limpiar tu sistema.",
-      "pl": "Pomaga znaleźć nieużywane obiekty i stany, dzięki czemu możesz oczyścić system.",
-      "uk": "Допомагає знайти невикористовувані об'єкти та стани для очищення системи.",
-      "zh-cn": "帮助您查找未使用的对象和状态，以清理您的系统。"
+      "en": "Tidy helps to find unused states to clean up your system.",
+      "de": "Tidy hilft dabei, ungenutzte Zustände zu finden, um dein System aufzuräumen.",
+      "ru": "Tidy помогает находить неиспользуемые состояния для очистки системы.",
+      "pt": "Tidy ajuda você a encontrar estados não utilizados para limpar seu sistema.",
+      "nl": "Tidy helpt je ongebruikte statussen te vinden om je systeem op te schonen.",
+      "fr": "Tidy vous aide à trouver les états inutilisés afin de nettoyer votre système.",
+      "it": "Tidy ti aiuta a trovare stati inutilizzati per ripulire il sistema.",
+      "es": "Tidy te ayuda a encontrar estados no utilizados para limpiar tu sistema.",
+      "pl": "Tidy pomaga znaleźć nieużywane stany, dzięki czemu możesz oczyścić system.",
+      "uk": "Tidy допомагає знайти невикористовувані стани для очищення системи.",
+      "zh-cn": "Tidy 帮助您查找未使用的状态，以清理您的系统。"
     },
     "authors": [
       "skvarel <skvarel@inventwo.com>"
