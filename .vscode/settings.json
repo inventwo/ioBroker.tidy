@@ -1,5 +1,11 @@
 {
 	"eslint.enable": true,
+	"npm.enableScriptExplorer": true,
+	"npm.autoDetect": "on",
+	"npm.scriptExplorerAction": "run",
+	"npm.exclude": "",
+	"task.quickOpen.detail": true,
+	"task.quickOpen.skip": false,
 	"json.schemas": [
 		{
 			"fileMatch": [

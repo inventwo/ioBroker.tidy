@@ -1,0 +1,84 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Release: patch",
+			"type": "npm",
+			"script": "release-patch",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Release: minor",
+			"type": "npm",
+			"script": "release-minor",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Release: major",
+			"type": "npm",
+			"script": "release-major",
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Test (all)",
+			"type": "npm",
+			"script": "test",
+			"group": "test",
+			"problemMatcher": []
+		},
+		{
+			"label": "Test: package",
+			"type": "npm",
+			"script": "test:package",
+			"group": "test",
+			"problemMatcher": []
+		},
+		{
+			"label": "Test: js",
+			"type": "npm",
+			"script": "test:js",
+			"group": "test",
+			"problemMatcher": []
+		},
+		{
+			"label": "Test: integration",
+			"type": "npm",
+			"script": "test:integration",
+			"group": "test",
+			"problemMatcher": []
+		},
+		{
+			"label": "Lint",
+			"type": "npm",
+			"script": "lint",
+			"problemMatcher": []
+		},
+		{
+			"label": "Lint: fix",
+			"type": "npm",
+			"script": "lint-fix",
+			"problemMatcher": []
+		},
+		{
+			"label": "Translate",
+			"type": "npm",
+			"script": "translate",
+			"problemMatcher": []
+		},
+		{
+			"label": "Dev-server: start",
+			"type": "npm",
+			"script": "dev-server:start",
+			"problemMatcher": []
+		},
+		{
+			"label": "Dev-server: stop",
+			"type": "npm",
+			"script": "dev-server:stop",
+			"problemMatcher": []
+		}
+	]
+}
