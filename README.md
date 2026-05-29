@@ -150,7 +150,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.5 (2026-05-29)
 - (skvarel) Updated dependencies
 - (skvarel) Fixed repo checker issue
 
@@ -166,9 +166,6 @@ If you like our work and would like to support us, we appreciate any donation.
 
 ### 0.1.0 (2026-04-17)
 - (skvarel) Added option for complete scan
-
-### 0.0.1 (2026-04-14)
-- (skvarel) initial release
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

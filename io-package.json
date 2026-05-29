@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "news": {
+      "0.1.5": {
+        "en": "Updated dependencies\nFixed repo checker issue",
+        "de": "Aktualisierte Abhängigkeiten\nProblem der Repo Checker behoben",
+        "ru": "Обновленные зависимости\nФиксированная проблема проверки репо",
+        "pt": "Dependências atualizadas\nProblema fixo do verificador de repo",
+        "nl": "Bijgewerkte afhankelijkheden\nProbleem met vaste repochecker",
+        "fr": "Dépendances actualisées\nCorrection du problème de repo checker",
+        "it": "Dipendenze aggiornate\nRischio di errore",
+        "es": "Dependencias actualizadas\nNúmero de comprobación de reposo fijo",
+        "pl": "Aktualizacja zależności\nStałe wydanie kontrolera repo",
+        "uk": "Оновлені залежності\nВиправлено проблему перевірки репо",
+        "zh-cn": "更新的依赖关系\n固定回购检查器问题"
+      },
       "0.1.4": {
         "en": "Revised titel and desciption",
         "de": "Überarbeiteter Titel und Abschied",
