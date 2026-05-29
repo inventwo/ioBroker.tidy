@@ -148,7 +148,7 @@
 							"attr": "path",
 							"title": "Path (e.g. 0_userdata.0 or alias.0 - The instance number is optional.)",
 							"width": "40%",
-							"placeholder": "0_userdata.0",
+							"placeholder": "Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional.",
 							"tooltip": "Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional."
 						},
 						{
