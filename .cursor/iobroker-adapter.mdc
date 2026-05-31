@@ -31,3 +31,14 @@ CI runs `lint: true` only — `type-checking` is not enabled unless the workflow
 
 - Prefer minimal, focused diffs; match existing patterns in `main.js` and `admin/`
 - Do not add unrelated refactors or enable `type-checking` in CI without explicit request
+
+## Changelog & README (mandatory for every change)
+
+For **every code or config change**, update `README.md` before finishing:
+
+1. Add a user-facing entry under `### **WORK IN PROGRESS**` in the Changelog section
+2. Format: `- (skvarel) Plain description of change` — no bold prefixes (`**FIXED**`, `**NEW**`, etc.)
+3. If the change affects users (new option, behavior, data points), also update the relevant README sections (Features, Configuration, Data Points, Usage)
+4. On release, `npm run release-*` moves WIP entries into the version block and older entries into `CHANGELOG_OLD.md` — do not edit `CHANGELOG_OLD.md` manually
+
+See `.github/copilot-instructions.md` → Documentation → Changelog Management for full rules.

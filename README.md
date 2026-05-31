@@ -9,7 +9,7 @@
 
 [![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/topic/84331/tidy-adapter-alpha)
 [![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
-[![AI](https://img.shields.io/badge/ai%20assisted-cursor-blue.svg)](https://github.com/inventwo/ioBroker.tidy/blob/main/.cursor/rules/iobroker-adapter.mdc)
+[![AI](https://img.shields.io/badge/ai%20assisted-cursor-blue.svg)](https://github.com/inventwo/ioBroker.tidy/blob/main/.cursor/iobroker-adapter.mdc)
 
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
@@ -31,6 +31,8 @@ The **Tidy** adapter helps to find unused objects and states to clean up your sy
   - Configurable age thresholds for "stale" and "dead" detection
   - Optional automatic scanning at configurable intervals (hourly)
   - Enable/disable individual scan paths
+  - Optional complete scan of the entire object tree
+- **🌐 Complete scan**: Scan all states in the system (not limited to configured paths) via a separate result channel
 - **🎯 Manual triggers**: Each configured path gets a trigger button to run scans on demand
 - **📋 JSON table output**: Results are provided as JSON arrays, perfect for table widgets in VIS
 - **📈 Statistics**: Automatic counters for total, dead, stale, and orphaned datapoints
@@ -40,6 +42,7 @@ The **Tidy** adapter helps to find unused objects and states to clean up your sy
 ### General Settings
 
 - **Enable automatic scans**: When enabled, all configured paths are scanned automatically
+- **Scan all objects (complete)**: When enabled, the adapter scans the entire object tree and stores results in a separate `complete` channel (see below)
 - **Scan interval**: How often automatic scans should run (in hours, minimum 1)
 - **Days until 'stale'**: Datapoints not updated for this many days are marked as stale (warning)
 - **Days until 'dead'**: Datapoints not updated for this many days are marked as dead (critical)
@@ -64,6 +67,18 @@ For each configured path (e.g., "userdata"), the adapter creates:
 - **`tidy.0.userdata.deadCount`** (number): Number of dead datapoints
 - **`tidy.0.userdata.staleCount`** (number): Number of stale datapoints
 - **`tidy.0.userdata.orphanedCount`** (number): Number of orphaned aliases
+
+When **Scan all objects (complete)** is enabled in the general settings, the adapter additionally creates:
+
+- **`tidy.0.complete.trigger`** (button): Click to manually start a complete scan
+- **`tidy.0.complete.result`** (json): Scan results for all states in the system
+- **`tidy.0.complete.lastScan`** (timestamp): When the last complete scan was performed
+- **`tidy.0.complete.count`** (number): Total datapoints found
+- **`tidy.0.complete.deadCount`** (number): Number of dead datapoints
+- **`tidy.0.complete.staleCount`** (number): Number of stale datapoints
+- **`tidy.0.complete.orphanedCount`** (number): Number of orphaned aliases
+
+The complete scan uses the same JSON result structure as path-based scans. Automatic scans include the complete scan when this option is enabled.
 
 ### JSON Result Structure
 
@@ -132,6 +147,15 @@ Use the JSON result with a table widget to display and sort your datapoints:
 4. Sort by `last_ts` (oldest first) to find the "deadest" datapoints
 5. Filter by `issue != null` to show only problematic datapoints
 
+### Complete Scan
+
+1. Enable **Scan all objects (complete)** in the general settings
+2. Save configuration — the adapter performs an initial complete scan
+3. View results in `tidy.0.complete.result`
+4. Use `tidy.0.complete.trigger` for manual rescans at any time
+
+Use the complete scan to get an overview of all states in your instance. For targeted cleanup, path-based scans (e.g. `0_userdata.0`, `alias.0`) are usually more practical.
+
 ### Automatic Maintenance
 
 1. Enable "automatic scans" in settings
@@ -150,6 +174,14 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed scan when path name is left empty (result states now use path as fallback)
+- (skvarel) Added default for scan-all-objects option in adapter configuration
+- (skvarel) Fixed incorrect link to Cursor project rules in README
+- (skvarel) Unified issue tracker URL to inventwo repository
+- (skvarel) Fixed type-check script for local development
+- (skvarel) Documented complete scan feature in README
+
 ### 0.1.5 (2026-05-29)
 - (skvarel) Updated dependencies
 - (skvarel) Fixed repo checker issue

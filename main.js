@@ -251,9 +251,7 @@ class Tidy extends utils.Adapter {
 				continue;
 			}
 
-			// Fallback: use path if name is empty
-			const effectiveName = pathConfig.name && pathConfig.name.trim() ? pathConfig.name : pathConfig.path;
-			const channelId = this.sanitizeName(effectiveName);
+			const channelId = this.getChannelId(pathConfig);
 
 			// Create channel
 			await this.setObjectNotExistsAsync(channelId, {
@@ -392,9 +390,7 @@ class Tidy extends utils.Adapter {
 			// Find the corresponding path config
 			const channelId = id.replace(`${this.namespace}.`, '').replace('.trigger', '');
 			// Fallback: match also if name is empty and path is used
-			const pathConfig = this.config.paths.find(
-				p => this.sanitizeName(p.name && p.name.trim() ? p.name : p.path) === channelId,
-			);
+			const pathConfig = this.config.paths.find(p => this.getChannelId(p) === channelId);
 
 			if (pathConfig && pathConfig.enabled) {
 				await this.scanPath(pathConfig);
@@ -415,7 +411,7 @@ class Tidy extends utils.Adapter {
 	 */
 	async scanAllPaths() {
 		for (const pathConfig of this.config.paths) {
-			if (pathConfig.enabled) {
+			if (pathConfig.enabled && (pathConfig.name || pathConfig.path)) {
 				await this.scanPath(pathConfig);
 			}
 		}
@@ -431,7 +427,7 @@ class Tidy extends utils.Adapter {
 		this.log.info(`Scanning path: ${pathConfig.path}`);
 
 		try {
-			const channelId = this.sanitizeName(pathConfig.name);
+			const channelId = this.getChannelId(pathConfig);
 			const results = [];
 
 			// Get all objects under the specified path
@@ -573,6 +569,17 @@ class Tidy extends utils.Adapter {
 		}
 
 		return result;
+	}
+
+	/**
+	 * Resolve channel ID from path config (name with fallback to path)
+	 *
+	 * @param {object} pathConfig - Path configuration object
+	 * @returns {string} Sanitized channel ID
+	 */
+	getChannelId(pathConfig) {
+		const effectiveName = pathConfig.name && pathConfig.name.trim() ? pathConfig.name : pathConfig.path;
+		return this.sanitizeName(effectiveName);
 	}
 
 	/**

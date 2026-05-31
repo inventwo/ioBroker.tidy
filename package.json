@@ -49,7 +49,6 @@
     "admin{,/!(src)/**}/!(tsconfig|tsconfig.*|.eslintrc).{json,json5}",
     "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
     "lib/",
-    "www/",
     "io-package.json",
     "LICENSE",
     "main.js"
@@ -70,7 +69,7 @@
     "dev-server:stop": "powershell -NonInteractive -Command \"Get-NetTCPConnection -LocalPort 8091,26436,24436,20436 -EA SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -EA SilentlyContinue }; Write-Host 'dev-server stopped'\""
   },
   "bugs": {
-    "url": "https://github.com/skvarel/ioBroker.tidy/issues"
+    "url": "https://github.com/inventwo/ioBroker.tidy/issues"
   },
   "readmeFilename": "README.md"
 }

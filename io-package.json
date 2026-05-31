@@ -148,6 +148,7 @@
   },
   "native": {
     "autoScan": false,
+    "scanAllObjects": false,
     "scanInterval": 24,
     "daysUntilStale": 90,
     "daysUntilDead": 365,
