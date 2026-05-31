@@ -1,0 +1,56 @@
+---
+description: ioBroker.tidy scan engine and state patterns
+globs: main.js
+alwaysApply: false
+---
+
+# Tidy Adapter Patterns
+
+## Channel IDs
+
+Always use `getChannelId(pathConfig)` — falls back to `path` when `name` is empty:
+
+```javascript
+getChannelId(pathConfig) {
+  const effectiveName = pathConfig.name && pathConfig.name.trim() ? pathConfig.name : pathConfig.path;
+  return this.sanitizeName(effectiveName);
+}
+```
+
+Use in `createPathObjects`, `scanPath`, and trigger matching in `onStateChange`.
+
+## Scan architecture
+
+- **scanAllPaths()** — enabled paths with `name` or `path`
+- **scanPath(pathConfig)** — single path via `getForeignObjectsAsync(pattern, 'state')`
+- **scanComplete()** — all states when `scanAllObjects` is enabled; channel `complete`
+
+Log scan duration; wrap each scan in try/catch so one failure does not block others.
+
+## Result JSON (VIS table compatibility)
+
+Each entry must include: `id`, `name`, `last_ts`, `last_ts_iso`, `value`, `status`, `status_de`, `issue`, `issue_de`, `size`.
+
+- Sort by `last_ts` ascending; `null` first (never written)
+- Use `state.ts` for age detection (not `lc`)
+- Result state role: `json`
+
+## Classification
+
+- **dead**: age > `daysUntilDead` (default 365) or no timestamp
+- **stale**: age > `daysUntilStale` (default 90)
+- **orphaned**: alias target missing when `checkAliasTargets` enabled on `alias.*` paths
+
+## Object structure per channel
+
+`trigger` (button), `result` (json), `lastScan`, `count`, `deadCount`, `staleCount`, `orphanedCount`.
+
+## Triggers
+
+Subscribe to `*.trigger` in `onReady`. On press: run scan, then reset trigger to `false`.
+
+## Pitfalls
+
+- Do not hardcode paths — use config
+- Clear `scanInterval` in `onUnload`
+- Do not block event loop on large scans (consider batch state loading for future optimization)

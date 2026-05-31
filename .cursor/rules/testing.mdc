@@ -1,0 +1,37 @@
+---
+description: Testing with @iobroker/testing
+globs: test/**,*.test.js
+alwaysApply: false
+---
+
+# Testing
+
+Use **only** `@iobroker/testing` — official framework: https://github.com/ioBroker/testing
+
+## Scripts
+
+- `npm run test` — unit + package validation (CI default)
+- `npm run test:package` — validates package.json, io-package.json, admin JSON
+- `npm run test:integration` — local integration tests via dev-server
+
+## Files
+
+```javascript
+// test/package.js
+tests.packageFiles(path.join(__dirname, '..'));
+
+// test/integration.js
+tests.integration(path.join(__dirname, '..'));
+```
+
+## Integration test rules
+
+- Configure via `harness.objects.setObject()` / `changeAdapterConfig()`
+- Start via `harness.startAdapterAndWait()`
+- Verify via `harness.states.getState()` / `getStateIDs()`
+- Test failure scenarios alongside success paths
+- Never bypass the harness or test API URLs directly
+
+## CI order
+
+Lint first (`check-and-lint`), then `adapter-tests` — integration tests need both.

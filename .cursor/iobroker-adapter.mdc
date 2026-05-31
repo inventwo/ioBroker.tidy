@@ -1,44 +1,43 @@
 ---
-description: ioBroker.tidy adapter conventions (see copilot-instructions)
+description: ioBroker.tidy — project context, git, changelog (always apply)
 alwaysApply: true
 ---
 
 # ioBroker.tidy
 
-Follow project conventions in `.github/copilot-instructions.md` for adapter work (code style, ESLint, tests, admin UI, CI/CD, releases).
+Housekeeping adapter: find unused, outdated, or orphaned ioBroker states for cleanup.
 
-## Project
+## Stack
 
-- **Tidy** adapter: find unused ioBroker states/objects for cleanup
 - Plain **JavaScript** in `main.js` — no TypeScript build step
+- Type hints via JSDoc + `lib/adapter-config.d.ts`; local check: `npm run check`
 - Admin UI via **jsonConfig** (`admin/jsonConfig.json`), not a compiled React frontend
+- Connection: local daemon; main logic in `main.js`
 
 ## Git (mandatory)
 
-- **Never** run `git commit`, `git push`, or create releases unless the user explicitly asks
-- The user commits and pushes themselves; larger releases use `npm run release-*` (release-script)
-
-## Before the user commits (optional local checks)
-
-Same as CI job `check-and-lint`:
-
-- `npm run lint`
-- `npm run test:package`
-
-CI runs `lint: true` only — `type-checking` is not enabled unless the workflow is changed.
-
-## Scope
-
-- Prefer minimal, focused diffs; match existing patterns in `main.js` and `admin/`
-- Do not add unrelated refactors or enable `type-checking` in CI without explicit request
+- **Never** run `git commit`, `git push`, or releases unless the user explicitly asks
+- User commits and pushes; releases via `npm run release-*` (AlCalzone release-script)
 
 ## Changelog & README (mandatory for every change)
 
 For **every code or config change**, update `README.md` before finishing:
 
-1. Add a user-facing entry under `### **WORK IN PROGRESS**` in the Changelog section
-2. Format: `- (skvarel) Plain description of change` — no bold prefixes (`**FIXED**`, `**NEW**`, etc.)
-3. If the change affects users (new option, behavior, data points), also update the relevant README sections (Features, Configuration, Data Points, Usage)
-4. On release, `npm run release-*` moves WIP entries into the version block and older entries into `CHANGELOG_OLD.md` — do not edit `CHANGELOG_OLD.md` manually
+1. Add a user-facing entry under `### **WORK IN PROGRESS**`
+2. Format: `- (skvarel) Plain description` — no bold prefixes (`**FIXED**`, `**NEW**`, etc.; breaks news translation)
+3. Update README sections (Features, Configuration, Data Points, Usage) when behavior or options change
+4. Do **not** edit `CHANGELOG_OLD.md` manually — release-script moves older entries there
 
-See `.github/copilot-instructions.md` → Documentation → Changelog Management for full rules.
+## Scope
+
+- Minimal, focused diffs; match patterns in `main.js` and `admin/`
+- Do not enable `type-checking` in CI without explicit request
+
+## Local checks (optional, matches CI)
+
+- `npm run lint`
+- `npm run test:package`
+
+## Further rules
+
+Detailed conventions live in `.cursor/rules/` (code, admin UI, testing, docs/CI).

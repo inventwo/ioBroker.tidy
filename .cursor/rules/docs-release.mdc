@@ -1,0 +1,45 @@
+---
+description: README, changelog, and release workflow
+globs: README.md,io-package.json,CHANGELOG_OLD.md
+alwaysApply: false
+---
+
+# Documentation & Releases
+
+## README sections
+
+Installation, Configuration, Usage, Changelog, License, Support. Keep user-facing; reference issues as `fixes #XX`.
+
+## Changelog format
+
+```markdown
+<!--
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
+- (skvarel) Plain user-facing description
+
+### 0.1.5 (2026-05-29)
+- (skvarel) Released change
+```
+
+## Workflow
+
+- **During development:** all entries under `### **WORK IN PROGRESS**`
+- **Release:** `npm run release-patch|minor|major` — script sets version, moves WIP to version block, older entries to `CHANGELOG_OLD.md`
+- **Never** edit `CHANGELOG_OLD.md` manually
+- **Never** use bold type tags in changelog lines (breaks io-package news translation)
+
+## io-package.json
+
+- Keep `common.version` in sync with `package.json`
+- Add multilingual `common.news` entries on release (release-script handles this)
+- New config options: add to `native` with defaults
+
+## CI/CD
+
+- `ioBroker/testing-action-check@v1` — lint + package check (lint-first)
+- `ioBroker/testing-action-adapter@v1` — adapter tests (Node 22.x, 24.x; ubuntu, windows, macos)
+- `ioBroker/testing-action-deploy@v1` — npm deploy on version tags
