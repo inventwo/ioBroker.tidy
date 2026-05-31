@@ -174,7 +174,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.6 (2026-05-31)
 - (skvarel) Fixed scan when path name is left empty (result states now use path as fallback)
 - (skvarel) Added default for scan-all-objects option in adapter configuration
 - (skvarel) Fixed incorrect link to Cursor project rules in README
@@ -195,9 +195,6 @@ If you like our work and would like to support us, we appreciate any donation.
 ### 0.1.1 (2026-04-18)
 - (skvarel) Changed name of result field to optional
 - (skvarel) Revised config
-
-### 0.1.0 (2026-04-17)
-- (skvarel) Added option for complete scan
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
