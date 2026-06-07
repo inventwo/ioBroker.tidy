@@ -174,10 +174,10 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.7 (2026-06-07)
 - (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
 - (skvarel) Fixed adapter checker warning for automatic scan interval
-  
+
 ### 0.1.6 (2026-05-31)
 - (skvarel) Fixed scan when path name is left empty (result states now use path as fallback)
 - (skvarel) Added default for scan-all-objects option in adapter configuration
@@ -195,10 +195,6 @@ If you like our work and would like to support us, we appreciate any donation.
 
 ### 0.1.3 (2026-05-24)
 - (skvarel) Fixed repo checker issue
-
-### 0.1.1 (2026-04-18)
-- (skvarel) Changed name of result field to optional
-- (skvarel) Revised config
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

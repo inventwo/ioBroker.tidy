@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "news": {
+      "0.1.7": {
+        "en": "Migrated project rules from GitHub Copilot to Cursor rules\nFixed adapter checker warning for automatic scan interval",
+        "de": "Geförderte Projektregeln von GitHub Copilot zu Cursor-Regeln\nFeste Adapter-Checker-Warnung für automatisches Scanintervall",
+        "ru": "Миграционные правила проекта от GitHub Copilot до Cursor\nПредупреждение о проверке адаптера для автоматического интервала сканирования",
+        "pt": "Regras de projeto modificadas do Copiloto GitHub para as regras do Cursor\nAviso de verificação fixa do adaptador para intervalo de varredura automática",
+        "nl": "Migrated project regels van GitHub Copilot naar Cursor regels\nWaarschuwing voor vaste adaptercontrole voor automatisch scaninterval",
+        "fr": "Règles de projet modifiées du copilote GitHub aux règles Cursor\nAvertissement de vérification de l'adaptateur fixe pour l'intervalle de balayage automatique",
+        "it": "Regole di progetto migrate da GitHub Copilot a regole Cursor\nAvvertenza a scacchi per adattatore fisso per intervallo di scansione automatico",
+        "es": "Migrated project rules from GitHub Copilot to Cursor rules\nAviso de control de adaptador fijo para intervalo de escaneo automático",
+        "pl": "Migrowane zasady projektu z GitHub Copilot do zasad kursora\nOstrzeżenie dotyczące automatycznego skanowania",
+        "uk": "Миттєві правила проекту від GitHub Copilot до правил Cursor\nВиправлено попередження перевірки адаптера для автоматичного інтервалу сканування",
+        "zh-cn": "从 GitHub 副驾驶到光标规则\n自动扫描间隔的固定适配器检查器警告"
+      },
       "0.1.6": {
         "en": "Fixed scan when path name is left empty (result states now use path as fallback)\nAdded default for scan-all-objects option in adapter configuration\nFixed incorrect link to Cursor project rules in README\nUnified issue tracker URL to inventwo repository\nFixed type-check script for local development\nDocumented complete scan feature in README",
         "de": "Behobener Scan, wenn der Pfadname leer gelassen wird (Ergebnisse Zustände verwenden nun Pfad als Fallback)\nStandard für Scan-all-Objekte Option in Adapterkonfiguration hinzugefügt\nFehlerhafte Verknüpfung mit Cursor-Projektregeln in README behoben\nUnified Ausgabe Tracker URL zu erfindenwo Repository\nFixed Type-Check-Skript für lokale Entwicklung\nDokumentierte vollständige Scan-Funktion in README",
@@ -80,19 +93,6 @@
         "pl": "Dodano opcję do pełnego skanowania",
         "uk": "Додано варіант для повного сканування",
         "zh-cn": "添加完整扫描选项"
-      },
-      "0.0.1": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "Начальная версия",
-        "pt": "lançamento inicial",
-        "nl": "Eerste uitgave",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "es": "Versión inicial",
-        "pl": "Pierwsze wydanie",
-        "uk": "Початкова версія",
-        "zh-cn": "首次出版"
       }
     },
     "titleLang": {
