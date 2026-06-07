@@ -52,5 +52,6 @@ Subscribe to `*.trigger` in `onReady`. On press: run scan, then reset trigger to
 ## Pitfalls
 
 - Do not hardcode paths — use config
-- Clear `scanInterval` in `onUnload`
+- Clear `scanInterval` in `onUnload` via `this.clearInterval()`
+- Use `this.setInterval()` / `this.clearInterval()`, not plain globals (W5004)
 - Do not block event loop on large scans (consider batch state loading for future optimization)

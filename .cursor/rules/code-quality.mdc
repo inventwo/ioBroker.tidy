@@ -16,13 +16,15 @@ alwaysApply: false
 
 ## Resource cleanup
 
-Clear timers/intervals in `onUnload()` and always call `callback()`:
+Clear timers in `onUnload()` via `this.clearInterval()` and always call `callback()`:
 
 ```javascript
+this.scanInterval = this.setInterval(async () => { /* ... */ }, intervalMs);
+
 onUnload(callback) {
   try {
     if (this.scanInterval) {
-      clearInterval(this.scanInterval);
+      this.clearInterval(this.scanInterval);
       this.scanInterval = undefined;
     }
     callback();
@@ -32,6 +34,8 @@ onUnload(callback) {
   }
 }
 ```
+
+Use `this.setInterval()` / `this.clearInterval()` — not plain `setInterval()` / `clearInterval()` (adapter checker W5004).
 
 ## Error handling
 

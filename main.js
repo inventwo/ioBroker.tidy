@@ -59,7 +59,7 @@ class Tidy extends utils.Adapter {
 		if (this.config.autoScan && this.config.scanInterval > 0) {
 			const intervalMs = this.config.scanInterval * 60 * 60 * 1000; // Convert hours to milliseconds
 			this.log.info(`Automatic scanning enabled: Every ${this.config.scanInterval} hour(s)`);
-			this.scanInterval = setInterval(async () => {
+			this.scanInterval = this.setInterval(async () => {
 				this.log.info('Running automatic scan...');
 				await this.scanAllPaths();
 				if (this.config.scanAllObjects) {
@@ -231,7 +231,7 @@ class Tidy extends utils.Adapter {
 		try {
 			// Clear automatic scan interval
 			if (this.scanInterval) {
-				clearInterval(this.scanInterval);
+				this.clearInterval(this.scanInterval);
 				this.scanInterval = undefined;
 			}
 
