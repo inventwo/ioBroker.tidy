@@ -19,6 +19,7 @@ class Tidy extends utils.Adapter {
 		});
 		this.on('ready', this.onReady.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
+		this.on('objectChange', this.onObjectChange.bind(this));
 		this.on('unload', this.onUnload.bind(this));
 
 		this.scanInterval = undefined;
@@ -56,6 +57,9 @@ class Tidy extends utils.Adapter {
 		if (this.config.scanAllObjects) {
 			await this.scanComplete();
 		}
+
+		// Reload config when instance settings are saved in admin
+		this.subscribeForeignObjects(`system.adapter.${this.namespace}`);
 
 		// Setup automatic scanning if enabled
 		if (this.config.autoScan && this.config.scanInterval > 0) {
@@ -395,20 +399,22 @@ class Tidy extends utils.Adapter {
 
 	// If you need to react to object changes, uncomment the following block and the corresponding line in the constructor.
 	// You also need to subscribe to the objects with `this.subscribeObjects`, similar to `this.subscribeStates`.
-	// /**
-	//  * Is called if a subscribed object changes
-	//  * @param {string} id
-	//  * @param {ioBroker.Object | null | undefined} obj
-	//  */
-	// onObjectChange(id, obj) {
-	// 	if (obj) {
-	// 		// The object was changed
-	// 		this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-	// 	} else {
-	// 		// The object was deleted
-	// 		this.log.info(`object ${id} deleted`);
-	// 	}
-	// }
+	/**
+	 * Is called if a subscribed object changes
+	 *
+	 * @param {string} id - Object ID
+	 * @param {ioBroker.Object | null | undefined} obj - Object definition
+	 */
+	async onObjectChange(id, obj) {
+		if (id !== `system.adapter.${this.namespace}` || !obj?.native) {
+			return;
+		}
+
+		this.log.info('Configuration updated — reloading paths and rescanning');
+		this.config = obj.native;
+		await this.createPathObjects();
+		await this.scanAllPaths();
+	}
 
 	/**
 	 * Is called if a subscribed state changes
@@ -418,12 +424,12 @@ class Tidy extends utils.Adapter {
 	 */
 	async onStateChange(id, state) {
 		if (state && !state.ack && state.val === true && id.endsWith('.trigger')) {
+			await this.reloadConfig();
+
 			// Trigger button was pressed
 			this.log.info(`Manual scan triggered for ${id}`);
 
-			// Find the corresponding path config
 			const channelId = id.replace(`${this.namespace}.`, '').replace('.trigger', '');
-			// Fallback: match also if name is empty and path is used
 			const pathConfig = this.config.paths.find(p => this.getChannelId(p) === channelId);
 
 			if (pathConfig && pathConfig.enabled) {
@@ -444,6 +450,8 @@ class Tidy extends utils.Adapter {
 	 * Scan all enabled paths
 	 */
 	async scanAllPaths() {
+		await this.reloadConfig();
+
 		for (const pathConfig of this.config.paths) {
 			if (pathConfig.enabled && (pathConfig.name || pathConfig.path)) {
 				await this.scanPath(pathConfig);
@@ -458,20 +466,24 @@ class Tidy extends utils.Adapter {
 	 */
 	async scanPath(pathConfig) {
 		const startTime = Date.now();
-		this.log.info(`Scanning path: ${pathConfig.path}`);
+		await this.reloadConfig();
+		const config =
+			this.config.paths.find(p => p.path === pathConfig.path && p.enabled !== false) || pathConfig;
+
+		this.log.info(`Scanning path: ${config.path}`);
 		await this.loadExceptionSets();
 
 		try {
-			const channelId = this.getChannelId(pathConfig);
+			const channelId = this.getChannelId(config);
 			const results = [];
 			let excludedCount = 0;
 
 			// Get all objects under the specified path (prefix match for any depth)
-			const pattern = this.getScanPattern(pathConfig.path);
+			const pattern = this.getScanPattern(config.path);
 			const objects = await this.getForeignObjectsAsync(pattern, 'state');
 
 			this.log.debug(
-				`Scan pattern "${pattern}": found ${Object.keys(objects).length} objects under ${pathConfig.path}`,
+				`Scan pattern "${pattern}": found ${Object.keys(objects).length} objects under ${config.path}`,
 			);
 
 			// Analyze each object
@@ -485,7 +497,7 @@ class Tidy extends utils.Adapter {
 				}
 
 				const state = await this.getForeignStateAsync(id);
-				const analysis = await this.analyzeDatapoint(id, obj, state, pathConfig);
+				const analysis = await this.analyzeDatapoint(id, obj, state, config);
 
 				if (analysis) {
 					results.push(analysis);
@@ -522,11 +534,11 @@ class Tidy extends utils.Adapter {
 
 			const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 			this.log.info(
-				`Scan completed for ${pathConfig.path}: ${counts.total} datapoints ` +
+				`Scan completed for ${config.path}: ${counts.total} datapoints ` +
 					`(${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
 			);
 		} catch (error) {
-			this.log.error(`Error scanning path ${pathConfig.path}: ${error.message}`);
+			this.log.error(`Error scanning path ${config.path}: ${error.message}`);
 		}
 	}
 
@@ -617,8 +629,9 @@ class Tidy extends utils.Adapter {
 	/**
 	 * Build object scan pattern for getForeignObjectsAsync
 	 *
-	 * Uses prefix matching (`path*`) so all states at any depth are included.
-	 * Example: `0_userdata` matches `0_userdata.0.foo`, `alias` matches `alias.0.foo` and `alias.1.bar`.
+	 * Uses prefix matching so all states at any depth are included.
+	 * - Adapter prefix (e.g. `0_userdata`, `alias`): `prefix*`
+	 * - Instance path (e.g. `alias.0`, `0_userdata.0`): `path.*`
 	 *
 	 * @param {string} path - Configured scan path
 	 * @returns {string} ioBroker object ID pattern
@@ -634,7 +647,29 @@ class Tidy extends utils.Adapter {
 			return trimmed;
 		}
 
-		return `${trimmed.replace(/\.$/, '')}*`;
+		const base = trimmed.replace(/\.$/, '');
+		const lastSegment = base.split('.').pop() || '';
+
+		if (/^\d+$/.test(lastSegment)) {
+			return `${base}.*`;
+		}
+
+		return `${base}*`;
+	}
+
+	/**
+	 * Reload native configuration from the instance object (after admin save)
+	 */
+	async reloadConfig() {
+		try {
+			const instanceObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
+
+			if (instanceObj?.native) {
+				this.config = instanceObj.native;
+			}
+		} catch (error) {
+			this.log.debug(`Could not reload config: ${error.message}`);
+		}
 	}
 
 	/**
@@ -654,7 +689,7 @@ class Tidy extends utils.Adapter {
 
 			if (!objectType) {
 				try {
-					const obj = await this.getObjectAsync(id);
+					const obj = await this.getForeignObjectAsync(id);
 					objectType = obj?.type === 'state' ? 'state' : 'folder';
 				} catch {
 					objectType = 'state';

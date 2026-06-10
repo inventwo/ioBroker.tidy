@@ -38,6 +38,7 @@
 	"Pick a folder in the object tree, or type a path manually (e.g. 0_userdata.0). Remove the instance number (alias.0 → alias) to scan all instances.": "Выберите папку в дереве объектов или введите путь вручную (например, 0_userdata.0). Удалите номер экземпляра (псевдоним.0 → псевдоним), чтобы просканировать все экземпляры.",
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Выберите путь из дерева объектов или введите его вручную. Удалите номер экземпляра (например, псевдоним.0 → псевдоним), чтобы просканировать все экземпляры адаптера.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Выберите экземпляр адаптера (например, 0_userdata.0, alias.0). Путь остается доступным для редактирования — добавьте подпапку или удалите номер экземпляра (псевдоним.0 → псевдоним) после выбора.",
+	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Выберите экземпляр адаптера (например, 0_userdata.0, alias.0). Путь остается доступным для редактирования — удалите номер экземпляра (псевдоним.0 → псевдоним), чтобы сканировать все экземпляры.",
 	"Purpose": "Цель",
 	"Scan Paths": "Сканировать пути",
 	"Scan all objects (complete)": "Сканировать все объекты (полное)",

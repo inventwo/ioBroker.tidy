@@ -38,6 +38,7 @@
 	"Pick a folder in the object tree, or type a path manually (e.g. 0_userdata.0). Remove the instance number (alias.0 → alias) to scan all instances.": "Wybierz folder w drzewie obiektów lub wpisz ścieżkę ręcznie (np. 0_userdata.0). Usuń numer instancji (alias.0 → alias), aby przeskanować wszystkie instancje.",
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Wybierz ścieżkę z drzewa obiektów lub wpisz ręcznie. Usuń numer instancji (np. alias.0 → alias), aby przeskanować wszystkie instancje adaptera.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Wybierz instancję adaptera (np. 0_userdata.0, alias.0). Ścieżka pozostaje edytowalna – po wybraniu dodaj podfolder lub usuń numer instancji (alias.0 → alias).",
+	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Wybierz instancję adaptera (np. 0_userdata.0, alias.0). Ścieżka pozostaje edytowalna — usuń numer instancji (alias.0 → alias), aby przeskanować wszystkie instancje.",
 	"Purpose": "Zamiar",
 	"Scan Paths": "Skanuj ścieżki",
 	"Scan all objects (complete)": "Zeskanuj wszystkie obiekty (ukończono)",

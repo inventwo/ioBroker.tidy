@@ -38,6 +38,7 @@
 	"Pick a folder in the object tree, or type a path manually (e.g. 0_userdata.0). Remove the instance number (alias.0 → alias) to scan all instances.": "Choisissez un dossier dans l'arborescence des objets ou saisissez un chemin manuellement (par exemple 0_userdata.0). Supprimez le numéro d'instance (alias.0 → alias) pour analyser toutes les instances.",
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Choisissez un chemin dans l’arborescence des objets ou saisissez-le manuellement. Supprimez le numéro d'instance (par exemple, alias.0 → alias) pour analyser toutes les instances d'un adaptateur.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Choisissez une instance d'adaptateur (par exemple 0_userdata.0, alias.0). Le chemin reste modifiable : ajoutez un sous-dossier ou supprimez le numéro d'instance (alias.0 → alias) après la sélection.",
+	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Choisissez une instance d'adaptateur (par exemple 0_userdata.0, alias.0). Le chemin reste modifiable — supprimez le numéro d'instance (alias.0 → alias) pour analyser toutes les instances.",
 	"Purpose": "But",
 	"Scan Paths": "Chemins d'analyse",
 	"Scan all objects (complete)": "Scanner tous les objets (terminé)",

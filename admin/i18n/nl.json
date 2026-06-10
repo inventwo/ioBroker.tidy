@@ -38,6 +38,7 @@
 	"Pick a folder in the object tree, or type a path manually (e.g. 0_userdata.0). Remove the instance number (alias.0 → alias) to scan all instances.": "Kies een map in de objectboom of typ handmatig een pad (bijvoorbeeld 0_userdata.0). Verwijder het exemplaarnummer (alias.0 → alias) om alle exemplaren te scannen.",
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Kies een pad uit de objectboom of typ handmatig. Verwijder het exemplaarnummer (bijvoorbeeld alias.0 → alias) om alle exemplaren van een adapter te scannen.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Kies een adapterinstantie (bijvoorbeeld 0_userdata.0, alias.0). Het pad blijft bewerkbaar: voeg een submap toe of verwijder het exemplaarnummer (alias.0 → alias) na het kiezen.",
+	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Kies een adapterinstantie (bijvoorbeeld 0_userdata.0, alias.0). Het pad blijft bewerkbaar. Verwijder het exemplaarnummer (alias.0 → alias) om alle exemplaren te scannen.",
 	"Purpose": "Doel",
 	"Scan Paths": "Paden scannen",
 	"Scan all objects (complete)": "Scan alle objecten (compleet)",
