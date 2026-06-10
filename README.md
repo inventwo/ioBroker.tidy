@@ -202,8 +202,10 @@ If you like our work and would like to support us, we appreciate any donation.
 [![Donate](img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+<!--
+	### **WORK IN PROGRESS**
+-->
+### 0.2.1 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
 
 ### 0.2.0 (2026-06-10)
@@ -225,9 +227,6 @@ If you like our work and would like to support us, we appreciate any donation.
 ### 0.1.5 (2026-05-29)
 - (skvarel) Updated dependencies
 - (skvarel) Fixed repo checker issue
-
-### 0.1.4 (2026-05-25)
-- (skvarel) Revised titel and desciption
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)
