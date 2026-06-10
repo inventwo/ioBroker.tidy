@@ -229,10 +229,8 @@
 							"attr": "id",
 							"title": "Object",
 							"width": "55%",
-							"customFilter": {
-								"type": ["state", "folder", "channel", "device", "meta"]
-							},
-							"tooltip": "Select a datapoint or folder to exclude. Folders exclude all states beneath them."
+							"types": "meta",
+							"tooltip": "Pick a folder/channel to exclude an entire subtree. To exclude a single state, type its ID directly into the field (e.g. 0_userdata.0.radio.station)."
 						},
 						{
 							"type": "text",

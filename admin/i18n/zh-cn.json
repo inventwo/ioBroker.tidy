@@ -36,6 +36,7 @@
 	"Paths to scan": "要扫描的路径",
 	"Pick a folder in the object tree to exclude an entire subtree, or type a single state ID manually (e.g. 0_userdata.0.radio.station).": "在对象树中选择一个文件夹以排除整个子树，或手动键入单个状态 ID（例如 0_userdata.0.radio.station）。",
 	"Pick a folder in the object tree, or type a path manually (e.g. 0_userdata.0). Remove the instance number (alias.0 → alias) to scan all instances.": "在对象树中选择一个文件夹，或手动键入路径（例如 0_userdata.0）。删除实例编号（alias.0→alias）以扫描所有实例。",
+	"Pick a folder/channel to exclude an entire subtree. To exclude a single state, type its ID directly into the field (e.g. 0_userdata.0.radio.station).": "选择一个文件夹/频道以排除整个子树。要排除单个状态，请直接在字段中输入其 ID（例如 0_userdata.0.radio.station）。",
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "从对象树中选择路径或手动键入。删除实例编号（例如alias.0→alias）以扫描适配器的所有实例。",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "选择一个适配器实例（例如 0_userdata.0、alias.0）。路径保持可编辑状态 - 附加子文件夹或在选择后删除实例编号（alias.0 → 别名）。",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "选择一个适配器实例（例如 0_userdata.0、alias.0）。路径保持可编辑状态 — 删除实例编号（alias.0 → 别名）以扫描所有实例。",

@@ -43,7 +43,7 @@
 	"Scan all objects (complete)": "Scan all objects (complete)",
 	"Scan interval (hours)": "Scan interval (hours)",
 	"Scan path": "Scan path",
-	"Select a datapoint or folder to exclude. Folders exclude all states beneath them.": "Select a datapoint or folder to exclude. Folders exclude all states beneath them.",
+	"Pick a folder/channel to exclude an entire subtree. To exclude a single state, type its ID directly into the field (e.g. 0_userdata.0.radio.station).": "Pick a folder/channel to exclude an entire subtree. To exclude a single state, type its ID directly into the field (e.g. 0_userdata.0.radio.station).",
 	"Tip: The path stays editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Tip: The path stays editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.",
 	"Usage in VIS Widgets": "Usage in VIS Widgets",
 	"Use the object picker on the Scan Paths tab or type a path manually. The path stays editable after picking.\nTo scan all instances of an adapter, remove the instance number from the path (e.g. alias.0 → alias). This matches alias.0, alias.1, and so on.": "Use the object picker on the Scan Paths tab or type a path manually. The path stays editable after picking.\n\nTo scan all instances of an adapter, remove the instance number from the path (e.g. alias.0 → alias). This matches alias.0, alias.1, and so on.",
