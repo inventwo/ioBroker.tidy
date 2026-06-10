@@ -128,7 +128,7 @@
 				},
 				"_pathsInstanceInfo": {
 					"type": "staticText",
-					"text": "Tip: The path stays editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.",
+					"text": "Tip: The path stays editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances. You can also copy any object ID from the Objects tab and paste it directly into the path field.",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -143,6 +143,7 @@
 					"type": "table",
 					"newLine": true,
 					"label": "Paths to scan",
+					"showFirstAddOnTop": true,
 					"xs": 12,
 					"sm": 12,
 					"md": 12,
