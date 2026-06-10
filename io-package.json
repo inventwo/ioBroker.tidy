@@ -3,19 +3,6 @@
     "name": "tidy",
     "version": "0.2.1",
     "news": {
-      "0.2.1": {
-        "en": "Added meta object types for adapter and instance namespace",
-        "de": "Meta-Objekttypen für Adapter und Instanz-Namespace hinzugefügt",
-        "ru": "Добавлены типы метаобъектов для адаптера и пространства имен экземпляров",
-        "pt": "Tipos de meta- objecto adicionados para o espaço de nomes do adaptador e da instância",
-        "nl": "Toegevoegd meta-objecttypes voor adapter en instance namespace",
-        "fr": "Ajout de types d'objets méta pour l'adaptateur et l'espace de noms d'instance",
-        "it": "Aggiunti i tipi di meta oggetto per adattatore e namespace di istanza",
-        "es": "Se agregaron tipos de objetos meta para el adaptador y el espacio de nombres de instancia",
-        "pl": "Dodano typy metaobiektów dla adaptera i instancji przestrzeni nazw",
-        "uk": "Додано типи об'єктів метаданих для перетворення та простору імен",
-        "zh-cn": "添加适配器和实例命名空间的元对象类型"
-      },
       "0.2.0": {
         "en": "Added exceptions incl. count state per scan channel showing how many datapoints were excluded\nReplaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans",
         "de": "Hinzugefügte Ausnahmen inkl. Zählzustand pro Scankanal, der zeigt, wie viele Datenpunkte ausgeschlossen wurden\nErsetzte manuelle Pfadeingabe mit Objektauswahl auf der Registerkarte Scan Paths; Pfade bleiben für Multi-Instanz-Scans editierbar",
