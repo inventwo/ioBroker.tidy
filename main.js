@@ -34,6 +34,8 @@ class Tidy extends utils.Adapter {
 	async onReady() {
 		this.log.info('Starting Tidy adapter...');
 
+		await this.ensureAdapterRootMeta();
+
 		// Validate configuration
 		if (!this.config.paths || !Array.isArray(this.config.paths)) {
 			this.log.error('No paths configured! Please configure at least one path to scan.');
@@ -75,6 +77,33 @@ class Tidy extends utils.Adapter {
 			}, intervalMs);
 		}
 	}
+	/**
+	 * Ensure adapter root (e.g. tidy) is typed as meta.
+	 * instanceObjects handles tidy.0; objects with _id "" fails on adapter update (Invalid ID).
+	 */
+	async ensureAdapterRootMeta() {
+		const rootId = this.name;
+		const titleLang = this.ioPack?.common?.titleLang || {};
+		const metaObject = {
+			type: 'meta',
+			common: {
+				name: titleLang[this.language] || titleLang.en || rootId,
+				type: 'meta.folder',
+			},
+			native: {},
+		};
+
+		const existing = await this.getForeignObjectAsync(rootId);
+		if (!existing) {
+			await this.setForeignObjectAsync(rootId, metaObject);
+		} else if (existing.type !== 'meta') {
+			await this.extendForeignObjectAsync(rootId, {
+				type: 'meta',
+				common: metaObject.common,
+			});
+		}
+	}
+
 	/**
 	 * Create channel and states for complete scan
 	 */

@@ -175,29 +175,7 @@
     ],
     "exceptions": []
   },
-  "objects": [
-    {
-      "_id": "",
-      "type": "meta",
-      "common": {
-        "name": {
-          "en": "Tidy",
-          "de": "Tidy",
-          "ru": "Tidy",
-          "pt": "Tidy",
-          "nl": "Tidy",
-          "fr": "Tidy",
-          "it": "Tidy",
-          "es": "Tidy",
-          "pl": "Tidy",
-          "uk": "Tidy",
-          "zh-cn": "Tidy"
-        },
-        "type": "meta.folder"
-      },
-      "native": {}
-    }
-  ],
+  "objects": [],
   "instanceObjects": [
     {
       "_id": "",
