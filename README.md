@@ -207,7 +207,7 @@ If you like our work and would like to support us, we appreciate any donation.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (skvarel) Added exceptionCount state per scan channel showing how many datapoints were excluded
+- (skvarel) Added exceptions incl. count state per scan channel showing how many datapoints were excluded
 - (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
 
 ### 0.1.7 (2026-06-07)

@@ -162,7 +162,6 @@
 							"title": "Scan path",
 							"width": "40%",
 							"types": ["folder", "channel", "device"],
-							"fillOnSelect": "common.name=>name",
 							"tooltip": "Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter."
 						},
 						{
@@ -229,7 +228,6 @@
 							"title": "Object",
 							"width": "45%",
 							"types": ["state", "folder", "channel", "device"],
-							"fillOnSelect": "common.name=>name,type=>objectType",
 							"tooltip": "Select a datapoint or folder to exclude. Folders exclude all states beneath them."
 						},
 						{

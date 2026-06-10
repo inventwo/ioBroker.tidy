@@ -187,6 +187,7 @@ class Tidy extends utils.Adapter {
 		const startTime = Date.now();
 		const channelId = 'complete';
 		this.log.info('Scanning entire object tree (complete scan) ...');
+		await this.loadExceptionSets();
 		try {
 			const results = [];
 			let excludedCount = 0;
@@ -458,6 +459,7 @@ class Tidy extends utils.Adapter {
 	async scanPath(pathConfig) {
 		const startTime = Date.now();
 		this.log.info(`Scanning path: ${pathConfig.path}`);
+		await this.loadExceptionSets();
 
 		try {
 			const channelId = this.getChannelId(pathConfig);
@@ -638,6 +640,35 @@ class Tidy extends utils.Adapter {
 	/**
 	 * Build lookup structures for configured scan exceptions
 	 */
+	async loadExceptionSets() {
+		this._exceptionExact = new Set();
+		this._exceptionPrefixes = [];
+
+		for (const exc of this.config.exceptions || []) {
+			if (!exc?.id || !String(exc.id).trim()) {
+				continue;
+			}
+
+			const id = String(exc.id).trim();
+			let objectType = exc.objectType;
+
+			if (!objectType) {
+				try {
+					const obj = await this.getObjectAsync(id);
+					objectType = obj?.type === 'state' ? 'state' : 'folder';
+				} catch {
+					objectType = 'state';
+				}
+			}
+
+			if (objectType === 'state') {
+				this._exceptionExact.add(id);
+			} else {
+				this._exceptionPrefixes.push(id);
+			}
+		}
+	}
+
 	buildExceptionSets() {
 		this._exceptionExact = new Set();
 		this._exceptionPrefixes = [];
