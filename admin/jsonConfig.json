@@ -314,7 +314,7 @@
 				},
 				"_fieldInfo": {
 					"type": "staticText",
-					"text": "Each scan result contains a JSON array with the following 10 fields per datapoint:",
+					"text": "Each scan result contains a JSON array with the following fields per datapoint:",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -325,45 +325,20 @@
 						"fontSize": "0.875rem"
 					}
 				},
-				"fieldDocs": {
-					"type": "table",
+				"help_json_fields": {
+					"type": "staticText",
+					"text": "help_json_fields",
+					"format": "html",
 					"newLine": true,
-					"noDelete": true,
-					"compact": true,
 					"xs": 12,
 					"sm": 12,
 					"md": 12,
 					"lg": 12,
 					"xl": 12,
-					"items": [
-						{
-							"type": "text",
-							"attr": "pos",
-							"title": "Pos.",
-							"width": "1%",
-							"readOnly": true
-						},
-						{
-							"type": "text",
-							"attr": "field",
-							"title": "Field",
-							"width": "10%",
-							"readOnly": true
-						},
-						{
-							"type": "text",
-							"attr": "description",
-							"title": "Description",
-							"width": "30%",
-							"readOnly": true
-						},
-						{
-							"type": "text",
-							"attr": "purpose",
-							"title": "Purpose",
-							"readOnly": true
-						}
-					]
+					"style": {
+						"fontSize": "0.875rem",
+						"marginBottom": "16px"
+					}
 				},
 				"_headerUsage": {
 					"type": "header",
@@ -389,9 +364,10 @@
 						"fontSize": "0.875rem"
 					}
 				},
-				"outro": {
+				"help_readme": {
 					"type": "staticText",
-					"text": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a> • by skvarel",
+					"text": "help_readme",
+					"format": "html",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -399,12 +375,60 @@
 					"lg": 12,
 					"xl": 12,
 					"style": {
+						"fontSize": "1rem",
+						"marginBottom": "16px"
+					}
+				},
+				"_helpDivider": {
+					"type": "divider"
+				},
+				"help_logo": {
+					"type": "staticImage",
+					"src": "img/inventwo.svg",
+					"newLine": true,
+					"sm": 0.5,
+					"xs": 0.5,
+					"md": 0.5,
+					"lg": 0.5,
+					"xl": 0.5,
+					"style": {
+						"marginTop": "25px"
+					}
+				},
+				"help_outro": {
+					"type": "staticText",
+					"text": "Team inventwo •  <a href=\"https://github.com/inventwo\">https://github.com/inventwo</a> • by skvarel",
+					"newLine": true,
+					"sm": 12,
+					"xs": 12,
+					"md": 3,
+					"lg": 3,
+					"xl": 3,
+					"style": {
 						"borderTop": "0px solid",
 						"borderColor": "",
 						"marginTop": "0px",
 						"paddingTop": "5px",
 						"fontSize": "14px",
 						"textAlign": "left"
+					}
+				},
+				"help_paypal": {
+					"type": "staticLink",
+					"href": "https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW",
+					"target": "_blank",
+					"label": "paypal_donate",
+					"variant": "outlined",
+					"button": true,
+					"icon": "https://www.paypalobjects.com/marketing/web/logos/paypal-mark-color_new.svg",
+					"newLine": true,
+					"sm": 12,
+					"xs": 12,
+					"md": 3,
+					"lg": 3,
+					"xl": 3,
+					"style": {
+						"marginTop": "0px"
 					}
 				}
 			}
