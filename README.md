@@ -63,7 +63,6 @@ Configure one or more paths to monitor:
 Exclude datapoints that should not appear in scan results or statistics:
 
 - **Object**: Pick a single state or a folder/channel to exclude an entire subtree
-- **Name**: Filled automatically from the object name when picking
 - **Comment**: Optional note (e.g. why this datapoint is excluded)
 
 Use this for configuration values that rarely change (e.g. a stored radio station for an alarm script) so they are not flagged as dead or stale.

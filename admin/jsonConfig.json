@@ -226,22 +226,15 @@
 							"type": "objectId",
 							"attr": "id",
 							"title": "Object",
-							"width": "45%",
+							"width": "55%",
 							"types": ["state", "folder", "channel", "device"],
 							"tooltip": "Select a datapoint or folder to exclude. Folders exclude all states beneath them."
 						},
 						{
 							"type": "text",
-							"attr": "name",
-							"title": "Name",
-							"width": "25%",
-							"readOnly": true
-						},
-						{
-							"type": "text",
 							"attr": "comment",
 							"title": "Comment (optional)",
-							"width": "30%",
+							"width": "45%",
 							"placeholder": "Optional note, e.g. alarm clock radio station"
 						}
 					]
