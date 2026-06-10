@@ -1,7 +1,7 @@
 'use strict';
 
 const { expect } = require('chai');
-const Tidy = require('./main.js');
+const { Tidy } = require('./main.js');
 
 describe('Tidy scan pattern', () => {
 	/** @type {Tidy} */

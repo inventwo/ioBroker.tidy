@@ -83,23 +83,31 @@ class Tidy extends utils.Adapter {
 	 */
 	async ensureAdapterRootMeta() {
 		const rootId = this.name;
-		const titleLang = this.ioPack?.common?.titleLang || {};
-		const metaObject = {
-			type: 'meta',
-			common: {
-				name: titleLang[this.language] || titleLang.en || rootId,
-				type: 'meta.folder',
-			},
-			native: {},
-		};
+		const titleLang = this.ioPack?.common?.titleLang;
+		const name =
+			typeof titleLang === 'object' && titleLang !== null && !Array.isArray(titleLang)
+				? (titleLang[this.language] ?? titleLang.en ?? rootId)
+				: typeof titleLang === 'string'
+					? titleLang
+					: rootId;
 
 		const existing = await this.getForeignObjectAsync(rootId);
 		if (!existing) {
-			await this.setForeignObjectAsync(rootId, metaObject);
+			await this.setForeignObjectAsync(rootId, {
+				type: 'meta',
+				common: {
+					name,
+					type: 'meta.folder',
+				},
+				native: {},
+			});
 		} else if (existing.type !== 'meta') {
 			await this.extendForeignObjectAsync(rootId, {
 				type: 'meta',
-				common: metaObject.common,
+				common: {
+					name,
+					type: 'meta.folder',
+				},
 			});
 		}
 	}
@@ -837,6 +845,7 @@ if (require.main !== module) {
 	 * @param {Partial<utils.AdapterOptions>} [options] - Adapter options
 	 */
 	module.exports = options => new Tidy(options);
+	module.exports.Tidy = Tidy;
 } else {
 	// otherwise start the instance directly
 	new Tidy();

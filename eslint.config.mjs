@@ -9,6 +9,7 @@ export default [
 		ignores: [
 			'.dev-server/',
 			'.vscode/',
+			'controller.js',
 			'*.test.js',
 			'test/**/*.js',
 			'*.config.mjs',
