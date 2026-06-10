@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.0 (2026-06-10)
 - (skvarel) Added exceptions incl. count state per scan channel showing how many datapoints were excluded
 - (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
 
@@ -227,9 +227,6 @@ If you like our work and would like to support us, we appreciate any donation.
 
 ### 0.1.4 (2026-05-25)
 - (skvarel) Revised titel and desciption
-
-### 0.1.3 (2026-05-24)
-- (skvarel) Fixed repo checker issue
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

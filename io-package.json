@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.1.7",
+    "version": "0.2.0",
     "news": {
+      "0.2.0": {
+        "en": "Added exceptions incl. count state per scan channel showing how many datapoints were excluded\nReplaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans",
+        "de": "Hinzugefügte Ausnahmen inkl. Zählzustand pro Scankanal, der zeigt, wie viele Datenpunkte ausgeschlossen wurden\nErsetzte manuelle Pfadeingabe mit Objektauswahl auf der Registerkarte Scan Paths; Pfade bleiben für Multi-Instanz-Scans editierbar",
+        "ru": "Добавлены исключения, включая состояние счета на канал сканирования, показывающее, сколько точек данных было исключено\nЗамененный ручной ввод пути с помощью набора объектов на вкладке Scan Paths; пути остаются редактируемыми для многомерного сканирования",
+        "pt": "Adicionadas exceções incl. estado de contagem por canal de varredura mostrando quantos pontos de dados foram excluídos\nEntrada de caminho manual substituída com o seletor de objetos na aba Procurar Caminhos; os caminhos permanecem editáveis para varreduras de múltiplas instâncias",
+        "nl": "Toegevoegde uitzonderingen incl. telstatus per scankanaal waaruit blijkt hoeveel datapunten zijn uitgesloten\nVervangde handmatige padinvoer met objectpicker op tabblad Paden scannen; paden blijven bewerkbaar voor multi-instance scans",
+        "fr": "Ajout d'exceptions, y compris l'état de compte par canal de numérisation, indiquant le nombre de points de données exclus\nRemplacement de l'entrée manuelle du chemin par un sélecteur d'objet sur l'onglet Chemins de numérisation; les chemins restent modifiables pour les balayages multi-instances",
+        "it": "Aggiunte eccezioni incl. stato di conteggio per canale di scansione che mostra quanti punti di dati sono stati esclusi\nInput del percorso manuale sostituito con il raccoglitore di oggetti sulla scheda Scan Paths; i percorsi rimangono modificabili per le scansioni multi-instance",
+        "es": "Excepciones adicionales incl. contar estado por canal de exploración mostrando cuántos puntos de datos fueron excluidos\nEntrada manual reemplazada con el selector de objetos en la pestaña Scan Paths; las rutas siguen siendo editables para los escaneos multiinstance",
+        "pl": "Dodano wyjątki w tym stan liczenia na kanał skanowania pokazujący, ile punktów danych zostało wykluczonych\nZastąpione ręczne wejście ścieżki przy pomocy wybieracza obiektów w zakładce Skanowanie Ścieżek; ścieżki pozostają edytowalne dla skanów wieloinstancyjnych",
+        "uk": "Додано виключення вкл. підрахунку стану на скан-каналі, що показує, скільки точок даних були виключені\nЗамінений вхід ручного шляху з пікіратором об'єкта на вкладці Скантових шляхів; доріжки залишаються редаговані для багатоінтенсивних сканування",
+        "zh-cn": "添加例外, 包括每个扫描通道的计数状态, 显示排除了多少数据点\n在扫描路径标签上将手动路径输入替换为对象拾取器; 路径仍可编辑用于多功能扫描"
+      },
       "0.1.7": {
         "en": "Migrated project rules from GitHub Copilot to Cursor rules\nFixed adapter checker warning for automatic scan interval",
         "de": "Geförderte Projektregeln von GitHub Copilot zu Cursor-Regeln\nFeste Adapter-Checker-Warnung für automatisches Scanintervall",
@@ -80,19 +93,6 @@
         "pl": "Zmieniona nazwa pola wyniku na opcjonalny\nZmieniony plik konfiguracyjny",
         "uk": "Змінене ім'я поля результату для додаткового\nПереглянуто налаштування",
         "zh-cn": "将结果字段的名称改为可选\n订正配置"
-      },
-      "0.1.0": {
-        "en": "Added option for complete scan",
-        "de": "Option für den kompletten Scan hinzugefügt",
-        "ru": "Дополнительный вариант для полного сканирования",
-        "pt": "Opção adicionada para verificação completa",
-        "nl": "Toegevoegd optie voor volledige scan",
-        "fr": "Ajout de l'option pour la numérisation complète",
-        "it": "Aggiunta opzione per la scansione completa",
-        "es": "Opción agregada para el escaneo completo",
-        "pl": "Dodano opcję do pełnego skanowania",
-        "uk": "Додано варіант для повного сканування",
-        "zh-cn": "添加完整扫描选项"
       }
     },
     "titleLang": {
