@@ -154,8 +154,8 @@
 							"attr": "path",
 							"title": "Scan path",
 							"width": "45%",
-							"filterFunc": "return obj && (!obj.type || obj.type !== 'state');",
-							"tooltip": "Pick a folder or namespace (e.g. alias, 0_userdata.0, alias.0.Heizungen). Individual datapoints are not shown. The path stays editable — remove the instance number (alias.0 → alias) to scan all instances."
+							"types": "meta",
+							"tooltip": "Pick a namespace (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances."
 						},
 						{
 							"type": "text",

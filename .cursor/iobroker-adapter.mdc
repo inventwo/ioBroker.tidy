@@ -23,10 +23,37 @@ Housekeeping adapter: find unused, outdated, or orphaned ioBroker states for cle
 
 For **every code or config change**, update `README.md` before finishing:
 
-1. Add a user-facing entry under `### **WORK IN PROGRESS**`
-2. Format: `- (skvarel) Plain description` — no bold prefixes (`**FIXED**`, `**NEW**`, etc.; breaks news translation)
-3. Update README sections (Features, Configuration, Data Points, Usage) when behavior or options change
-4. Do **not** edit `CHANGELOG_OLD.md` manually — release-script moves older entries there
+1. Add **one entry per user-relevant change** under `### **WORK IN PROGRESS**` only
+2. **Never edit released changelog blocks** (e.g. `### 0.2.0`) — release-script moves WIP into the new version block
+3. Do **not** edit `CHANGELOG_OLD.md` manually
+
+### What belongs in the changelog
+
+The changelog is shown to users in the ioBroker update dialog (`io-package.json` news). Include **only what matters to users** — not every internal tweak, layout detail, or log-message fix unless users would notice.
+
+### Entry format
+
+- Prefix: `(skvarel)` — no bold tags (`**FIXED**`, etc.; breaks news translation)
+- Start with a **consistent English verb** (past tense), then a short user-facing description:
+
+| Verb | Use for |
+|------|---------|
+| **Added** | New feature, option, state, tab |
+| **Fixed** | Bug fix users would notice |
+| **Modified** | Changed existing behavior or UI |
+| **Replaced** | Swapped one approach for another |
+| **Removed** | Dropped feature or option |
+
+Examples:
+
+```markdown
+- (skvarel) Added exceptions tab to exclude datapoints from scan results
+- (skvarel) Fixed scan paths without enabled flag being skipped on adapter start
+- (skvarel) Modified scan path picker to show more adapter folders and subfolders
+- (skvarel) Replaced manual path input with object picker on Scan Paths tab
+```
+
+4. Update README sections (Features, Configuration, Data Points, Usage) when behavior or options change
 
 ## Scope
 

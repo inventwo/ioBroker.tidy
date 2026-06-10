@@ -206,9 +206,6 @@ If you like our work and would like to support us, we appreciate any donation.
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
-- (skvarel) Scan path picker now shows more adapter folders and subfolders for selection
-
 ### 0.2.0 (2026-06-10)
 - (skvarel) Added exceptions incl. count state per scan channel showing how many datapoints were excluded
 - (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans

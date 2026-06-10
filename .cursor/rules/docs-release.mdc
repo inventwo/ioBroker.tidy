@@ -19,18 +19,35 @@ Installation, Configuration, Usage, Changelog, License, Support. Keep user-facin
 
 ### **WORK IN PROGRESS**
 
-- (skvarel) Plain user-facing description
+- (skvarel) Modified scan path picker to show more adapter folders and subfolders
 
 ### 0.1.5 (2026-05-29)
-- (skvarel) Released change
+- (skvarel) Added automatic scan interval configuration
+- (skvarel) Fixed repo checker issue
 ```
+
+### User-facing content only
+
+Changelog entries appear in the ioBroker update dialog. Document **user-relevant changes only** — skip minor internal fixes, log tweaks, or layout details unless users would notice.
+
+### Consistent verb prefixes
+
+Each line starts with `(skvarel)` followed by a **past-tense English verb**:
+
+- **Added** — new feature, option, state, tab
+- **Fixed** — bug fix users would notice
+- **Modified** — changed existing behavior or UI
+- **Replaced** — swapped one approach for another
+- **Removed** — dropped feature or option
+
+Never use bold type tags in changelog lines (breaks io-package news translation).
 
 ## Workflow
 
-- **During development:** all entries under `### **WORK IN PROGRESS**`
+- **During development:** new entries **only** under `### **WORK IN PROGRESS**`
+- **Never edit released version blocks** (e.g. `### 0.2.0`) — only WIP until release
 - **Release:** `npm run release-patch|minor|major` — script sets version, moves WIP to version block, older entries to `CHANGELOG_OLD.md`
 - **Never** edit `CHANGELOG_OLD.md` manually
-- **Never** use bold type tags in changelog lines (breaks io-package news translation)
 
 ## io-package.json
 
