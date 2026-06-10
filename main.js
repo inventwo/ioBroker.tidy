@@ -22,6 +22,8 @@ class Tidy extends utils.Adapter {
 		this.on('unload', this.onUnload.bind(this));
 
 		this.scanInterval = undefined;
+		this._exceptionExact = undefined;
+		this._exceptionPrefixes = undefined;
 	}
 
 	/**
@@ -180,6 +182,9 @@ class Tidy extends utils.Adapter {
 			this.log.debug(`Found ${Object.keys(objects).length} objects in complete scan`);
 			for (const [id, obj] of Object.entries(objects)) {
 				if (!obj || obj.type !== 'state') {
+					continue;
+				}
+				if (this.isExcluded(id)) {
 					continue;
 				}
 				const state = await this.getForeignStateAsync(id);
@@ -441,6 +446,9 @@ class Tidy extends utils.Adapter {
 				if (!obj || obj.type !== 'state') {
 					continue;
 				}
+				if (this.isExcluded(id)) {
+					continue;
+				}
 
 				const state = await this.getForeignStateAsync(id);
 				const analysis = await this.analyzeDatapoint(id, obj, state, pathConfig);
@@ -569,6 +577,53 @@ class Tidy extends utils.Adapter {
 		}
 
 		return result;
+	}
+
+	/**
+	 * Build lookup structures for configured scan exceptions
+	 */
+	buildExceptionSets() {
+		this._exceptionExact = new Set();
+		this._exceptionPrefixes = [];
+
+		for (const exc of this.config.exceptions || []) {
+			if (!exc?.id || !String(exc.id).trim()) {
+				continue;
+			}
+
+			const id = String(exc.id).trim();
+			const objectType = exc.objectType || 'state';
+
+			if (objectType === 'state') {
+				this._exceptionExact.add(id);
+			} else {
+				this._exceptionPrefixes.push(id);
+			}
+		}
+	}
+
+	/**
+	 * Check whether a state ID is excluded from scan results
+	 *
+	 * @param {string} stateId - State ID to check
+	 * @returns {boolean} True if the state should be excluded
+	 */
+	isExcluded(stateId) {
+		if (!this._exceptionExact) {
+			this.buildExceptionSets();
+		}
+
+		if (this._exceptionExact.has(stateId)) {
+			return true;
+		}
+
+		for (const prefix of this._exceptionPrefixes) {
+			if (stateId === prefix || stateId.startsWith(`${prefix}.`)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/**

@@ -173,6 +173,7 @@
         "checkAliasTargets": false
       }
     ],
+    "exceptions": [],
     "fieldDocs": [
       {
         "pos": "01",

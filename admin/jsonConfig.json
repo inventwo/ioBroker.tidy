@@ -115,7 +115,20 @@
 				},
 				"_pathsInfo": {
 					"type": "staticText",
-					"text": "Configure which paths to scan for unused datapoints. Each path will get its own result state with a JSON table.",
+					"text": "Configure which paths to scan for unused datapoints. Use the object picker or type a path manually. Each path will get its own result state with a JSON table.",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"style": {
+						"fontSize": "0.875rem"
+					}
+				},
+				"_pathsInstanceInfo": {
+					"type": "staticText",
+					"text": "Tip: The path remains editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -144,12 +157,13 @@
 							"default": true
 						},
 						{
-							"type": "text",
+							"type": "objectId",
 							"attr": "path",
-							"title": "Path (e.g. 0_userdata.0 or alias.0 - The instance number is optional.)",
+							"title": "Scan path",
 							"width": "40%",
-							"placeholder": "Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional.",
-							"tooltip": "Enter the full path, e.g. 0_userdata.0. Folders (type: folder) must be entered manually. The instance number is optional."
+							"types": ["folder", "channel", "device"],
+							"fillOnSelect": "common.name=>name",
+							"tooltip": "Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter."
 						},
 						{
 							"type": "text",
@@ -171,11 +185,123 @@
 				}
 			}
 		},
+		"_exceptions": {
+			"type": "panel",
+			"label": "Exceptions",
+			"icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTggMTZhOCA4IDAgMSAwIDAtMTZBOCA4IDAgMCAwIDggMTBtMC00YTMgMyAwIDEgMSAwLTZhMyAzIDAgMCAxIDAgNiIvPgoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJtNC44NiAxMS4xMyAxLjA5LTEuMDkgNi4wNS02LjA1LTEuMDktMS4wOS0xLjA5IDEuMDlMNCA5LjI3bC0xLjA5LTEuMDktMS4wOSAxLjA5IDEuMDkgMS4wOSAxLjA5LTEuMDlMNi4xNCA5LjI3bC0xLjA5LTEuMDl6Ii8+Cjwvc3ZnPg==",
+			"items": {
+				"_headerExceptions": {
+					"type": "header",
+					"text": "Excluded datapoints",
+					"size": 3,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
+				},
+				"_exceptionsInfo": {
+					"type": "staticText",
+					"text": "Exclude datapoints from scan results that are intentionally static or should be ignored (e.g. configuration values that rarely change). Select a single datapoint or a folder to exclude everything beneath it.",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"style": {
+						"fontSize": "0.875rem"
+					}
+				},
+				"exceptions": {
+					"type": "table",
+					"newLine": true,
+					"label": "Excluded datapoints",
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"items": [
+						{
+							"type": "objectId",
+							"attr": "id",
+							"title": "Object",
+							"width": "45%",
+							"types": ["state", "folder", "channel", "device"],
+							"fillOnSelect": "common.name=>name,type=>objectType",
+							"tooltip": "Select a datapoint or folder to exclude. Folders exclude all states beneath them."
+						},
+						{
+							"type": "text",
+							"attr": "name",
+							"title": "Name",
+							"width": "25%",
+							"readOnly": true
+						},
+						{
+							"type": "text",
+							"attr": "comment",
+							"title": "Comment (optional)",
+							"width": "30%",
+							"placeholder": "Optional note, e.g. alarm clock radio station"
+						}
+					]
+				}
+			}
+		},
 		"_help": {
 			"type": "panel",
 			"label": "Help & Documentation",
 			"icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTggMTRBNiA2IDAgMSAxIDggMmE2IDYgMCAwIDEgMCAxMm0wLTFBNSA1IDAgMSAwIDggM2E1IDUgMCAwIDAgMCAxMG0tLjE4Ni0xLjA2NUEuNzg1Ljc4NSAwIDAgMSA3IDExLjEyYzAtLjQ4LjM0LS44Mi44MTQtLjgyYy40NzUgMCAuODA5LjM0LjgwOS44MmMwIC40NzUtLjMzNC44MTUtLjgwOS44MTVNNS45IDYuMzE3QzUuOTYgNS4xNjggNi43NTUgNC40IDguMDQ4IDQuNGMxLjIxOCAwIDIuMDkxLjc1OSAyLjA5MSAxLjhjMCAuNzM2LS4zNiAxLjMwNC0xLjAzIDEuNzA3Yy0uNTYuMzMtLjcxNy41Ni0uNzE3IDEuMDIydi4zMDVsLS4xLjFINy40N2wtLjEtLjF2LS40MzFjLS4wMDUtLjY0Ni4zMDItMS4xMDQuOTg3LTEuNTE0Yy41MjctLjMyMi43MDgtLjU5LjcwOC0xLjA0N2MwLS41MzYtLjQxNi0uOTEtMS4wNS0uOTFjLS42NTIgMC0xLjA2NC4zNzQtMS4xMTIuOTk4bC0uMS4wOTJINnoiIC8+Cjwvc3ZnPg==",
 			"items": {
+				"_headerScanPathsHelp": {
+					"type": "header",
+					"text": "Scan Paths",
+					"size": 3,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
+				},
+				"_scanPathsHelpInfo": {
+					"type": "staticText",
+					"text": "Use the object picker on the Scan Paths tab or type a path manually. The path stays editable after picking.\n\nTo scan all instances of an adapter, remove the instance number from the path (e.g. alias.0 → alias). This matches alias.0, alias.1, and so on.",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"style": {
+						"fontSize": "0.875rem"
+					}
+				},
+				"_headerExceptionsHelp": {
+					"type": "header",
+					"text": "Exceptions",
+					"size": 3,
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12
+				},
+				"_exceptionsHelpInfo": {
+					"type": "staticText",
+					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nPick a single state to exclude one datapoint, or pick a folder/channel to exclude an entire subtree.",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"style": {
+						"fontSize": "0.875rem"
+					}
+				},
 				"_headerFields": {
 					"type": "header",
 					"text": "JSON Table Field Description",

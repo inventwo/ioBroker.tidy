@@ -21,7 +21,8 @@ The **Tidy** adapter helps to find unused objects and states to clean up your sy
 
 ## Features
 
-- **📊 Path-based scanning**: Configure multiple paths to scan (e.g., `0_userdata.0`, `alias.0`)
+- **📊 Path-based scanning**: Configure multiple paths to scan via object picker (e.g., `0_userdata.0`, `alias.0`)
+- **🚫 Exceptions**: Exclude intentionally static datapoints or entire folders from scan results
 - **🔍 Smart detection**: Identifies different types of problematic datapoints:
   - **Dead**: Never updated or extremely old (configurable threshold, default: 365 days)
   - **Stale**: Not updated recently (configurable threshold, default: 90 days)
@@ -52,9 +53,22 @@ The **Tidy** adapter helps to find unused objects and states to clean up your sy
 Configure one or more paths to monitor:
 
 - **Enabled**: Enable/disable this scan path
-- **Path**: The root path to scan (e.g., `0_userdata.0`, `alias.0`, `javascript.0`)
+- **Scan path**: Pick a folder from the object tree or type a path manually (e.g., `0_userdata.0`, `alias.0`, `javascript.0`). The field stays editable after picking.
+- **All adapter instances**: Remove the instance number to scan every instance — e.g. `alias` instead of `alias.0` matches `alias.0`, `alias.1`, and so on
 - **Name**: A friendly name for this path (used for result state naming)
 - **Check alias targets**: For `alias.*` paths, check if target datapoints still exist (ghost detection)
+
+### Exceptions
+
+Exclude datapoints that should not appear in scan results or statistics:
+
+- **Object**: Pick a single state or a folder/channel to exclude an entire subtree
+- **Name**: Filled automatically from the object name when picking
+- **Comment**: Optional note (e.g. why this datapoint is excluded)
+
+Use this for configuration values that rarely change (e.g. a stored radio station for an alarm script) so they are not flagged as dead or stale.
+
+Exceptions apply to path-based scans and the complete scan.
 
 ## Data Points
 
@@ -129,11 +143,27 @@ The `result` state contains a JSON array with the following fields for each data
 ### Basic Setup
 
 1. Install and configure the adapter
-2. Add a path to scan (e.g., `0_userdata.0`)
+2. Add a path to scan using the object picker (e.g., `0_userdata.0`) or type it manually
 3. Give it a name (e.g., "userdata")
 4. Save configuration
 5. The adapter will immediately perform an initial scan
 6. View results in `tidy.0.userdata.result`
+
+### Multi-Instance Scan Paths
+
+To scan all instances of an adapter, remove the instance number from the path after picking:
+
+- `alias.0` → scan only the first alias instance
+- `alias` → scan `alias.0`, `alias.1`, and any other alias instances
+
+The path field remains fully editable after using the object picker.
+
+### Exceptions
+
+1. Open the **Exceptions** tab in the adapter configuration
+2. Add datapoints that should be ignored (e.g. rarely updated configuration values)
+3. Pick a single state for one datapoint, or a folder to exclude a whole subtree
+4. Save configuration — excluded datapoints no longer appear in scan results or counts
 
 ### VIS Integration
 
@@ -174,6 +204,10 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added Exceptions tab to exclude datapoints or folders from scan results (fixes #12)
+- (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
+
 ### 0.1.7 (2026-06-07)
 - (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
 - (skvarel) Fixed adapter checker warning for automatic scan interval

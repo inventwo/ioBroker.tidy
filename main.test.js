@@ -1,29 +1,43 @@
 'use strict';
 
-/**
- * This is a dummy TypeScript test file using chai and mocha
- *
- * It's automatically excluded from npm and its build output is excluded from both git and npm.
- * It is advised to test all your modules with accompanying *.test.js-files
- */
-
-// tslint:disable:no-unused-expression
-
 const { expect } = require('chai');
-// import { functionToTest } from "./moduleToTest";
+const Tidy = require('./main.js');
 
-describe('module to test => function to test', () => {
-	// initializing logic
-	const expected = 5;
+describe('Tidy exception filtering', () => {
+	/** @type {Tidy} */
+	let adapter;
 
-	it(`should return ${expected}`, () => {
-		const result = 5;
-		// assign result a value from functionToTest
-		expect(result).to.equal(expected);
-		// or using the should() syntax
-		result.should.equal(expected);
+	beforeEach(() => {
+		adapter = new Tidy({ name: 'tidy' });
+		adapter.config = {
+			exceptions: [
+				{ id: '0_userdata.0.radio.station', objectType: 'state', name: 'Radio station' },
+				{ id: '0_userdata.0.legacy', objectType: 'folder', name: 'Legacy folder' },
+			],
+		};
+		adapter.buildExceptionSets();
 	});
-	// ... more tests => it
-});
 
-// ... more test suites => describe
+	it('should exclude an exact state match', () => {
+		expect(adapter.isExcluded('0_userdata.0.radio.station')).to.be.true;
+	});
+
+	it('should not exclude states with a similar prefix', () => {
+		expect(adapter.isExcluded('0_userdata.0.radio.station_backup')).to.be.false;
+	});
+
+	it('should exclude states under an excluded folder', () => {
+		expect(adapter.isExcluded('0_userdata.0.legacy.old_value')).to.be.true;
+	});
+
+	it('should not exclude unrelated states', () => {
+		expect(adapter.isExcluded('0_userdata.0.active.sensor')).to.be.false;
+	});
+
+	it('should treat entries without objectType as single states', () => {
+		adapter.config.exceptions = [{ id: 'hm-rpc.0.ABC123.STATE' }];
+		adapter.buildExceptionSets();
+		expect(adapter.isExcluded('hm-rpc.0.ABC123.STATE')).to.be.true;
+		expect(adapter.isExcluded('hm-rpc.0.ABC123.OTHER')).to.be.false;
+	});
+});
