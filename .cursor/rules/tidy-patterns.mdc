@@ -43,7 +43,7 @@ Each entry must include: `id`, `name`, `last_ts`, `last_ts_iso`, `value`, `statu
 
 ## Object structure per channel
 
-`trigger` (button), `result` (json), `lastScan`, `count`, `deadCount`, `staleCount`, `orphanedCount`.
+`trigger` (button), `result` (json), `lastScan`, `count`, `deadCount`, `staleCount`, `orphanedCount`, `exceptionCount`.
 
 ## Triggers
 

@@ -291,7 +291,7 @@
 				},
 				"_exceptionsHelpInfo": {
 					"type": "staticText",
-					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nPick a single state to exclude one datapoint, or pick a folder/channel to exclude an entire subtree.",
+					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nPick a single state to exclude one datapoint, or pick a folder/channel to exclude an entire subtree.\n\nEach scan channel provides exceptionCount showing how many datapoints were excluded during the last scan (0 if none).",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,

@@ -166,6 +166,18 @@ class Tidy extends utils.Adapter {
 			},
 			native: {},
 		});
+		await this.setObjectNotExistsAsync(`${channelId}.exceptionCount`, {
+			type: 'state',
+			common: {
+				name: 'Excluded datapoints (complete)',
+				type: 'number',
+				role: 'value',
+				read: true,
+				write: false,
+				def: 0,
+			},
+			native: {},
+		});
 	}
 
 	/**
@@ -177,6 +189,7 @@ class Tidy extends utils.Adapter {
 		this.log.info('Scanning entire object tree (complete scan) ...');
 		try {
 			const results = [];
+			let excludedCount = 0;
 			// Get all states in the system
 			const objects = await this.getForeignObjectsAsync('*', 'state');
 			this.log.debug(`Found ${Object.keys(objects).length} objects in complete scan`);
@@ -185,6 +198,7 @@ class Tidy extends utils.Adapter {
 					continue;
 				}
 				if (this.isExcluded(id)) {
+					excludedCount++;
 					continue;
 				}
 				const state = await this.getForeignStateAsync(id);
@@ -218,9 +232,10 @@ class Tidy extends utils.Adapter {
 			await this.setStateAsync(`${channelId}.deadCount`, counts.dead, true);
 			await this.setStateAsync(`${channelId}.staleCount`, counts.stale, true);
 			await this.setStateAsync(`${channelId}.orphanedCount`, counts.orphaned, true);
+			await this.setStateAsync(`${channelId}.exceptionCount`, excludedCount, true);
 			const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 			this.log.info(
-				`Complete scan finished: ${counts.total} datapoints (${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned) in ${duration}s`,
+				`Complete scan finished: ${counts.total} datapoints (${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
 			);
 		} catch (error) {
 			this.log.error(`Error during complete scan: ${error.message}`);
@@ -361,6 +376,19 @@ class Tidy extends utils.Adapter {
 				},
 				native: {},
 			});
+
+			await this.setObjectNotExistsAsync(`${channelId}.exceptionCount`, {
+				type: 'state',
+				common: {
+					name: 'Excluded datapoints',
+					type: 'number',
+					role: 'value',
+					read: true,
+					write: false,
+					def: 0,
+				},
+				native: {},
+			});
 		}
 	}
 
@@ -434,6 +462,7 @@ class Tidy extends utils.Adapter {
 		try {
 			const channelId = this.getChannelId(pathConfig);
 			const results = [];
+			let excludedCount = 0;
 
 			// Get all objects under the specified path (prefix match for any depth)
 			const pattern = this.getScanPattern(pathConfig.path);
@@ -449,6 +478,7 @@ class Tidy extends utils.Adapter {
 					continue;
 				}
 				if (this.isExcluded(id)) {
+					excludedCount++;
 					continue;
 				}
 
@@ -486,11 +516,12 @@ class Tidy extends utils.Adapter {
 			await this.setStateAsync(`${channelId}.deadCount`, counts.dead, true);
 			await this.setStateAsync(`${channelId}.staleCount`, counts.stale, true);
 			await this.setStateAsync(`${channelId}.orphanedCount`, counts.orphaned, true);
+			await this.setStateAsync(`${channelId}.exceptionCount`, excludedCount, true);
 
 			const duration = ((Date.now() - startTime) / 1000).toFixed(2);
 			this.log.info(
 				`Scan completed for ${pathConfig.path}: ${counts.total} datapoints ` +
-					`(${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned) in ${duration}s`,
+					`(${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
 			);
 		} catch (error) {
 			this.log.error(`Error scanning path ${pathConfig.path}: ${error.message}`);

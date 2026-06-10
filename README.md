@@ -68,7 +68,7 @@ Exclude datapoints that should not appear in scan results or statistics:
 
 Use this for configuration values that rarely change (e.g. a stored radio station for an alarm script) so they are not flagged as dead or stale.
 
-Exceptions apply to path-based scans and the complete scan.
+Exceptions apply to path-based scans and the complete scan. Each scan channel provides **`exceptionCount`** — the number of datapoints excluded during the last scan (0 if none).
 
 ## Data Points
 
@@ -81,6 +81,7 @@ For each configured path (e.g., "userdata"), the adapter creates:
 - **`tidy.0.userdata.deadCount`** (number): Number of dead datapoints
 - **`tidy.0.userdata.staleCount`** (number): Number of stale datapoints
 - **`tidy.0.userdata.orphanedCount`** (number): Number of orphaned aliases
+- **`tidy.0.userdata.exceptionCount`** (number): Number of datapoints excluded by the exceptions list
 
 When **Scan all objects (complete)** is enabled in the general settings, the adapter additionally creates:
 
@@ -91,6 +92,7 @@ When **Scan all objects (complete)** is enabled in the general settings, the ada
 - **`tidy.0.complete.deadCount`** (number): Number of dead datapoints
 - **`tidy.0.complete.staleCount`** (number): Number of stale datapoints
 - **`tidy.0.complete.orphanedCount`** (number): Number of orphaned aliases
+- **`tidy.0.complete.exceptionCount`** (number): Number of datapoints excluded by the exceptions list
 
 The complete scan uses the same JSON result structure as path-based scans. Automatic scans include the complete scan when this option is enabled.
 
@@ -205,6 +207,8 @@ If you like our work and would like to support us, we appreciate any donation.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+- (skvarel) Added exceptionCount state per scan channel showing how many datapoints were excluded
 - (skvarel) Fixed scan paths without instance number (e.g. 0_userdata) not finding nested states
 - (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
 
