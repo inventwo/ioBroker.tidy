@@ -161,8 +161,8 @@
 							"attr": "path",
 							"title": "Scan path",
 							"width": "40%",
-							"types": ["folder", "channel", "device"],
-							"tooltip": "Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter."
+							"types": "instance",
+							"tooltip": "Pick an adapter instance or folder from the object tree, or type a path manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter."
 						},
 						{
 							"type": "text",
@@ -227,8 +227,7 @@
 							"attr": "id",
 							"title": "Object",
 							"width": "55%",
-							"types": ["state", "folder", "channel", "device"],
-							"tooltip": "Select a datapoint or folder to exclude. Folders exclude all states beneath them."
+							"tooltip": "Select a state in the picker, or type any object ID manually (e.g. a folder to exclude an entire subtree)."
 						},
 						{
 							"type": "text",
