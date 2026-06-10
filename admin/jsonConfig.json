@@ -161,8 +161,10 @@
 							"attr": "path",
 							"title": "Scan path",
 							"width": "40%",
-							"types": "instance",
-							"tooltip": "Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances."
+							"customFilter": {
+								"type": ["adapter", "instance", "meta", "folder", "channel", "device"]
+							},
+							"tooltip": "Pick an adapter instance or subfolder (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances."
 						},
 						{
 							"type": "text",

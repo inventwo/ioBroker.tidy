@@ -39,6 +39,7 @@
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Elija una ruta del árbol de objetos o escríbala manualmente. Elimine el número de instancia (por ejemplo, alias.0 → alias) para escanear todas las instancias de un adaptador.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Elija una instancia de adaptador (por ejemplo, 0_userdata.0, alias.0). La ruta sigue siendo editable: agregue una subcarpeta o elimine el número de instancia (alias.0 → alias) después de seleccionarla.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Elija una instancia de adaptador (por ejemplo, 0_userdata.0, alias.0). La ruta sigue siendo editable: elimine el número de instancia (alias.0 → alias) para escanear todas las instancias.",
+	"Pick an adapter instance or subfolder (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Elija una instancia o subcarpeta del adaptador (por ejemplo, 0_userdata.0, alias.0). La ruta sigue siendo editable: elimine el número de instancia (alias.0 → alias) para escanear todas las instancias.",
 	"Purpose": "Objetivo",
 	"Scan Paths": "Rutas de escaneo",
 	"Scan all objects (complete)": "Escanear todos los objetos (completo)",

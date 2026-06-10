@@ -34,7 +34,7 @@
 	"Optional. If empty, the path will be used as name.": "Optional. Wenn leer, wird der Pfad als Name verwendet.",
 	"Path Configuration": "Pfad-Konfiguration",
 	"Paths to scan": "Zu scannende Pfade",
-	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Wähle eine Adapter-Instanz (z. B. 0_userdata.0, alias.0). Der Pfad bleibt bearbeitbar — entferne die Instanznummer (alias.0 → alias), um alle Instanzen zu scannen.",
+	"Pick an adapter instance or subfolder (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Wähle eine Adapter-Instanz oder einen Unterordner (z. B. 0_userdata.0, alias.0). Der Pfad bleibt bearbeitbar — entferne die Instanznummer (alias.0 → alias), um alle Instanzen zu scannen.",
 	"Purpose": "Zweck",
 	"Scan Paths": "Scan-Pfade",
 	"Scan all objects (complete)": "Alle Objekte scannen (Komplett)",

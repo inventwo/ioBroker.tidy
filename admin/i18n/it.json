@@ -39,6 +39,7 @@
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Scegli un percorso dall'albero degli oggetti o digitalo manualmente. Rimuovere il numero di istanza (ad esempio alias.0 → alias) per scansionare tutte le istanze di un adattatore.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Scegli un'istanza dell'adattatore (ad esempio 0_userdata.0, alias.0). Il percorso rimane modificabile: aggiungi una sottocartella o rimuovi il numero di istanza (alias.0 → alias) dopo la selezione.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Scegli un'istanza dell'adattatore (ad esempio 0_userdata.0, alias.0). Il percorso rimane modificabile: rimuovi il numero dell'istanza (alias.0 → alias) per scansionare tutte le istanze.",
+	"Pick an adapter instance or subfolder (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Scegli un'istanza o una sottocartella dell'adattatore (ad esempio 0_userdata.0, alias.0). Il percorso rimane modificabile: rimuovi il numero dell'istanza (alias.0 → alias) per scansionare tutte le istanze.",
 	"Purpose": "Scopo",
 	"Scan Paths": "Percorsi di scansione",
 	"Scan all objects (complete)": "Scansiona tutti gli oggetti (completo)",

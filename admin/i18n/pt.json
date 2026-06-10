@@ -39,6 +39,7 @@
 	"Pick a path from the object tree or type manually. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.": "Escolha um caminho na árvore de objetos ou digite-o manualmente. Remova o número da instância (por exemplo, alias.0 → alias) para verificar todas as instâncias de um adaptador.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking.": "Escolha uma instância do adaptador (por exemplo, 0_userdata.0, alias.0). O caminho permanece editável – anexe uma subpasta ou remova o número da instância (alias.0 → alias) após a escolha.",
 	"Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Escolha uma instância do adaptador (por exemplo, 0_userdata.0, alias.0). O caminho permanece editável – remova o número da instância (alias.0 → alias) para verificar todas as instâncias.",
+	"Pick an adapter instance or subfolder (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances.": "Escolha uma instância ou subpasta do adaptador (por exemplo, 0_userdata.0, alias.0). O caminho permanece editável – remova o número da instância (alias.0 → alias) para verificar todas as instâncias.",
 	"Purpose": "Propósito",
 	"Scan Paths": "Caminhos de digitalização",
 	"Scan all objects (complete)": "Digitalizar todos os objetos (completo)",
