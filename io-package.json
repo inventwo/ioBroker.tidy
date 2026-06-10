@@ -175,6 +175,50 @@
     ],
     "exceptions": []
   },
-  "objects": [],
-  "instanceObjects": []
+  "objects": [
+    {
+      "_id": "",
+      "type": "meta",
+      "common": {
+        "name": {
+          "en": "Tidy",
+          "de": "Tidy",
+          "ru": "Tidy",
+          "pt": "Tidy",
+          "nl": "Tidy",
+          "fr": "Tidy",
+          "it": "Tidy",
+          "es": "Tidy",
+          "pl": "Tidy",
+          "uk": "Tidy",
+          "zh-cn": "Tidy"
+        },
+        "type": "meta.folder"
+      },
+      "native": {}
+    }
+  ],
+  "instanceObjects": [
+    {
+      "_id": "",
+      "type": "meta",
+      "common": {
+        "name": {
+          "en": "Scan results for unused datapoints",
+          "de": "Scan-Ergebnisse für ungenutzte Datenpunkte",
+          "ru": "Результаты сканирования неиспользуемых точек данных",
+          "pt": "Resultados da varredura de pontos de dados não utilizados",
+          "nl": "Scanresultaten voor ongebruikte datapunten",
+          "fr": "Résultats d'analyse des points de données inutilisés",
+          "it": "Risultati della scansione per punti dati non utilizzati",
+          "es": "Resultados del escaneo de puntos de datos no utilizados",
+          "pl": "Wyniki skanowania nieużywanych punktów danych",
+          "uk": "Результати сканування невикористаних точок даних",
+          "zh-cn": "未使用数据点的扫描结果"
+        },
+        "type": "meta.folder"
+      },
+      "native": {}
+    }
+  ]
 }
