@@ -411,7 +411,7 @@ class Tidy extends utils.Adapter {
 		}
 
 		this.log.info('Configuration updated — reloading paths and rescanning');
-		this.config = obj.native;
+		Object.assign(this.config, obj.native);
 		await this.createPathObjects();
 		await this.scanAllPaths();
 	}
@@ -467,8 +467,7 @@ class Tidy extends utils.Adapter {
 	async scanPath(pathConfig) {
 		const startTime = Date.now();
 		await this.reloadConfig();
-		const config =
-			this.config.paths.find(p => p.path === pathConfig.path && p.enabled !== false) || pathConfig;
+		const config = this.config.paths.find(p => p.path === pathConfig.path && p.enabled !== false) || pathConfig;
 
 		this.log.info(`Scanning path: ${config.path}`);
 		await this.loadExceptionSets();
@@ -665,7 +664,7 @@ class Tidy extends utils.Adapter {
 			const instanceObj = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
 
 			if (instanceObj?.native) {
-				this.config = instanceObj.native;
+				Object.assign(this.config, instanceObj.native);
 			}
 		} catch (error) {
 			this.log.debug(`Could not reload config: ${error.message}`);

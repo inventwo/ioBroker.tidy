@@ -161,10 +161,8 @@
 							"attr": "path",
 							"title": "Scan path",
 							"width": "40%",
-							"customFilter": {
-								"type": ["adapter", "instance", "meta", "folder", "channel", "device"]
-							},
-							"tooltip": "Pick an adapter instance or subfolder (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances."
+							"types": "meta",
+							"tooltip": "Pick a namespace (e.g. 0_userdata.0, alias.0). The path stays editable — remove the instance number (alias.0 → alias) to scan all instances."
 						},
 						{
 							"type": "text",
@@ -203,7 +201,7 @@
 				},
 				"_exceptionsInfo": {
 					"type": "staticText",
-					"text": "Exclude datapoints from scan results that are intentionally static or should be ignored (e.g. configuration values that rarely change). Select a single datapoint or a folder to exclude everything beneath it.",
+					"text": "Exclude datapoints from scan results that are intentionally static or should be ignored. Use the picker to select individual datapoints. To exclude an entire folder, type the path manually (e.g. 0_userdata.0.config).",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -224,14 +222,14 @@
 					"lg": 12,
 					"xl": 12,
 					"items": [
-						{
-							"type": "objectId",
-							"attr": "id",
-							"title": "Object",
-							"width": "55%",
-							"types": "meta",
-							"tooltip": "Pick a folder/channel to exclude an entire subtree. To exclude a single state, type its ID directly into the field (e.g. 0_userdata.0.radio.station)."
-						},
+					{
+						"type": "objectId",
+						"attr": "id",
+						"title": "Object",
+						"width": "55%",
+						"types": "state",
+						"tooltip": "Pick an individual datapoint to exclude it. To exclude an entire folder, type the folder path directly (e.g. 0_userdata.0.config)."
+					},
 						{
 							"type": "text",
 							"attr": "comment",
@@ -285,7 +283,7 @@
 				},
 				"_exceptionsHelpInfo": {
 					"type": "staticText",
-					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nPick a single state to exclude one datapoint, or pick a folder/channel to exclude an entire subtree.\n\nEach scan channel provides exceptionCount showing how many datapoints were excluded during the last scan (0 if none).",
+					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nUse the picker to select individual datapoints (states). To exclude an entire folder or subtree, type the path directly into the field (e.g. 0_userdata.0.config).\n\nEach scan channel provides exceptionCount showing how many datapoints were excluded during the last scan (0 if none).",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
