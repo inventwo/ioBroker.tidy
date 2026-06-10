@@ -272,7 +272,7 @@ class Tidy extends utils.Adapter {
 	 */
 	async createPathObjects() {
 		for (const pathConfig of this.config.paths) {
-			if (!pathConfig.enabled || !(pathConfig.name || pathConfig.path)) {
+			if (pathConfig.enabled === false || !(pathConfig.name || pathConfig.path)) {
 				continue;
 			}
 
@@ -432,7 +432,7 @@ class Tidy extends utils.Adapter {
 			const channelId = id.replace(`${this.namespace}.`, '').replace('.trigger', '');
 			const pathConfig = this.config.paths.find(p => this.getChannelId(p) === channelId);
 
-			if (pathConfig && pathConfig.enabled) {
+			if (pathConfig && pathConfig.enabled !== false) {
 				await this.scanPath(pathConfig);
 			}
 
@@ -453,7 +453,7 @@ class Tidy extends utils.Adapter {
 		await this.reloadConfig();
 
 		for (const pathConfig of this.config.paths) {
-			if (pathConfig.enabled && (pathConfig.name || pathConfig.path)) {
+			if (pathConfig.enabled !== false && (pathConfig.name || pathConfig.path)) {
 				await this.scanPath(pathConfig);
 			}
 		}
