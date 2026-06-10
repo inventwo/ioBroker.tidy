@@ -275,7 +275,8 @@
 					"lg": 12,
 					"xl": 12,
 					"style": {
-						"fontSize": "0.875rem"
+						"fontSize": "0.875rem",
+						"whiteSpace": "pre-line"
 					}
 				},
 				"_headerExceptionsHelp": {
@@ -299,7 +300,8 @@
 					"lg": 12,
 					"xl": 12,
 					"style": {
-						"fontSize": "0.875rem"
+						"fontSize": "0.875rem",
+						"whiteSpace": "pre-line"
 					}
 				},
 				"_headerFields": {
@@ -361,7 +363,8 @@
 					"lg": 12,
 					"xl": 12,
 					"style": {
-						"fontSize": "0.875rem"
+						"fontSize": "0.875rem",
+						"whiteSpace": "pre-line"
 					}
 				},
 				"help_readme": {
