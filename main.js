@@ -682,6 +682,9 @@ class Tidy extends utils.Adapter {
 			if (!exc?.id || !String(exc.id).trim()) {
 				continue;
 			}
+			if (exc.enabled === false) {
+				continue;
+			}
 
 			const id = String(exc.id).trim();
 			let objectType = exc.objectType;
@@ -709,6 +712,9 @@ class Tidy extends utils.Adapter {
 
 		for (const exc of this.config.exceptions || []) {
 			if (!exc?.id || !String(exc.id).trim()) {
+				continue;
+			}
+			if (exc.enabled === false) {
 				continue;
 			}
 

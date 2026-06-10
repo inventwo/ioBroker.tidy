@@ -226,17 +226,24 @@
 						"type": "objectId",
 						"attr": "id",
 						"title": "Object",
-						"width": "55%",
+						"width": "45%",
 						"types": "state",
 						"tooltip": "Pick an individual datapoint to exclude it. To exclude an entire folder, type the folder path directly (e.g. 0_userdata.0.config)."
 					},
-						{
-							"type": "text",
-							"attr": "comment",
-							"title": "Comment (optional)",
-							"width": "45%",
-							"placeholder": "Optional note, e.g. alarm clock radio station"
-						}
+					{
+						"type": "text",
+						"attr": "comment",
+						"title": "Comment (optional)",
+						"width": "35%",
+						"placeholder": "Optional note, e.g. alarm clock radio station"
+					},
+					{
+						"type": "checkbox",
+						"attr": "enabled",
+						"title": "Enabled",
+						"width": "20%",
+						"default": true
+					}
 					]
 				}
 			}
