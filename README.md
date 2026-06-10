@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (skvarel) Added Exceptions tab to exclude datapoints or folders from scan results (fixes #12)
+- (skvarel) Fixed scan paths without instance number (e.g. 0_userdata) not finding nested states
 - (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
 
 ### 0.1.7 (2026-06-07)

@@ -435,11 +435,13 @@ class Tidy extends utils.Adapter {
 			const channelId = this.getChannelId(pathConfig);
 			const results = [];
 
-			// Get all objects under the specified path
-			const pattern = `${pathConfig.path}.*`;
+			// Get all objects under the specified path (prefix match for any depth)
+			const pattern = this.getScanPattern(pathConfig.path);
 			const objects = await this.getForeignObjectsAsync(pattern, 'state');
 
-			this.log.debug(`Found ${Object.keys(objects).length} objects under ${pathConfig.path}`);
+			this.log.debug(
+				`Scan pattern "${pattern}": found ${Object.keys(objects).length} objects under ${pathConfig.path}`,
+			);
 
 			// Analyze each object
 			for (const [id, obj] of Object.entries(objects)) {
@@ -577,6 +579,29 @@ class Tidy extends utils.Adapter {
 		}
 
 		return result;
+	}
+
+	/**
+	 * Build object scan pattern for getForeignObjectsAsync
+	 *
+	 * Uses prefix matching (`path*`) so all states at any depth are included.
+	 * Example: `0_userdata` matches `0_userdata.0.foo`, `alias` matches `alias.0.foo` and `alias.1.bar`.
+	 *
+	 * @param {string} path - Configured scan path
+	 * @returns {string} ioBroker object ID pattern
+	 */
+	getScanPattern(path) {
+		const trimmed = String(path || '').trim();
+
+		if (!trimmed) {
+			return '*';
+		}
+
+		if (trimmed.includes('*')) {
+			return trimmed;
+		}
+
+		return `${trimmed.replace(/\.$/, '')}*`;
 	}
 
 	/**

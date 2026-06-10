@@ -3,6 +3,30 @@
 const { expect } = require('chai');
 const Tidy = require('./main.js');
 
+describe('Tidy scan pattern', () => {
+	/** @type {Tidy} */
+	let adapter;
+
+	beforeEach(() => {
+		adapter = new Tidy({ name: 'tidy' });
+	});
+
+	it('should use prefix match for nested states', () => {
+		expect(adapter.getScanPattern('0_userdata.0')).to.equal('0_userdata.0*');
+		expect(adapter.getScanPattern('0_userdata')).to.equal('0_userdata*');
+		expect(adapter.getScanPattern('alias')).to.equal('alias*');
+		expect(adapter.getScanPattern('alias.0')).to.equal('alias.0*');
+	});
+
+	it('should preserve existing wildcards', () => {
+		expect(adapter.getScanPattern('0_userdata.0.*')).to.equal('0_userdata.0.*');
+	});
+
+	it('should trim trailing dots', () => {
+		expect(adapter.getScanPattern('0_userdata.0.')).to.equal('0_userdata.0*');
+	});
+});
+
 describe('Tidy exception filtering', () => {
 	/** @type {Tidy} */
 	let adapter;
