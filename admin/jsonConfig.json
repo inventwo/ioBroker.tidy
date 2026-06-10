@@ -367,7 +367,6 @@
 				"help_readme": {
 					"type": "staticText",
 					"text": "help_readme",
-					"format": "html",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
