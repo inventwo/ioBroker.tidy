@@ -128,7 +128,7 @@
 				},
 				"_pathsInstanceInfo": {
 					"type": "staticText",
-					"text": "Tip: The path remains editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.",
+					"text": "Tip: The path stays editable after picking. Remove the instance number (e.g. alias.0 → alias) to scan all instances of an adapter.",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -161,8 +161,8 @@
 							"attr": "path",
 							"title": "Scan path",
 							"width": "40%",
-							"types": "instance",
-							"tooltip": "Pick an adapter instance (e.g. 0_userdata.0, alias.0). The path stays editable — append a subfolder or remove the instance number (alias.0 → alias) after picking."
+							"types": "meta",
+							"tooltip": "Pick a folder in the object tree, or type a path manually (e.g. 0_userdata.0). Remove the instance number (alias.0 → alias) to scan all instances."
 						},
 						{
 							"type": "text",
