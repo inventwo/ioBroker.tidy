@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.2 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
 
 ### 0.2.0 (2026-06-10)
