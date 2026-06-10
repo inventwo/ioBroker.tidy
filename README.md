@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.2.3 (2026-06-10)
 - (skvarel) Fixed i18n translation
 
 ### 0.2.2 (2026-06-10)
@@ -226,10 +226,6 @@ If you like our work and would like to support us, we appreciate any donation.
 - (skvarel) Unified issue tracker URL to inventwo repository
 - (skvarel) Fixed type-check script for local development
 - (skvarel) Documented complete scan feature in README
-
-### 0.1.5 (2026-05-29)
-- (skvarel) Updated dependencies
-- (skvarel) Fixed repo checker issue
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

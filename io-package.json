@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "news": {
+      "0.2.3": {
+        "en": "Fixed i18n translation",
+        "de": "Fixed i18n Übersetzung",
+        "ru": "Исправленный перевод i18n",
+        "pt": "Tradução fixa i18n",
+        "nl": "Vaste i18n vertaling",
+        "fr": "Correction de la traduction i18n",
+        "it": "Traduzione i18n fissa",
+        "es": "Traducción fija i18n",
+        "pl": "Naprawiono tłumaczenie i18n",
+        "uk": "Фіксований переклад i18n",
+        "zh-cn": "固定 i18n 翻译"
+      },
       "0.2.2": {
         "en": "Added meta object types for adapter and instance namespace",
         "de": "Meta-Objekttypen für Adapter und Instanz-Namespace hinzugefügt",
@@ -80,19 +93,6 @@
         "pl": "Poprawiony tytel i deszypcja",
         "uk": "Відреставрований титель і відхилення",
         "zh-cn": "订正钛和剥离"
-      },
-      "0.1.3": {
-        "en": "Fixed repo checker issue",
-        "de": "Problem der Repo Checker behoben",
-        "ru": "Фиксированная проблема проверки репо",
-        "pt": "Problema fixo do verificador de repo",
-        "nl": "Probleem met vaste repochecker",
-        "fr": "Correction du problème de repo checker",
-        "it": "Rischio di errore",
-        "es": "Número de comprobación de reposo fijo",
-        "pl": "Stałe wydanie kontrolera repo",
-        "uk": "Виправлено проблему перевірки репо",
-        "zh-cn": "固定回购检查器问题"
       }
     },
     "titleLang": {

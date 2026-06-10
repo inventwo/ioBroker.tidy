@@ -1,4 +1,8 @@
 # Older changes
+## 0.1.5 (2026-05-29)
+- (skvarel) Updated dependencies
+- (skvarel) Fixed repo checker issue
+
 ## 0.1.4 (2026-05-25)
 - (skvarel) Revised titel and desciption
 
