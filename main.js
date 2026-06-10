@@ -25,6 +25,7 @@ class Tidy extends utils.Adapter {
 		this.scanInterval = undefined;
 		this._exceptionExact = undefined;
 		this._exceptionPrefixes = undefined;
+		this._unloading = false;
 	}
 
 	/**
@@ -243,7 +244,11 @@ class Tidy extends utils.Adapter {
 				`Complete scan finished: ${counts.total} datapoints (${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
 			);
 		} catch (error) {
-			this.log.error(`Error during complete scan: ${error.message}`);
+			if (this._unloading) {
+				this.log.debug(`Complete scan aborted during shutdown: ${error.message}`);
+			} else {
+				this.log.error(`Error during complete scan: ${error.message}`);
+			}
 		}
 	}
 
@@ -253,6 +258,7 @@ class Tidy extends utils.Adapter {
 	 * @param {() => void} callback - Callback function
 	 */
 	onUnload(callback) {
+		this._unloading = true;
 		try {
 			// Clear automatic scan interval
 			if (this.scanInterval) {
@@ -537,7 +543,11 @@ class Tidy extends utils.Adapter {
 					`(${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
 			);
 		} catch (error) {
-			this.log.error(`Error scanning path ${config.path}: ${error.message}`);
+			if (this._unloading) {
+				this.log.debug(`Scan for ${config.path} aborted during shutdown: ${error.message}`);
+			} else {
+				this.log.error(`Error scanning path ${config.path}: ${error.message}`);
+			}
 		}
 	}
 
