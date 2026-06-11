@@ -208,7 +208,7 @@ If you like our work and would like to support us, we appreciate any donation.
 ### **WORK IN PROGRESS**
 - (skvarel) Fixed admin UI translations for scan path tooltips and help texts
 - (skvarel) Fixed runtime validation for scan interval and stale/dead thresholds
-- (skvarel) Modified scan result timestamps to use ISO 8601 format in `last_ts_iso`
+- (skvarel) Modified scan result timestamps to use ISO 8601 format
 
 ### 0.2.3 (2026-06-10)
 - (skvarel) Fixed i18n translation
