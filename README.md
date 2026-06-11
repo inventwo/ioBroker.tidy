@@ -205,6 +205,9 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed admin UI translations for scan path tooltips and help texts
+
 ### 0.2.3 (2026-06-10)
 - (skvarel) Fixed i18n translation
 
