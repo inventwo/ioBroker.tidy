@@ -65,9 +65,15 @@ class Tidy extends utils.Adapter {
 		this.subscribeForeignObjects(`system.adapter.${this.namespace}`);
 
 		// Setup automatic scanning if enabled
-		if (this.config.autoScan && this.config.scanInterval > 0) {
-			const intervalMs = this.config.scanInterval * 60 * 60 * 1000; // Convert hours to milliseconds
-			this.log.info(`Automatic scanning enabled: Every ${this.config.scanInterval} hour(s)`);
+		if (this.config.autoScan) {
+			const scanIntervalHours = this.clampScanIntervalHours(this.config.scanInterval);
+			if (scanIntervalHours !== Number(this.config.scanInterval)) {
+				this.log.warn(
+					`scanInterval ${this.config.scanInterval} is out of range (1-168 hours), using ${scanIntervalHours} hour(s)`,
+				);
+			}
+			const intervalMs = scanIntervalHours * 60 * 60 * 1000;
+			this.log.info(`Automatic scanning enabled: Every ${scanIntervalHours} hour(s)`);
 			this.scanInterval = this.setInterval(async () => {
 				this.log.info('Running automatic scan...');
 				await this.scanAllPaths();
@@ -599,8 +605,8 @@ class Tidy extends utils.Adapter {
 	 */
 	async analyzeDatapoint(id, obj, state, pathConfig) {
 		const now = Date.now();
-		const daysUntilStale = this.config.daysUntilStale || 90;
-		const daysUntilDead = this.config.daysUntilDead || 365;
+		const daysUntilStale = this.clampDaysUntil(this.config.daysUntilStale, 90);
+		const daysUntilDead = this.clampDaysUntil(this.config.daysUntilDead, 365);
 
 		const result = {
 			id: id,
@@ -618,7 +624,7 @@ class Tidy extends utils.Adapter {
 		// Get timestamp
 		if (state && state.ts) {
 			result.last_ts = state.ts;
-			result.last_ts_iso = new Date(state.ts).toLocaleString('de-DE');
+			result.last_ts_iso = new Date(state.ts).toISOString();
 			result.value = state.val;
 
 			// Calculate age in days
@@ -753,29 +759,6 @@ class Tidy extends utils.Adapter {
 		}
 	}
 
-	buildExceptionSets() {
-		this._exceptionExact = new Set();
-		this._exceptionPrefixes = [];
-
-		for (const exc of this.config.exceptions || []) {
-			if (!exc?.id || !String(exc.id).trim()) {
-				continue;
-			}
-			if (exc.enabled === false) {
-				continue;
-			}
-
-			const id = String(exc.id).trim();
-			const objectType = exc.objectType || 'state';
-
-			if (objectType === 'state') {
-				this._exceptionExact.add(id);
-			} else {
-				this._exceptionPrefixes.push(id);
-			}
-		}
-	}
-
 	/**
 	 * Check whether a state ID is excluded from scan results
 	 *
@@ -784,7 +767,8 @@ class Tidy extends utils.Adapter {
 	 */
 	isExcluded(stateId) {
 		if (!this._exceptionExact) {
-			this.buildExceptionSets();
+			this.log.warn('Exception sets not loaded before isExcluded() — call loadExceptionSets() first');
+			return false;
 		}
 
 		if (this._exceptionExact.has(stateId)) {
@@ -819,6 +803,35 @@ class Tidy extends utils.Adapter {
 	 */
 	sanitizeName(name) {
 		return name.replace(/[^a-zA-Z0-9_-]/g, '_').toLowerCase();
+	}
+
+	/**
+	 * Clamp automatic scan interval to the supported range (1-168 hours)
+	 *
+	 * @param {number} value - Configured interval in hours
+	 * @returns {number} Validated interval in hours
+	 */
+	clampScanIntervalHours(value) {
+		const hours = Number(value);
+		if (!Number.isFinite(hours)) {
+			return 24;
+		}
+		return Math.max(1, Math.min(168, Math.trunc(hours)));
+	}
+
+	/**
+	 * Clamp day-based thresholds to a valid positive range
+	 *
+	 * @param {number} value - Configured day count
+	 * @param {number} fallback - Default when value is invalid
+	 * @returns {number} Validated day count
+	 */
+	clampDaysUntil(value, fallback) {
+		const days = Number(value);
+		if (!Number.isFinite(days)) {
+			return fallback;
+		}
+		return Math.max(1, Math.min(3650, Math.trunc(days)));
 	}
 	// If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
 	// /**

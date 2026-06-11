@@ -105,7 +105,7 @@ The `result` state contains a JSON array with the following fields for each data
     "id": "0_userdata.0.hallway.light_auto",
     "name": "Hallway Light Automation",
     "last_ts": 1712856000000,
-    "last_ts_iso": "4/11/2026, 6:00:00 PM",
+    "last_ts_iso": "2026-04-11T16:00:00.000Z",
     "value": true,
     "status": "active",
     "issue": null,
@@ -131,7 +131,7 @@ The `result` state contains a JSON array with the following fields for each data
 | `id` | Full datapoint path | Unique identification |
 | `name` | common.name or last part of ID | User-friendly name |
 | `last_ts` | Unix timestamp (ms) or null | Sorting in background |
-| `last_ts_iso` | Formatted date string | Display in table |
+| `last_ts_iso` | ISO 8601 date string | Display in table |
 | `value` | Current datapoint value | Final check before deletion |
 | `status` | `active`, `dead`, `stale`, `undefined`, `orphaned` | Classification (English) |
 | `status_de` | `aktiv`, `inaktiv`, `veraltet`, `undefiniert`, `verwaist` | Classification (German) |
@@ -207,6 +207,8 @@ If you like our work and would like to support us, we appreciate any donation.
 -->
 ### **WORK IN PROGRESS**
 - (skvarel) Fixed admin UI translations for scan path tooltips and help texts
+- (skvarel) Fixed runtime validation for scan interval and stale/dead thresholds
+- (skvarel) Modified scan result timestamps to use ISO 8601 format in `last_ts_iso`
 
 ### 0.2.3 (2026-06-10)
 - (skvarel) Fixed i18n translation

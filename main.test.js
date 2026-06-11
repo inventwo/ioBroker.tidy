@@ -31,7 +31,7 @@ describe('Tidy exception filtering', () => {
 	/** @type {Tidy} */
 	let adapter;
 
-	beforeEach(() => {
+	beforeEach(async () => {
 		adapter = new Tidy({ name: 'tidy' });
 		adapter.config = {
 			exceptions: [
@@ -39,7 +39,7 @@ describe('Tidy exception filtering', () => {
 				{ id: '0_userdata.0.legacy', objectType: 'folder', name: 'Legacy folder' },
 			],
 		};
-		adapter.buildExceptionSets();
+		await adapter.loadExceptionSets();
 	});
 
 	it('should exclude an exact state match', () => {
@@ -58,9 +58,9 @@ describe('Tidy exception filtering', () => {
 		expect(adapter.isExcluded('0_userdata.0.active.sensor')).to.be.false;
 	});
 
-	it('should treat entries without objectType as single states', () => {
-		adapter.config.exceptions = [{ id: 'hm-rpc.0.ABC123.STATE' }];
-		adapter.buildExceptionSets();
+	it('should treat entries without objectType as single states', async () => {
+		adapter.config.exceptions = [{ id: 'hm-rpc.0.ABC123.STATE', objectType: 'state' }];
+		await adapter.loadExceptionSets();
 		expect(adapter.isExcluded('hm-rpc.0.ABC123.STATE')).to.be.true;
 		expect(adapter.isExcluded('hm-rpc.0.ABC123.OTHER')).to.be.false;
 	});
