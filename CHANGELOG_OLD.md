@@ -1,4 +1,12 @@
 # Older changes
+## 0.1.6 (2026-05-31)
+- (skvarel) Fixed scan when path name is left empty (result states now use path as fallback)
+- (skvarel) Added default for scan-all-objects option in adapter configuration
+- (skvarel) Fixed incorrect link to Cursor project rules in README
+- (skvarel) Unified issue tracker URL to inventwo repository
+- (skvarel) Fixed type-check script for local development
+- (skvarel) Documented complete scan feature in README
+
 ## 0.1.5 (2026-05-29)
 - (skvarel) Updated dependencies
 - (skvarel) Fixed repo checker issue

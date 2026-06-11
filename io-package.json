@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "news": {
+      "0.2.4": {
+        "en": "Fixed admin UI translations for scan path tooltips and help texts\nFixed runtime validation for scan interval and stale/dead thresholds\nModified scan result timestamps to use ISO 8601 format",
+        "de": "Fixed Admin UI Übersetzungen für Scan Path Tooltips und Hilfetexte\nFeste Laufzeitvalidierung für Scan-Intervall und abgestandene/tote Schwellenwerte\nGeänderte Scanergebnis-Zeitstempel zur Verwendung des ISO 8601-Formats",
+        "ru": "Переводы пользовательского интерфейса с фиксированным администратором для подсказок пути сканирования и текстов помощи\nФиксированная проверка времени выполнения для интервала сканирования и устаревших/мертвых порогов\nМодифицированные временные метки результатов сканирования для использования формата ISO 8601",
+        "pt": "Traduções de UI de administrador fixas para verificar dicas de caminho e textos de ajuda\nValidação fixa do tempo de execução para o intervalo de varredura e limiares estacionários/mortos\nHorários de verificação modificados para usar o formato ISO 8601",
+        "nl": "Vaste admin UI vertalingen voor scan pad tooltips en help teksten\nVaste runtime validatie voor scaninterval en oude/dode drempels\nGewijzigde scan resultaat tijdstempels om ISO 8601-formaat te gebruiken",
+        "fr": "Correction des traductions de l'interface utilisateur admin pour scanner le chemin tooltips et aider les textes\nValidation fixe du temps d'exécution pour l'intervalle d'analyse et les seuils stal/mort\nHorodatage des résultats modifiés pour l'utilisation du format ISO 8601",
+        "it": "Traduzioni dell'interfaccia utente dell'amministratore fisso per i tooltips del percorso di scansione e i testi di aiuto\nValidazione runtime fissa per l'intervallo di scansione e le soglie di stallo/morte\nTempi di scansione modificati per utilizzare il formato ISO 8601",
+        "es": "Administro fijo UI traducciones para escaneo de herramientas y textos de ayuda\nValidación de tiempo fijo para intervalos de escaneo y umbrales de estalla/muerto\nTiempos de resultados de escaneado modificados para utilizar el formato ISO 8601",
+        "pl": "Naprawiono tłumaczenia Interfejs administracyjny dla podpowiedzi ścieżki skanowania i tekstów pomocy\nStała walidacja czasu pracy dla interwałów skanowania i niestałych / martwych progów\nZmodyfikowane znaczniki czasu wyników skanowania w formacie ISO 8601",
+        "uk": "Фіксований адміністратор UI переклади для сканування шляхових інструментів та допоміжних текстів\nФіксована перевірка часу виконання для інтервалу сканування та пороги застосування / деда\nМодифіковані скануючі імпульси для використання ISO 8601 формат",
+        "zh-cn": "扫描路径提示和帮助文本的固定管理 UI 翻译\n扫描间隔和 Stale/ dead 阈值的固定运行时间验证\n修改了扫描结果时间戳以使用ISO 8601格式"
+      },
       "0.2.3": {
         "en": "Fixed i18n translation",
         "de": "Fixed i18n Übersetzung",
@@ -80,19 +93,6 @@
         "pl": "Aktualizacja zależności\nStałe wydanie kontrolera repo",
         "uk": "Оновлені залежності\nВиправлено проблему перевірки репо",
         "zh-cn": "更新的依赖关系\n固定回购检查器问题"
-      },
-      "0.1.4": {
-        "en": "Revised titel and desciption",
-        "de": "Überarbeiteter Titel und Abschied",
-        "ru": "Пересмотренный титель и расшифровка",
-        "pt": "Título revisto e decisão",
-        "nl": "Herziene titel en omschrijving",
-        "fr": "Titre et desciption révisés",
-        "it": "Titel modificato e desciptazione",
-        "es": "Titel revisado y descipación",
-        "pl": "Poprawiony tytel i deszypcja",
-        "uk": "Відреставрований титель і відхилення",
-        "zh-cn": "订正钛和剥离"
       }
     },
     "titleLang": {
