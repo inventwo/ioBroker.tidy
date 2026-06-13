@@ -64,4 +64,26 @@ describe('Tidy exception filtering', () => {
 		expect(adapter.isExcluded('hm-rpc.0.ABC123.STATE')).to.be.true;
 		expect(adapter.isExcluded('hm-rpc.0.ABC123.OTHER')).to.be.false;
 	});
+
+	it('should exclude states matching a wildcard suffix pattern', async () => {
+		adapter.config.exceptions = [{ id: '0_userdata.0.rollo.trigger*' }];
+		await adapter.loadExceptionSets();
+		expect(adapter.isExcluded('0_userdata.0.rollo.trigger1_minute')).to.be.true;
+		expect(adapter.isExcluded('0_userdata.0.rollo.trigger1_stunde')).to.be.true;
+		expect(adapter.isExcluded('0_userdata.0.rollo.trigger2_minute')).to.be.true;
+		expect(adapter.isExcluded('0_userdata.0.rollo.mode')).to.be.false;
+	});
+
+	it('should exclude states matching a single-character wildcard', async () => {
+		adapter.config.exceptions = [{ id: '0_userdata.0.sensor_?' }];
+		await adapter.loadExceptionSets();
+		expect(adapter.isExcluded('0_userdata.0.sensor_1')).to.be.true;
+		expect(adapter.isExcluded('0_userdata.0.sensor_12')).to.be.false;
+	});
+
+	it('should convert wildcard patterns to anchored regular expressions', () => {
+		expect(adapter.wildcardToRegExp('0_userdata.0.rollo.trigger*').test('0_userdata.0.rollo.trigger1_minute')).to
+			.be.true;
+		expect(adapter.wildcardToRegExp('0_userdata.0.rollo.trigger*').test('0_userdata.0.rollo.other')).to.be.false;
+	});
 });

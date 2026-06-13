@@ -25,6 +25,7 @@ class Tidy extends utils.Adapter {
 		this.scanInterval = undefined;
 		this._exceptionExact = undefined;
 		this._exceptionPrefixes = undefined;
+		this._exceptionPatterns = undefined;
 		this._unloading = false;
 	}
 
@@ -725,11 +726,46 @@ class Tidy extends utils.Adapter {
 	}
 
 	/**
+	 * Check whether an exception entry uses wildcard characters
+	 *
+	 * @param {string} id - Exception ID or pattern
+	 * @returns {boolean} True if the entry contains wildcard characters
+	 */
+	isExceptionWildcard(id) {
+		return id.includes('*') || id.includes('?');
+	}
+
+	/**
+	 * Convert a wildcard pattern to a anchored regular expression
+	 *
+	 * @param {string} pattern - Wildcard pattern (* = any suffix, ? = single character)
+	 * @returns {RegExp} Regular expression for matching state IDs
+	 */
+	wildcardToRegExp(pattern) {
+		let regex = '';
+
+		for (const char of pattern) {
+			if (char === '*') {
+				regex += '.*';
+			} else if (char === '?') {
+				regex += '.';
+			} else if (/[+^${}()|[\]\\.]/.test(char)) {
+				regex += `\\${char}`;
+			} else {
+				regex += char;
+			}
+		}
+
+		return new RegExp(`^${regex}$`);
+	}
+
+	/**
 	 * Build lookup structures for configured scan exceptions
 	 */
 	async loadExceptionSets() {
 		this._exceptionExact = new Set();
 		this._exceptionPrefixes = [];
+		this._exceptionPatterns = [];
 
 		for (const exc of this.config.exceptions || []) {
 			if (!exc?.id || !String(exc.id).trim()) {
@@ -740,6 +776,12 @@ class Tidy extends utils.Adapter {
 			}
 
 			const id = String(exc.id).trim();
+
+			if (this.isExceptionWildcard(id)) {
+				this._exceptionPatterns.push(this.wildcardToRegExp(id));
+				continue;
+			}
+
 			let objectType = exc.objectType;
 
 			if (!objectType) {
@@ -777,6 +819,12 @@ class Tidy extends utils.Adapter {
 
 		for (const prefix of this._exceptionPrefixes) {
 			if (stateId === prefix || stateId.startsWith(`${prefix}.`)) {
+				return true;
+			}
+		}
+
+		for (const pattern of this._exceptionPatterns) {
+			if (pattern.test(stateId)) {
 				return true;
 			}
 		}

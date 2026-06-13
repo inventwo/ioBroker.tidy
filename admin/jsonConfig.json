@@ -201,7 +201,7 @@
 				},
 				"_exceptionsInfo": {
 					"type": "staticText",
-					"text": "Exclude datapoints from scan results that are intentionally static or should be ignored. Use the picker to select individual datapoints. To exclude an entire folder, type the path manually (e.g. 0_userdata.0.config).",
+					"text": "Exclude datapoints from scan results that are intentionally static or should be ignored. Use the picker to select individual datapoints. To exclude an entire folder, type the path manually (e.g. 0_userdata.0.config). Wildcards are supported: * matches any suffix, ? matches a single character (e.g. 0_userdata.0.rollo.trigger*).",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,
@@ -228,7 +228,7 @@
 						"title": "Object",
 						"width": "45%",
 						"types": "state",
-						"tooltip": "Pick an individual datapoint to exclude it. To exclude an entire folder, type the folder path directly (e.g. 0_userdata.0.config)."
+						"tooltip": "Pick an individual datapoint to exclude it. To exclude an entire folder, type the folder path directly (e.g. 0_userdata.0.config). Use * or ? for wildcard patterns (e.g. 0_userdata.0.rollo.trigger*)."
 					},
 					{
 						"type": "text",
@@ -290,7 +290,7 @@
 				},
 				"_exceptionsHelpInfo": {
 					"type": "staticText",
-					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nUse the picker to select individual datapoints (states). To exclude an entire folder or subtree, type the path directly into the field (e.g. 0_userdata.0.config).\n\nEach scan channel provides exceptionCount showing how many datapoints were excluded during the last scan (0 if none).",
+					"text": "Datapoints listed on the Exceptions tab are omitted from all scan results and statistics. Use this for configuration values that rarely change but should not appear as dead or stale.\n\nUse the picker to select individual datapoints (states). To exclude an entire folder or subtree, type the path directly into the field (e.g. 0_userdata.0.config). Wildcards are supported: * matches any suffix, ? matches a single character (e.g. 0_userdata.0.rollo.trigger*).\n\nEach scan channel provides exceptionCount showing how many datapoints were excluded during the last scan (0 if none).",
 					"newLine": true,
 					"xs": 12,
 					"sm": 12,

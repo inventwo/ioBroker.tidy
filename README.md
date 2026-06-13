@@ -22,7 +22,7 @@ The **Tidy** adapter helps to find unused objects and states to clean up your sy
 ## Features
 
 - **📊 Path-based scanning**: Configure multiple paths to scan via object picker (e.g., `0_userdata.0`, `alias.0`)
-- **🚫 Exceptions**: Exclude intentionally static datapoints or entire folders from scan results
+- **🚫 Exceptions**: Exclude intentionally static datapoints, entire folders, or wildcard patterns from scan results
 - **🔍 Smart detection**: Identifies different types of problematic datapoints:
   - **Dead**: Never updated or extremely old (configurable threshold, default: 365 days)
   - **Stale**: Not updated recently (configurable threshold, default: 90 days)
@@ -62,7 +62,7 @@ Configure one or more paths to monitor:
 
 Exclude datapoints that should not appear in scan results or statistics:
 
-- **Object**: Pick a single state or a folder/channel to exclude an entire subtree
+- **Object**: Pick a single state or a folder/channel to exclude an entire subtree. Wildcards are supported: `*` matches any suffix, `?` matches a single character (e.g. `0_userdata.0.rollo.trigger*`)
 - **Comment**: Optional note (e.g. why this datapoint is excluded)
 
 Use this for configuration values that rarely change (e.g. a stored radio station for an alarm script) so they are not flagged as dead or stale.
@@ -163,7 +163,7 @@ The path field remains fully editable after using the object picker.
 
 1. Open the **Exceptions** tab in the adapter configuration
 2. Add datapoints that should be ignored (e.g. rarely updated configuration values)
-3. Pick a single state for one datapoint, or a folder to exclude a whole subtree
+3. Pick a single state for one datapoint, a folder to exclude a whole subtree, or type a wildcard pattern (e.g. `0_userdata.0.rollo.trigger*`)
 4. Save configuration — excluded datapoints no longer appear in scan results or counts
 
 ### VIS Integration
@@ -205,6 +205,9 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added wildcard patterns for exception list (* matches any suffix, ? matches one character)
+
 ### 0.2.4 (2026-06-11)
 - (skvarel) Fixed admin UI translations for scan path tooltips and help texts
 - (skvarel) Fixed runtime validation for scan interval and stale/dead thresholds
