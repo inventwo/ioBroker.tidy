@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.2.4",
+    "version": "0.3.0",
     "news": {
+      "0.3.0": {
+        "en": "Added wildcard patterns for exception list (* matches any suffix, ? matches one character)",
+        "de": "Hinzufügen von Platzhaltermustern für die Ausnahmeliste (* entspricht einem beliebigen Suffix, ? entspricht einem Zeichen)",
+        "ru": "Добавлены шаблоны wildcard для списка исключений (* соответствует любому суффиксу, ? соответствует одному персонажу)",
+        "pt": "Adicionados padrões de caracteres especiais para lista de exceções (* corresponde a qualquer sufixo, ? corresponde a um caractere)",
+        "nl": "Toegevoegd wildcard patronen voor uitzondering lijst (* komt overeen met een achtervoegsel, ? komt overeen met een karakter)",
+        "fr": "Ajout de modèles de wildcard pour la liste des exceptions (* correspond à tout suffixe, ? correspond à un caractère)",
+        "it": "Aggiunti modelli jolly per l'elenco delle eccezioni (* corrisponde a qualsiasi suffisso, ? corrisponde a un carattere)",
+        "es": "Se agregaron patrones de comodín para la lista de excepción (* coincide con cualquier sufijo, ? coincide con un personaje)",
+        "pl": "Dodano wzory dzikiej karty dla listy wyjątków (* pasuje do każdego przyrostka,? pasuje do jednego znaku)",
+        "uk": "Додано шаблони дикої картки для списку виключень (* відповідає будь-якому suffix, ? відповідає одному символу)",
+        "zh-cn": "添加例外列表的通配符模式(* 匹配任意后缀, 或匹配一个字符)"
+      },
       "0.2.4": {
         "en": "Fixed admin UI translations for scan path tooltips and help texts\nFixed runtime validation for scan interval and stale/dead thresholds\nModified scan result timestamps to use ISO 8601 format",
         "de": "Fixed Admin UI Übersetzungen für Scan Path Tooltips und Hilfetexte\nFeste Laufzeitvalidierung für Scan-Intervall und abgestandene/tote Schwellenwerte\nGeänderte Scanergebnis-Zeitstempel zur Verwendung des ISO 8601-Formats",
@@ -80,19 +93,6 @@
         "pl": "Naprawiono skanowanie, gdy nazwa ścieżki jest pusta (stan wyniku używa ścieżki jako zapasu)\nDodano domyślne dla opcji scan- all- objects w konfiguracji adaptera\nNaprawiono nieprawidłowe łącze do zasad projektu kursora w README\nUnified issue tracker URL do wynalazku dwóch repozytorium\nStałe skrypty sprawdzania typu dla rozwoju lokalnego\nKompletna funkcja skanowania w README",
         "uk": "Виправлено сканування, коли ім'я шляху залишається порожнім (результні стани тепер використовують шлях як випадання)\nДодано за замовчуванням для налаштування скан-all-objects\nВиправлено некоректне посилання на правила проекту Cursor в README\nУніфікований URL-адреса трекера для inventwo repository\nВиправлений сценарій типу-подібним вирізом для місцевого розвитку\nФункція повного сканування документів в README",
         "zh-cn": "当路径名称为空时进行固定扫描( 结果状态现在使用路径作为倒置)\n在适配器配置中添加了扫描全部对象选项的默认值\n与 README 中的光标项目规则的固定错误链接\n统一问题跟踪器 URL 到 Inventwo 仓库\n本地开发的固定类型检查脚本\n在 README 中记录了完整的扫描功能"
-      },
-      "0.1.5": {
-        "en": "Updated dependencies\nFixed repo checker issue",
-        "de": "Aktualisierte Abhängigkeiten\nProblem der Repo Checker behoben",
-        "ru": "Обновленные зависимости\nФиксированная проблема проверки репо",
-        "pt": "Dependências atualizadas\nProblema fixo do verificador de repo",
-        "nl": "Bijgewerkte afhankelijkheden\nProbleem met vaste repochecker",
-        "fr": "Dépendances actualisées\nCorrection du problème de repo checker",
-        "it": "Dipendenze aggiornate\nRischio di errore",
-        "es": "Dependencias actualizadas\nNúmero de comprobación de reposo fijo",
-        "pl": "Aktualizacja zależności\nStałe wydanie kontrolera repo",
-        "uk": "Оновлені залежності\nВиправлено проблему перевірки репо",
-        "zh-cn": "更新的依赖关系\n固定回购检查器问题"
       }
     },
     "titleLang": {

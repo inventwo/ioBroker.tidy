@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0 (2026-06-13)
 - (skvarel) Added wildcard patterns for exception list (* matches any suffix, ? matches one character)
 
 ### 0.2.4 (2026-06-11)
@@ -222,10 +222,6 @@ If you like our work and would like to support us, we appreciate any donation.
 ### 0.2.0 (2026-06-10)
 - (skvarel) Added exceptions incl. count state per scan channel showing how many datapoints were excluded
 - (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
-
-### 0.1.7 (2026-06-07)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Fixed adapter checker warning for automatic scan interval
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

@@ -1,4 +1,8 @@
 # Older changes
+## 0.1.7 (2026-06-07)
+- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
+- (skvarel) Fixed adapter checker warning for automatic scan interval
+
 ## 0.1.6 (2026-05-31)
 - (skvarel) Fixed scan when path name is left empty (result states now use path as fallback)
 - (skvarel) Added default for scan-all-objects option in adapter configuration
