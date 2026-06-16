@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.1 (2026-06-16)
 - (skvarel) Added admin UI help text explaining "Check alias targets" on Scan Paths tab (boxed info panel)
 - (skvarel) Fixed alias target check for read/write split aliases (common.alias.id with read and write)
 
@@ -222,10 +222,6 @@ If you like our work and would like to support us, we appreciate any donation.
 
 ### 0.2.2 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
-
-### 0.2.0 (2026-06-10)
-- (skvarel) Added exceptions incl. count state per scan channel showing how many datapoints were excluded
-- (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

@@ -1,4 +1,8 @@
 # Older changes
+## 0.2.0 (2026-06-10)
+- (skvarel) Added exceptions incl. count state per scan channel showing how many datapoints were excluded
+- (skvarel) Replaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans
+
 ## 0.1.7 (2026-06-07)
 - (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
 - (skvarel) Fixed adapter checker warning for automatic scan interval
