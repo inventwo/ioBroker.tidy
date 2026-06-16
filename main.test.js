@@ -87,3 +87,37 @@ describe('Tidy exception filtering', () => {
 		expect(adapter.wildcardToRegExp('0_userdata.0.rollo.trigger*').test('0_userdata.0.rollo.other')).to.be.false;
 	});
 });
+
+describe('Tidy alias target IDs', () => {
+	/** @type {Tidy} */
+	let adapter;
+
+	beforeEach(() => {
+		adapter = new Tidy({ name: 'tidy' });
+	});
+
+	it('should return a single string alias target', () => {
+		expect(adapter.getAliasTargetIds('hm-rpc.0.ABC123.STATE')).to.deep.equal(['hm-rpc.0.ABC123.STATE']);
+	});
+
+	it('should return read and write alias targets separately', () => {
+		expect(
+			adapter.getAliasTargetIds({
+				read: 'sprinklecontrol.0.sprinkle.Gabione.countdown',
+				write: 'sprinklecontrol.0.sprinkle.Gabione.runningTime',
+			}),
+		).to.deep.equal([
+			'sprinklecontrol.0.sprinkle.Gabione.countdown',
+			'sprinklecontrol.0.sprinkle.Gabione.runningTime',
+		]);
+	});
+
+	it('should ignore empty read or write values', () => {
+		expect(adapter.getAliasTargetIds({ read: 'some.state', write: '' })).to.deep.equal(['some.state']);
+	});
+
+	it('should return an empty array for missing alias targets', () => {
+		expect(adapter.getAliasTargetIds(null)).to.deep.equal([]);
+		expect(adapter.getAliasTargetIds({})).to.deep.equal([]);
+	});
+});

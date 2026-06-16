@@ -205,6 +205,10 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Added admin UI help text explaining 'Check alias targets' on Scan Paths tab
+- (skvarel) Fixed alias target check for read/write split aliases (common.alias.id with read and write)
+
 ### 0.3.0 (2026-06-13)
 - (skvarel) Added wildcard patterns for exception list (* matches any suffix, ? matches one character)
 

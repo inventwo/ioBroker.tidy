@@ -139,6 +139,20 @@
 						"fontSize": "0.875rem"
 					}
 				},
+				"_pathsAliasInfo": {
+					"type": "staticText",
+					"text": "Check alias targets: Only relevant for alias.* paths (e.g. alias.0 or alias).\n\nWhen enabled, tidy checks whether each alias still points to an existing target datapoint (common.alias.id). If the target was deleted — for example after uninstalling an adapter — the alias is marked as 'orphaned_alias' (ghost detection).\n\nFor other paths (e.g. 0_userdata.0) this option has no effect. Default: off.",
+					"newLine": true,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"xl": 12,
+					"style": {
+						"fontSize": "0.875rem",
+						"whiteSpace": "pre-line"
+					}
+				},
 				"paths": {
 					"type": "table",
 					"newLine": true,

@@ -664,19 +664,57 @@ class Tidy extends utils.Adapter {
 
 		// Check for orphaned aliases
 		if (pathConfig.checkAliasTargets && id.startsWith('alias.')) {
-			const targetId = obj.common?.alias?.id;
-			if (targetId) {
+			const targetIds = this.getAliasTargetIds(obj.common?.alias?.id);
+
+			for (const targetId of targetIds) {
 				const targetExists = await this.getForeignObjectAsync(targetId);
+
 				if (!targetExists) {
 					result.status = 'orphaned';
 					result.status_de = 'verwaist';
 					result.issue = 'orphaned_alias';
 					result.issue_de = 'verwaistes Alias';
+					break;
 				}
 			}
 		}
 
 		return result;
+	}
+
+	/**
+	 * Extract alias target state IDs from common.alias.id
+	 *
+	 * Supports simple string IDs and read/write split aliases.
+	 *
+	 * @param {string|object|null|undefined} aliasId - common.alias.id value
+	 * @returns {string[]} Target state IDs to verify
+	 */
+	getAliasTargetIds(aliasId) {
+		if (!aliasId) {
+			return [];
+		}
+
+		if (typeof aliasId === 'string') {
+			const trimmed = aliasId.trim();
+			return trimmed ? [trimmed] : [];
+		}
+
+		if (typeof aliasId === 'object') {
+			const ids = [];
+
+			for (const key of ['read', 'write']) {
+				const value = aliasId[key];
+
+				if (typeof value === 'string' && value.trim()) {
+					ids.push(value.trim());
+				}
+			}
+
+			return ids;
+		}
+
+		return [];
 	}
 
 	/**
