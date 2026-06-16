@@ -150,7 +150,13 @@
 					"xl": 12,
 					"style": {
 						"fontSize": "0.875rem",
-						"whiteSpace": "pre-line"
+						"whiteSpace": "pre-wrap",
+						"marginTop": "8px",
+						"padding": "10px 14px",
+						"border": "1px solid #546e7a",
+						"borderRadius": "6px",
+						"backgroundColor": "rgba(84, 110, 122, 0.12)",
+						"marginBottom": "10px"
 					}
 				},
 				"paths": {
