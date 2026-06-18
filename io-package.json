@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "news": {
+      "0.3.3": {
+        "en": "Fixed complete scan failing with \"Invalid string length\" on large instances\nModified complete scan to load states in bulk instead of one-by-one",
+        "de": "Problem behoben, das dazu führte, dass der vollständige Scan bei großen Instanzen mit der Fehlermeldung „Ungültige Zeichenkettenlänge“ fehlschlug.\nDer vollständige Scan wurde so angepasst, dass Zustände gesammelt statt einzeln geladen werden.",
+        "ru": "Исправлена ошибка, из-за которой полное сканирование завершалось с ошибкой \"Недопустимая длина строки\" на больших экземплярах.\nМодифицированная функция полного сканирования позволяет загружать состояния пакетно, а не по одному.",
+        "pt": "Corrigido o problema de falha na verificação completa com a mensagem \"Comprimento de string inválido\" em instâncias grandes.\nVarredura completa modificada para carregar os estados em lote, em vez de um por um.",
+        "nl": "Opgelost probleem waarbij een volledige scan mislukte met de foutmelding \"Ongeldige tekenreekslengte\" bij grote instanties.\nDe volledige scan is aangepast om statussen in bulk te laden in plaats van één voor één.",
+        "fr": "Correction d'un problème d'échec de l'analyse complète avec l'erreur « Longueur de chaîne invalide » sur les instances volumineuses\nAnalyse complète modifiée pour charger les états en masse au lieu d'un par un",
+        "it": "Risolto il problema per cui la scansione completa falliva con l'errore \"Lunghezza stringa non valida\" su istanze di grandi dimensioni.\nScansione completa modificata per caricare gli stati in blocco anziché uno alla volta.",
+        "es": "Se solucionó el problema que provocaba que el escaneo completo fallara con el mensaje \"Longitud de cadena no válida\" en instancias grandes.\nSe modificó el escaneo completo para cargar los estados en bloque en lugar de uno por uno.",
+        "pl": "Naprawiono błąd całkowitego skanowania powodujący błąd „Nieprawidłowa długość ciągu” w przypadku dużych instancji\nZmodyfikowano pełne skanowanie, aby ładować stany zbiorczo, a nie pojedynczo",
+        "uk": "Виправлено помилку повного сканування з повідомленням «Недійсна довжина рядка» на великих екземплярах.\nЗмінено повне сканування для завантаження станів масово, а не по одному.",
+        "zh-cn": "修复了在大实例上出现“字符串长度无效”错误导致完整扫描失败的问题\n修改了完整扫描方式，改为批量加载状态，而不是逐个加载。"
+      },
       "0.3.2": {
         "en": "Removed accidentally committed local dev-server data directory from repository (fixes #14)",
         "de": "Das versehentlich eingecheckte lokale Entwicklungsserver-Datenverzeichnis wurde aus dem Repository entfernt (behebt Problem #14).",
@@ -80,19 +93,6 @@
         "pl": "Dodano typy metaobiektów dla adaptera i instancji przestrzeni nazw",
         "uk": "Додано типи об'єктів метаданих для перетворення та простору імен",
         "zh-cn": "添加适配器和实例命名空间的元对象类型"
-      },
-      "0.2.0": {
-        "en": "Added exceptions incl. count state per scan channel showing how many datapoints were excluded\nReplaced manual path input with object picker on Scan Paths tab; paths remain editable for multi-instance scans",
-        "de": "Hinzugefügte Ausnahmen inkl. Zählzustand pro Scankanal, der zeigt, wie viele Datenpunkte ausgeschlossen wurden\nErsetzte manuelle Pfadeingabe mit Objektauswahl auf der Registerkarte Scan Paths; Pfade bleiben für Multi-Instanz-Scans editierbar",
-        "ru": "Добавлены исключения, включая состояние счета на канал сканирования, показывающее, сколько точек данных было исключено\nЗамененный ручной ввод пути с помощью набора объектов на вкладке Scan Paths; пути остаются редактируемыми для многомерного сканирования",
-        "pt": "Adicionadas exceções incl. estado de contagem por canal de varredura mostrando quantos pontos de dados foram excluídos\nEntrada de caminho manual substituída com o seletor de objetos na aba Procurar Caminhos; os caminhos permanecem editáveis para varreduras de múltiplas instâncias",
-        "nl": "Toegevoegde uitzonderingen incl. telstatus per scankanaal waaruit blijkt hoeveel datapunten zijn uitgesloten\nVervangde handmatige padinvoer met objectpicker op tabblad Paden scannen; paden blijven bewerkbaar voor multi-instance scans",
-        "fr": "Ajout d'exceptions, y compris l'état de compte par canal de numérisation, indiquant le nombre de points de données exclus\nRemplacement de l'entrée manuelle du chemin par un sélecteur d'objet sur l'onglet Chemins de numérisation; les chemins restent modifiables pour les balayages multi-instances",
-        "it": "Aggiunte eccezioni incl. stato di conteggio per canale di scansione che mostra quanti punti di dati sono stati esclusi\nInput del percorso manuale sostituito con il raccoglitore di oggetti sulla scheda Scan Paths; i percorsi rimangono modificabili per le scansioni multi-instance",
-        "es": "Excepciones adicionales incl. contar estado por canal de exploración mostrando cuántos puntos de datos fueron excluidos\nEntrada manual reemplazada con el selector de objetos en la pestaña Scan Paths; las rutas siguen siendo editables para los escaneos multiinstance",
-        "pl": "Dodano wyjątki w tym stan liczenia na kanał skanowania pokazujący, ile punktów danych zostało wykluczonych\nZastąpione ręczne wejście ścieżki przy pomocy wybieracza obiektów w zakładce Skanowanie Ścieżek; ścieżki pozostają edytowalne dla skanów wieloinstancyjnych",
-        "uk": "Додано виключення вкл. підрахунку стану на скан-каналі, що показує, скільки точок даних були виключені\nЗамінений вхід ручного шляху з пікіратором об'єкта на вкладці Скантових шляхів; доріжки залишаються редаговані для багатоінтенсивних сканування",
-        "zh-cn": "添加例外, 包括每个扫描通道的计数状态, 显示排除了多少数据点\n在扫描路径标签上将手动路径输入替换为对象拾取器; 路径仍可编辑用于多功能扫描"
       }
     },
     "titleLang": {

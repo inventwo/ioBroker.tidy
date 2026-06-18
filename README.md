@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.3 (2026-06-18)
 - (skvarel) Fixed complete scan failing with "Invalid string length" on large instances
 - (skvarel) Modified complete scan to load states in bulk instead of one-by-one
 
@@ -223,9 +223,6 @@ If you like our work and would like to support us, we appreciate any donation.
 - (skvarel) Fixed admin UI translations for scan path tooltips and help texts
 - (skvarel) Fixed runtime validation for scan interval and stale/dead thresholds
 - (skvarel) Modified scan result timestamps to use ISO 8601 format
-
-### 0.2.3 (2026-06-10)
-- (skvarel) Fixed i18n translation
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

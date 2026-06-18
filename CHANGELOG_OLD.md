@@ -1,4 +1,7 @@
 # Older changes
+## 0.2.3 (2026-06-10)
+- (skvarel) Fixed i18n translation
+
 ## 0.2.2 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
 
