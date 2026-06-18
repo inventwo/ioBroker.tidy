@@ -7,7 +7,7 @@
 [![NPM Version](https://nodei.co/npm/iobroker.tidy.svg?style=shields&data=v,u,d&color=orange)](https://www.npmjs.com/package/iobroker.tidy)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tidy.svg)](https://www.npmjs.com/package/iobroker.tidy)
 
-[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/topic/84331/tidy-adapter-alpha)
+[![COMMUNITY](https://img.shields.io/badge/community%20-ioBroker%20|%20forum-blue.svg)](https://forum.iobroker.net/topic/84789/tidy-adapter-latest)
 [![MAINTAINER](https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg)](https://github.com/skvarel)
 [![AI](https://img.shields.io/badge/ai%20assisted-cursor-blue.svg)](https://github.com/inventwo/ioBroker.tidy/blob/main/.cursor/iobroker-adapter.mdc)
 
@@ -205,6 +205,9 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Removed accidentally committed local dev-server data directory from repository (fixes #14)
+
 ### 0.3.1 (2026-06-16)
 - (skvarel) Added admin UI help text explaining "Check alias targets" on Scan Paths tab (boxed info panel)
 - (skvarel) Fixed alias target check for read/write split aliases (common.alias.id with read and write)

@@ -20,6 +20,7 @@ admin/i18n/*/flat.txt
 
 # ioBroker dev-server
 .dev-server/
+iobroker-data/
 
 # Local backup folder
 backup/
