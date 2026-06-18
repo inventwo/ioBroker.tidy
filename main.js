@@ -29,6 +29,9 @@ class Tidy extends utils.Adapter {
 		this._unloading = false;
 	}
 
+	/** Max characters stored in result.value (full size is still available in result.size) */
+	static RESULT_VALUE_MAX_LENGTH = 200;
+
 	/**
 	 * Is called when databases are connected and adapter received configuration.
 	 */
@@ -242,6 +245,7 @@ class Tidy extends utils.Adapter {
 			let excludedCount = 0;
 			// Get all states in the system
 			const objects = await this.getForeignObjectsAsync('*', 'state');
+			const states = await this.getForeignStatesAsync('*');
 			this.log.debug(`Found ${Object.keys(objects).length} objects in complete scan`);
 			for (const [id, obj] of Object.entries(objects)) {
 				if (!obj || obj.type !== 'state') {
@@ -251,7 +255,7 @@ class Tidy extends utils.Adapter {
 					excludedCount++;
 					continue;
 				}
-				const state = await this.getForeignStateAsync(id);
+				const state = states[id];
 				// Use a dummy pathConfig for analyzeDatapoint
 				const analysis = await this.analyzeDatapoint(id, obj, state, {});
 				if (analysis) {
@@ -275,18 +279,7 @@ class Tidy extends utils.Adapter {
 				stale: results.filter(r => r.issue === 'stale').length,
 				orphaned: results.filter(r => r.issue === 'orphaned_alias').length,
 			};
-			// Store results
-			await this.setStateAsync(`${channelId}.result`, JSON.stringify(results), true);
-			await this.setStateAsync(`${channelId}.lastScan`, Date.now(), true);
-			await this.setStateAsync(`${channelId}.count`, counts.total, true);
-			await this.setStateAsync(`${channelId}.deadCount`, counts.dead, true);
-			await this.setStateAsync(`${channelId}.staleCount`, counts.stale, true);
-			await this.setStateAsync(`${channelId}.orphanedCount`, counts.orphaned, true);
-			await this.setStateAsync(`${channelId}.exceptionCount`, excludedCount, true);
-			const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-			this.log.info(
-				`Complete scan finished: ${counts.total} datapoints (${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
-			);
+			await this.storeScanResults(channelId, results, counts, excludedCount, startTime, 'Complete scan');
 		} catch (error) {
 			if (this._unloading) {
 				this.log.debug(`Complete scan aborted during shutdown: ${error.message}`);
@@ -530,6 +523,7 @@ class Tidy extends utils.Adapter {
 			// Get all objects under the specified path (prefix match for any depth)
 			const pattern = this.getScanPattern(config.path);
 			const objects = await this.getForeignObjectsAsync(pattern, 'state');
+			const states = await this.getForeignStatesAsync(pattern);
 
 			this.log.debug(
 				`Scan pattern "${pattern}": found ${Object.keys(objects).length} objects under ${config.path}`,
@@ -545,7 +539,7 @@ class Tidy extends utils.Adapter {
 					continue;
 				}
 
-				const state = await this.getForeignStateAsync(id);
+				const state = states[id];
 				const analysis = await this.analyzeDatapoint(id, obj, state, config);
 
 				if (analysis) {
@@ -572,20 +566,7 @@ class Tidy extends utils.Adapter {
 				orphaned: results.filter(r => r.issue === 'orphaned_alias').length,
 			};
 
-			// Store results
-			await this.setStateAsync(`${channelId}.result`, JSON.stringify(results), true);
-			await this.setStateAsync(`${channelId}.lastScan`, Date.now(), true);
-			await this.setStateAsync(`${channelId}.count`, counts.total, true);
-			await this.setStateAsync(`${channelId}.deadCount`, counts.dead, true);
-			await this.setStateAsync(`${channelId}.staleCount`, counts.stale, true);
-			await this.setStateAsync(`${channelId}.orphanedCount`, counts.orphaned, true);
-			await this.setStateAsync(`${channelId}.exceptionCount`, excludedCount, true);
-
-			const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-			this.log.info(
-				`Scan completed for ${config.path}: ${counts.total} datapoints ` +
-					`(${counts.dead} dead, ${counts.stale} stale, ${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`,
-			);
+			await this.storeScanResults(channelId, results, counts, excludedCount, startTime, config.path);
 		} catch (error) {
 			if (this._unloading) {
 				this.log.debug(`Scan for ${config.path} aborted during shutdown: ${error.message}`);
@@ -626,7 +607,7 @@ class Tidy extends utils.Adapter {
 		if (state && state.ts) {
 			result.last_ts = state.ts;
 			result.last_ts_iso = new Date(state.ts).toISOString();
-			result.value = state.val;
+			result.value = this.formatResultValue(state.val);
 
 			// Calculate age in days
 			const ageMs = now - state.ts;
@@ -659,7 +640,7 @@ class Tidy extends utils.Adapter {
 
 		// Calculate size
 		if (state && state.val !== null && state.val !== undefined) {
-			result.size = JSON.stringify(state.val).length;
+			result.size = this.getValueSize(state.val);
 		}
 
 		// Check for orphaned aliases
@@ -897,6 +878,105 @@ class Tidy extends utils.Adapter {
 	 * @param {number} value - Configured interval in hours
 	 * @returns {number} Validated interval in hours
 	 */
+	/**
+	 * Truncate large values for JSON result storage (full size remains in result.size)
+	 *
+	 * @param {unknown} val - Raw state value
+	 * @param {number} [maxLength] - Maximum stored characters
+	 * @returns {unknown} Value safe for JSON result storage
+	 */
+	formatResultValue(val, maxLength = Tidy.RESULT_VALUE_MAX_LENGTH) {
+		if (val === null || val === undefined) {
+			return val;
+		}
+
+		if (typeof val === 'number' || typeof val === 'boolean') {
+			return val;
+		}
+
+		if (typeof val === 'string') {
+			return val.length > maxLength ? `${val.slice(0, maxLength)}…` : val;
+		}
+
+		try {
+			const serialized = JSON.stringify(val);
+			if (serialized.length <= maxLength) {
+				return val;
+			}
+			return `${serialized.slice(0, maxLength)}…`;
+		} catch {
+			return '[unserializable]';
+		}
+	}
+
+	/**
+	 * Estimate serialized value size without throwing on huge values
+	 *
+	 * @param {unknown} val - Raw state value
+	 * @returns {number} Serialized length in characters
+	 */
+	getValueSize(val) {
+		try {
+			return JSON.stringify(val).length;
+		} catch {
+			if (typeof val === 'string') {
+				return val.length;
+			}
+			return 0;
+		}
+	}
+
+	/**
+	 * Serialize scan results, falling back to entries without value if JSON is too large
+	 *
+	 * @param {object[]} results - Scan result entries
+	 * @returns {string} JSON string for the result state
+	 */
+	stringifyScanResults(results) {
+		try {
+			return JSON.stringify(results);
+		} catch (error) {
+			if (error.message !== 'Invalid string length') {
+				throw error;
+			}
+
+			this.log.warn(`Scan result JSON too large (${results.length} datapoints) — storing without value field`);
+			const slim = results.map(({ value: _value, ...rest }) => rest);
+			return JSON.stringify(slim);
+		}
+	}
+
+	/**
+	 * Persist scan results and summary counters to adapter states
+	 *
+	 * @param {string} channelId - Channel ID (path name or "complete")
+	 * @param {object[]} results - Scan result entries
+	 * @param {object} counts - Issue counters
+	 * @param {number} excludedCount - Excluded datapoint count
+	 * @param {number} startTime - Scan start timestamp
+	 * @param {string} logLabel - Label for completion log message
+	 */
+	async storeScanResults(channelId, results, counts, excludedCount, startTime, logLabel) {
+		await this.setStateAsync(`${channelId}.result`, this.stringifyScanResults(results), true);
+		await this.setStateAsync(`${channelId}.lastScan`, Date.now(), true);
+		await this.setStateAsync(`${channelId}.count`, counts.total, true);
+		await this.setStateAsync(`${channelId}.deadCount`, counts.dead, true);
+		await this.setStateAsync(`${channelId}.staleCount`, counts.stale, true);
+		await this.setStateAsync(`${channelId}.orphanedCount`, counts.orphaned, true);
+		await this.setStateAsync(`${channelId}.exceptionCount`, excludedCount, true);
+
+		const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+		const summary =
+			`${counts.total} datapoints (${counts.dead} dead, ${counts.stale} stale, ` +
+			`${counts.orphaned} orphaned, ${excludedCount} excluded) in ${duration}s`;
+
+		if (channelId === 'complete') {
+			this.log.info(`Complete scan finished: ${summary}`);
+		} else {
+			this.log.info(`Scan completed for ${logLabel}: ${summary}`);
+		}
+	}
+
 	clampScanIntervalHours(value) {
 		const hours = Number(value);
 		if (!Number.isFinite(hours)) {

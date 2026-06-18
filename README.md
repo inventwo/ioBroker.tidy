@@ -205,6 +205,10 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (skvarel) Fixed complete scan failing with "Invalid string length" on large instances
+- (skvarel) Modified complete scan to load states in bulk instead of one-by-one
+
 ### 0.3.2 (2026-06-18)
 - (skvarel) Removed accidentally committed local dev-server data directory from repository (fixes #14)
 

@@ -121,3 +121,60 @@ describe('Tidy alias target IDs', () => {
 		expect(adapter.getAliasTargetIds({})).to.deep.equal([]);
 	});
 });
+
+describe('Tidy result serialization', () => {
+	/** @type {Tidy} */
+	let adapter;
+
+	beforeEach(() => {
+		adapter = new Tidy({ name: 'tidy' });
+	});
+
+	it('should truncate long string values for result storage', () => {
+		const longValue = 'x'.repeat(500);
+		const formatted = adapter.formatResultValue(longValue);
+		expect(formatted).to.equal(`${'x'.repeat(200)}…`);
+		expect(formatted.length).to.equal(201);
+	});
+
+	it('should keep short primitive values unchanged', () => {
+		expect(adapter.formatResultValue(42)).to.equal(42);
+		expect(adapter.formatResultValue(true)).to.equal(true);
+		expect(adapter.formatResultValue('short')).to.equal('short');
+	});
+
+	it('should truncate large object values to a JSON preview', () => {
+		const largeObject = { data: 'y'.repeat(500) };
+		const formatted = adapter.formatResultValue(largeObject);
+		expect(formatted).to.be.a('string');
+		expect(formatted.endsWith('…')).to.be.true;
+		expect(formatted.length).to.equal(201);
+	});
+
+	it('should measure value size without throwing on huge values', () => {
+		const huge = { data: 'z'.repeat(1_000_000) };
+		expect(() => adapter.getValueSize(huge)).to.not.throw();
+		expect(adapter.getValueSize(huge)).to.be.greaterThan(1_000_000);
+	});
+
+	it('should fall back to entries without value when JSON is too large', () => {
+		const originalStringify = JSON.stringify;
+		let callCount = 0;
+		JSON.stringify = value => {
+			callCount++;
+			if (callCount === 1) {
+				const error = new Error('Invalid string length');
+				throw error;
+			}
+			return originalStringify(value);
+		};
+
+		try {
+			const results = [{ id: 'test.0.state', value: 'preview', issue: null }];
+			const json = adapter.stringifyScanResults(results);
+			expect(JSON.parse(json)).to.deep.equal([{ id: 'test.0.state', issue: null }]);
+		} finally {
+			JSON.stringify = originalStringify;
+		}
+	});
+});
