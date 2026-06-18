@@ -205,7 +205,7 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.2 (2026-06-18)
 - (skvarel) Removed accidentally committed local dev-server data directory from repository (fixes #14)
 
 ### 0.3.1 (2026-06-16)
@@ -222,9 +222,6 @@ If you like our work and would like to support us, we appreciate any donation.
 
 ### 0.2.3 (2026-06-10)
 - (skvarel) Fixed i18n translation
-
-### 0.2.2 (2026-06-10)
-- (skvarel) Added meta object types for adapter and instance namespace
 
 ## Older changes
 - [CHANGELOG_OLD.md](CHANGELOG_OLD.md)

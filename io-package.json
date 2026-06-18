@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tidy",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "news": {
+      "0.3.2": {
+        "en": "Removed accidentally committed local dev-server data directory from repository (fixes #14)",
+        "de": "Das versehentlich eingecheckte lokale Entwicklungsserver-Datenverzeichnis wurde aus dem Repository entfernt (behebt Problem #14).",
+        "ru": "Удалён случайно добавленный в репозиторий локальный каталог данных dev-server (исправляет ошибку #14)",
+        "pt": "Diretório de dados do servidor de desenvolvimento local acidentalmente adicionado ao repositório (corrige #14)",
+        "nl": "Per ongeluk opgeslagen lokale dev-server-datadirectory verwijderd uit de repository (verhelpt #14)",
+        "fr": "Suppression accidentelle du répertoire de données du serveur de développement local du dépôt (correction du problème n° 14)",
+        "it": "Rimossa la directory dei dati del server di sviluppo locale, inserita accidentalmente nel repository (corregge il problema #14).",
+        "es": "Se eliminó accidentalmente del repositorio el directorio de datos del servidor de desarrollo local (soluciona el problema n.° 14).",
+        "pl": "Usunięto przypadkowo zatwierdzony lokalny katalog danych serwera deweloperskiego z repozytorium (poprawki nr 14)",
+        "uk": "Видалено випадково зафіксований локальний каталог даних сервера розробки з репозиторію (виправлення №14)",
+        "zh-cn": "从代码库中移除了意外提交的本地开发服务器数据目录（修复了 #14）"
+      },
       "0.3.1": {
         "en": "Added admin UI help text explaining \"Check alias targets\" on Scan Paths tab (boxed info panel)\nFixed alias target check for read/write split aliases (common.alias.id with read and write)",
         "de": "Admin-UI-Hilfetext hinzugefügt, der \"Alias-Ziele überprüfen\" auf der Registerkarte Scan Paths erklärt (Box-Info-Panel)\nFixed alias target check for read/write split aliases (common.alias.id mit read and write)",
@@ -80,19 +93,6 @@
         "pl": "Dodano wyjątki w tym stan liczenia na kanał skanowania pokazujący, ile punktów danych zostało wykluczonych\nZastąpione ręczne wejście ścieżki przy pomocy wybieracza obiektów w zakładce Skanowanie Ścieżek; ścieżki pozostają edytowalne dla skanów wieloinstancyjnych",
         "uk": "Додано виключення вкл. підрахунку стану на скан-каналі, що показує, скільки точок даних були виключені\nЗамінений вхід ручного шляху з пікіратором об'єкта на вкладці Скантових шляхів; доріжки залишаються редаговані для багатоінтенсивних сканування",
         "zh-cn": "添加例外, 包括每个扫描通道的计数状态, 显示排除了多少数据点\n在扫描路径标签上将手动路径输入替换为对象拾取器; 路径仍可编辑用于多功能扫描"
-      },
-      "0.1.7": {
-        "en": "Migrated project rules from GitHub Copilot to Cursor rules\nFixed adapter checker warning for automatic scan interval",
-        "de": "Geförderte Projektregeln von GitHub Copilot zu Cursor-Regeln\nFeste Adapter-Checker-Warnung für automatisches Scanintervall",
-        "ru": "Миграционные правила проекта от GitHub Copilot до Cursor\nПредупреждение о проверке адаптера для автоматического интервала сканирования",
-        "pt": "Regras de projeto modificadas do Copiloto GitHub para as regras do Cursor\nAviso de verificação fixa do adaptador para intervalo de varredura automática",
-        "nl": "Migrated project regels van GitHub Copilot naar Cursor regels\nWaarschuwing voor vaste adaptercontrole voor automatisch scaninterval",
-        "fr": "Règles de projet modifiées du copilote GitHub aux règles Cursor\nAvertissement de vérification de l'adaptateur fixe pour l'intervalle de balayage automatique",
-        "it": "Regole di progetto migrate da GitHub Copilot a regole Cursor\nAvvertenza a scacchi per adattatore fisso per intervallo di scansione automatico",
-        "es": "Migrated project rules from GitHub Copilot to Cursor rules\nAviso de control de adaptador fijo para intervalo de escaneo automático",
-        "pl": "Migrowane zasady projektu z GitHub Copilot do zasad kursora\nOstrzeżenie dotyczące automatycznego skanowania",
-        "uk": "Миттєві правила проекту від GitHub Copilot до правил Cursor\nВиправлено попередження перевірки адаптера для автоматичного інтервалу сканування",
-        "zh-cn": "从 GitHub 副驾驶到光标规则\n自动扫描间隔的固定适配器检查器警告"
       }
     },
     "titleLang": {
