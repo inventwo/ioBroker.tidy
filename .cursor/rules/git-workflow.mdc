@@ -1,0 +1,14 @@
+---
+description: Git workflow restrictions for this repository
+alwaysApply: true
+---
+
+# Git Workflow
+
+## Never push
+
+**Never run `git push` (or any command that pushes to a remote, e.g. `gh pr create` after pushing, `git push --force`, pushing tags) — not even if explicitly asked to "push" or "commit and push".**
+
+- Commits may be created locally when requested.
+- After committing, stop and tell the user the commit is ready locally — let the user push themselves.
+- If asked to open a PR, prepare the branch/commit locally and ask the user to push first.
