@@ -205,9 +205,6 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (skvarel) Fixed CI failure caused by incompatible typescript 7.0.2 (downgraded to ~6.0.3 until @typescript-eslint supports TS 7)
-
 ### 0.3.3 (2026-06-18)
 - (skvarel) Fixed complete scan failing with "Invalid string length" on large instances
 - (skvarel) Modified complete scan to load states in bulk instead of one-by-one
